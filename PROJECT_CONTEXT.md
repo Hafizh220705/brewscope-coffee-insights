@@ -1,608 +1,466 @@
 # Konteks Proyek BrewScope
 
-> Dokumen ini adalah sumber konteks bersama bagi anggota tim dan AI coding agent selama pengembangan BrewScope. Jika terdapat konflik, ketentuan tugas dosen dan keputusan tim terbaru yang terdokumentasi memiliki prioritas lebih tinggi.
+Pembaruan: **26 Oktober 2026**. Dokumen ini menjadi konteks bersama bagi Hafizh,
+Niki, Robi, Hamam, dan asisten pengembangan. Ketentuan dosen dan keputusan tim
+terbaru didahulukan. Status implementasi dibedakan dari rancangan dan hasil
+penelitian yang belum tersedia.
 
-## 1. Ringkasan Eksekutif
+## 1. Ringkasan dan posisi saat ini
 
-**BrewScope** adalah proyek klasifikasi teks dan *Aspect-Based Sentiment Analysis* (ABSA) untuk mengubah ulasan pelanggan coffee shop menjadi:
+**BrewScope** adalah penelitian **Aspect-Based Sentiment Analysis (ABSA) pada
+ulasan pelanggan coffee shop dengan target Kecamatan Jatinangor, Kabupaten
+Sumedang**. Data utama wajib berasal dari scraping Google Maps. Label aspek dan
+sentimen digunakan untuk mengidentifikasi keunggulan, kelemahan, dan prioritas
+perbaikan bisnis berdasarkan bukti.
 
-- sentimen pada setiap aspek yang dibicarakan;
-- perbandingan kekuatan dan kelemahan antarcoffee shop;
-- identifikasi masalah pelanggan yang berulang; dan
-- rekomendasi peluang diferensiasi serta *value proposition* yang dapat ditelusuri kembali ke bukti data.
+Hafizh telah menangani/mengoordinasikan pekerjaan dari scraping sampai
+infrastruktur Stage 4A. Status berdasarkan artefak repository:
 
-Proyek ini merupakan **Tugas Besar Pengganti UTS** dengan waktu pengerjaan sekitar tiga minggu. Produk akhir mencakup kode program, eksperimen machine learning yang dapat direproduksi, aplikasi web interaktif, dan paper yang diarahkan untuk diajukan ke jurnal SINTA 3 atau SINTA 4.
+| Tahap | Status aktual | Bukti/acuan |
+|---|---|---|
+| Stage 1 - Data collection | Snapshot 3.593 review dari 40 identitas kedai tersedia; metadata pengambilan historis belum seluruhnya terdokumentasi | [Provenance](docs/research/data_provenance.md) |
+| Stage 2 - Data audit dan EDA | Selesai secara teknis; 3.582 eligible teknis, verifikasi administratif belum selesai | [Laporan audit](reports/data_audit_report.md) |
+| Stage 3 - Literature-grounded taxonomy | Draft taxonomy, pedoman, schema dan 250 kandidat pilot tersedia; validasi empiris korpus belum dilakukan | [Ringkasan Stage 3](reports/stage3_taxonomy_summary.md) |
+| Stage 4A - Infrastruktur anotasi | Implementasi dan pengujian offline/sintetis selesai; akses live Gemini belum berhasil dikonfirmasi | [Laporan Stage 4](reports/stage4_annotation_report.md) |
+| Stage 4B - Human gold | Paket A/B tersedia; kalibrasi, anotasi independen, IAA, adjudikasi dan gold belum dilakukan | [Protokol Stage 4](docs/research/stage4_annotation_protocol.md) |
+| Stage 4C - Evaluasi AI | Belum dilakukan; menunggu human gold dan provider siap | [Keputusan Stage 4](docs/research/stage4_methodology_decisions.md) |
+| Stage 4D - Full labeling dan QC | Belum dimulai; dataset produksi berlabel belum tersedia | [Ringkasan notebook](reports/stage4_notebook_summary.json) |
+| Stage 5 - Preprocessing, split dan fitur | Belum dimulai | Rencana kerja tim |
+| Stage 6 - Modeling dan evaluasi | SVM, Random Forest dan Multinomial Naive Bayes belum dilatih | Rencana kerja tim |
+| Insight, demo, paper dan presentasi | Masih direncanakan | Rencana kerja tim |
 
-Status saat dokumen ini dibuat: **perencanaan / praimplementasi**. Metode akuisisi yang ditetapkan oleh pemilik proyek adalah scraping ulasan Google Maps untuk coffee shop di Jatinangor; daftar kedai, periode data, target volume, dan dasar otorisasinya belum ditetapkan.
+**Pekerjaan terdekat:** serah terima kepada anggota, kalibrasi 50 review oleh
+manusia, lalu 200 review anotasi independen. Pemeriksaan akses/kuota Gemini dapat
+berjalan paralel. Pembuatan pipeline tidak berarti seluruh Stage 4 selesai.
 
-## 2. Sumber Persyaratan
+## 2. Ketentuan tugas akademik
 
-Konteks proyek disusun dari dua sumber utama:
+Sumber persyaratan adalah brief proyek, slide Tugas Besar Pengganti UTS, brief
+Stage 2/3/4, dan keputusan tim terbaru yang terdokumentasi.
 
-1. Project brief BrewScope: tujuan produk, metodologi ABSA, kebutuhan data, dashboard, dan prinsip integritas ilmiah.
-2. Slide Tugas Besar Pengganti UTS: ketentuan kelompok, algoritma, penilaian, keluaran, dan durasi pengerjaan.
+| Ketentuan | Penerapan proyek |
+|---|---|
+| Kelompok empat orang | Hafizh, Niki, Robi, Hamam |
+| Klasifikasi data teks | Deteksi aspek dan sentimen spesifik aspek pada review |
+| Minimal tiga keluarga algoritma | SVM, Ensemble Tree melalui Random Forest, Bayesian melalui Multinomial Naive Bayes |
+| ANN | Tambahan bila diwajibkan dosen; bukan model inti pada brief terbaru |
+| Keluaran | Kode, eksperimen yang dapat direproduksi, paper untuk target SINTA 3/4, presentasi; demo lokal menjadi keluaran produk yang direncanakan |
+| Deklarasi | Persentase penggunaan AI dan plagiarisme mengikuti ketentuan slide, termasuk batas <30% yang tercantum |
+| Durasi | Slide menyebut sekitar tiga minggu; tanggal tenggat kalender yang disepakati tim belum dicatat |
 
-Ketentuan akademik yang harus dipenuhi:
-
-- satu kelompok terdiri dari empat orang;
-- topik berupa klasifikasi data teks;
-- menggunakan sedikitnya tiga keluarga algoritma dari ANN, SVM, Ensemble Tree, dan Bayesian;
-- menghasilkan kode program;
-- menghasilkan paper untuk target SINTA 3 atau SINTA 4;
-- menyertakan deklarasi persentase penggunaan AI dan plagiarisme di bawah 30%;
-- diselesaikan dalam rentang sekitar tiga minggu.
-
-Komponen penilaian yang terbaca pada slide:
-
-| Komponen | Bobot |
+| Komponen penilaian | Bobot pada slide |
 |---|---:|
 | Presentasi | 15% |
 | Topik | 20% |
 | Metode | 25% |
 | Kesimpulan dan pembahasan | 40% |
 
-Karena kesimpulan dan pembahasan memiliki bobot terbesar, proyek tidak boleh berhenti pada perbandingan nilai akurasi. Analisis kesalahan, interpretasi hasil, keterbatasan, dan hubungan temuan dengan konteks bisnis harus menjadi bagian utama pekerjaan.
+Pembahasan mencakup interpretasi, error analysis, keterbatasan dan implikasi
+bisnis; perbandingan akurasi saja belum memenuhi tujuan penelitian.
 
-## 3. Pernyataan Masalah
+## 3. Tujuan dan ruang lingkup
 
-Calon pengusaha coffee shop perlu memahami kondisi kompetitor dan kebutuhan pelanggan, tetapi volume ulasan membuat analisis manual tidak efisien. Sentimen pada sebuah ulasan juga tidak selalu tunggal. Satu ulasan dapat memuji produk tetapi mengeluhkan pelayanan atau fasilitas.
-
-BrewScope harus menjawab pertanyaan berikut:
-
-1. Aspek apa yang dibicarakan pelanggan?
-2. Bagaimana sentimen positif, netral, atau negatif terhadap setiap aspek tersebut?
-3. Algoritma mana yang memberikan performa paling baik dalam kondisi eksperimen yang adil?
-4. Apa kekuatan dan kelemahan coffee shop yang didukung oleh dataset?
-5. Masalah apa yang muncul secara konsisten dan dapat menjadi peluang diferensiasi?
-6. Bagaimana temuan tersebut diterjemahkan menjadi rekomendasi yang transparan tanpa membuat klaim bisnis berlebihan?
-
-## 4. Tujuan
-
-### 4.1 Tujuan machine learning
-
-- Membangun pipeline pengolahan teks berbahasa Indonesia.
-- Mendeteksi kandidat aspek menggunakan pendekatan berbasis aturan.
-- Mengklasifikasikan sentimen untuk pasangan aspek dan teks.
-- Membandingkan beberapa keluarga algoritma secara adil.
-- Memilih model berdasarkan eksperimen aktual, dengan Macro F1 sebagai metrik utama.
-- Mengevaluasi deteksi aspek dan klasifikasi sentimen secara terpisah serta *end-to-end*.
-
-### 4.2 Tujuan bisnis
-
-- Mengidentifikasi aspek yang diapresiasi dan dikeluhkan pelanggan.
-- Membandingkan performa aspek antarcoffee shop.
-- Menemukan celah layanan atau fasilitas yang didukung bukti memadai.
-- Menghasilkan rekomendasi *value proposition* berbasis aturan yang dapat dijelaskan.
-
-### 4.3 Tujuan produk
-
-- Menyediakan aplikasi Streamlit yang dapat digunakan secara lokal.
-- Menampilkan ukuran sampel bersama setiap persentase atau kesimpulan.
-- Menyediakan demo analisis untuk teks ulasan baru.
-- Menampilkan status `insufficient_evidence` jika bukti tidak mencukupi.
-
-## 5. Ruang Lingkup MVP
-
-MVP mencakup:
-
-- satu wilayah penelitian utama;
-- akuisisi dataset melalui scraping ulasan Google Maps untuk coffee shop di Jatinangor;
-- sekitar 5–10 coffee shop jika jumlah dan kualitas datanya memadai;
-- ulasan berbahasa Indonesia;
-- lima kategori aspek awal;
-- deteksi aspek berbasis aturan dan validasi manual;
-- klasifikasi sentimen berbasis machine learning;
-- perbandingan sedikitnya tiga keluarga algoritma;
-- agregasi sentimen per lokasi, kedai, dan aspek;
-- dashboard pasar, kompetitor, eksperimen, dan peluang;
-- rekomendasi berbasis aturan dan template.
-
-Di luar cakupan MVP:
-
-- scraping real-time setiap kali pengguna memilih lokasi;
-- perluasan scraping ke luar wilayah Jatinangor;
-- prediksi omzet, keuntungan, atau kelayakan investasi;
-- estimasi modal otomatis dari ulasan;
-- rekomendasi lokasi paling menguntungkan;
-- chatbot atau ketergantungan pada LLM eksternal;
-- deep learning berskala besar;
-- microservices, Kubernetes, dan infrastruktur cloud kompleks;
-- aplikasi mobile.
-
-## 6. Terminologi Inti
-
-| Istilah | Definisi proyek |
+| Tujuan | Pertanyaan yang dijawab |
 |---|---|
-| Review | Satu ulasan pelanggan yang memiliki `review_id` unik. |
-| Aspect | Dimensi pengalaman pelanggan yang dibicarakan dalam review. |
-| Aspect mention | Kemunculan satu aspek pada review atau klausa tertentu. |
-| Sentiment | Sikap positif, netral, atau negatif terhadap satu aspek yang disebutkan. |
-| Not mentioned | Aspek tidak dibicarakan; bukan kelas netral. |
-| Evidence | Jumlah mention, distribusi sentimen, cakupan kedai, dan contoh ulasan pendukung. |
-| Opportunity | Masalah berulang yang didukung bukti dan relevan dengan konteks pengguna; bukan jaminan keuntungan. |
-| Value proposition | Rekomendasi konsep berbasis opportunity, target pelanggan, dan konsep bisnis. |
+| Task A - Aspect detection | Aspek mana yang dibahas? Satu review dapat membahas nol sampai enam aspek |
+| Task B - Aspect sentiment | Bagaimana sentimen terhadap setiap aspek yang disebutkan? |
+| Perbandingan ML | Bagaimana performa tiga keluarga model pada dataset, split dan evaluasi yang sama? |
+| Analisis bisnis | Apa yang diapresiasi/dikeluhkan dan apa prioritas perbaikannya berdasarkan bukti? |
+| Produk lokal | Bagaimana menampilkan perbandingan, sample size, keterbatasan dan demo review baru? |
 
-Label sentimen:
+Rating bintang tidak menjadi ground truth sentimen. Keunggulan, kelemahan dan
+prioritas bisnis merupakan hasil agregasi/interpretasi dari aspek dan polaritas,
+bukan pengganti label sentimen.
 
-```text
-positive = 1
-neutral  = 0
-negative = -1
-```
+Scope inti mencakup akuisisi batch/offline, audit, enam aspek aktif, anotasi,
+tiga model, evaluasi, agregasi dan demo lokal. Aplikasi membaca dataset/artifact
+tersimpan. Scraping real-time, prediksi omzet/ROI, chatbot, deep learning besar,
+aplikasi mobile dan infrastruktur cloud kompleks berada di luar scope inti.
 
-Taksonomi aspek awal:
+## 4. Dataset dan provenance
 
-| Kode | Aspek | Contoh cakupan |
-|---|---|---|
-| A1 | Product Quality | rasa kopi, makanan, minuman, menu, kualitas produk |
-| A2 | Price | harga, keterjangkauan, dan nilai terhadap harga |
-| A3 | Service | kecepatan, keramahan, akurasi pesanan, barista atau pegawai |
-| A4 | Ambience | kenyamanan, kebersihan, suasana, dan tingkat kebisingan |
-| A5 | Facilities | Wi-Fi, stopkontak, toilet, kursi, dan ketersediaan tempat duduk |
+Dataset sumber: `data/raw/google_maps_reviews_jatinangor_raw.csv`.
 
-Taksonomi ini bersifat awal dan hanya boleh diubah berdasarkan audit data, pilot anotasi, serta keputusan tim yang terdokumentasi.
-
-## 7. Pengguna dan Alur Produk
-
-Pengguna utama adalah calon pengusaha coffee shop. Pengguna sekunder meliputi pemilik coffee shop, analis bisnis, mahasiswa, dan peneliti.
-
-Input aplikasi:
-
-- lokasi target, wajib;
-- target pelanggan, opsional;
-- konsep bisnis, opsional;
-- rentang anggaran, opsional dan hanya sebagai konteks;
-- pilihan kompetitor, opsional.
-
-Output aplikasi:
-
-1. Market Overview.
-2. Aspect Performance Analysis.
-3. Competitor Comparison.
-4. Business Opportunity Insights.
-5. Value Proposition Recommendation.
-6. ML Experiment Dashboard.
-7. Review Analysis Demo.
-
-Lokasi hanya boleh ditampilkan jika dataset mendukung lokasi tersebut. Informasi anggaran tidak boleh digunakan untuk membuat estimasi finansial yang tidak berasal dari data relevan.
-
-## 8. Strategi Data dan Etika
-
-### 8.1 Keputusan sumber data
-
-Dataset utama proyek **wajib diperoleh melalui scraping ulasan Google Maps** dengan batas geografis coffee shop di Jatinangor. Hasil scraping direncanakan menjadi sumber untuk validasi, preprocessing, anotasi aspek-sentimen, training, testing, agregasi kompetitor, dan pengambilan keputusan.
-
-Metode akuisisi direncanakan sebagai batch/offline dan bukan scraping real-time dari aplikasi Streamlit. Aplikasi hanya membaca dataset dan artifact yang telah diproses sebelumnya.
-
-Ruang lingkup pengambilan:
-
-- wilayah: Jatinangor;
-- objek: coffee shop yang masuk daftar penelitian;
-- unit data: ulasan pelanggan dan metadata minimum yang diperlukan;
-- bahasa utama: bahasa Indonesia;
-- tujuan: eksperimen ABSA dan analisis peluang bisnis;
-- frekuensi: pengambilan terjadwal selama fase akuisisi, bukan pemantauan terus-menerus.
-
-### 8.2 Status otorisasi dan risiko
-
-Keputusan internal bahwa data harus berasal dari scraping tidak dengan sendirinya memberikan hak atas platform atau konten pengguna. Sebelum scraper dijalankan, tim masih harus mendokumentasikan dasar otorisasi untuk pengambilan, penyimpanan, anotasi, penggunaan dalam training/testing/validation ML, penayangan kutipan, serta publikasi hasil atau dataset.
-
-Dokumentasi resmi Google yang telah diaudit menyatakan adanya pembatasan terhadap scraping, penyimpanan ulasan, dan penggunaan Google Maps Content untuk pengembangan model ML. Temuan dan tautan sumber primer dicatat di `docs/research/google_maps_data_acquisition.md`. Risiko tersebut harus dilaporkan sebagai limitation dan tidak boleh disembunyikan dari dosen, reviewer, atau pembaca paper.
-
-Jika dasar otorisasi belum tersedia, status dataset adalah **blocked/quarantine**: implementasi teknis dapat direncanakan, tetapi data tidak boleh dimasukkan ke eksperimen yang diklaim patuh sampai keputusan risiko diselesaikan oleh tim dan pihak yang berwenang.
-
-### 8.3 Dokumentasi akuisisi
-
-Setiap sumber data harus memiliki catatan:
-
-- nama dan tautan sumber;
-- pemilik atau penerbit;
-- lisensi atau dasar izin;
-- tanggal akses;
-- metode pengambilan;
-- batasan penggunaan dan redistribusi;
-- cakupan geografis;
-- potensi bias.
-
-Khusus proses scraping, catat pula:
-
-- daftar coffee shop dan URL/identifier sumber;
-- tanggal dan waktu pengambilan;
-- versi scraper serta konfigurasi yang digunakan;
-- jumlah request, keberhasilan, kegagalan, dan retry;
-- kriteria berhenti dan batas volume;
-- struktur HTML/interface sumber yang menjadi dependensi;
-- checksum file mentah;
-- aturan deduplikasi dan anonimisasi;
-- dasar otorisasi dan batas retensi data.
-
-Dataset umum sentiment analysis atau ABSA dari domain lain dapat dipakai sebagai referensi atau eksperimen tambahan, tetapi tidak boleh menjadi dasar klaim pasar coffee shop tertentu.
-
-Skema data mentah minimum:
-
-```text
-review_id
-shop_id
-shop_name
-location
-review_text
-rating
-review_date
-source
-```
-
-Data harus diperiksa untuk:
-
-- nilai kosong dan teks kosong;
-- duplikasi review;
-- bahasa selain Indonesia;
-- review tidak relevan;
-- panjang teks ekstrem;
-- informasi pribadi;
-- ketimpangan jumlah review antar-kedai;
-- ketidakseimbangan label;
-- metadata geografis yang tidak dapat diverifikasi.
-
-## 9. Strategi Anotasi
-
-Format pelatihan berbentuk *long format*: satu review dapat menghasilkan beberapa record aspek-sentimen.
-
-Skema anotasi yang direkomendasikan:
-
-```text
-review_id
-mention_id
-shop_id
-review_text
-context_text
-aspect
-sentiment
-annotation_status
-annotator_id
-```
-
-`context_text` dapat berupa klausa atau potongan teks yang relevan agar sentimen pada review multi-aspek tidak tercampur. Semua mention tetap terhubung ke `review_id` induknya.
-
-Prosedur anotasi:
-
-1. Menyusun pedoman dengan contoh positif, netral, negatif, *not mentioned*, mixed, dan ambigu.
-2. Menjalankan pilot pada sampel kecil.
-3. Melakukan anotasi ganda pada sebagian data.
-4. Mengukur konsistensi antar-anotator.
-5. Melakukan adjudikasi pada perbedaan label.
-6. Memperbarui pedoman sebelum anotasi skala penuh.
-
-Kasus opini bertentangan terhadap aspek yang sama harus dipisahkan menjadi mention/klausa jika memungkinkan. Jika tidak dapat dipisahkan dengan andal, data ditandai ambigu untuk peninjauan manual dan tidak dipaksakan menjadi satu label.
-
-## 10. Arsitektur Analisis
-
-```text
-Google Maps scraping dan dokumentasi akuisisi
-                    ↓
-       Data validation dan audit
-                    ↓
-      Normalisasi teks secara ringan
-                    ↓
- Rule-based candidate aspect detection
-                    ↓
-   Pembentukan pasangan aspect + context
-                    ↓
-     TF-IDF dan sentiment classifier
-                    ↓
-       Prediksi sentimen per mention
-                    ↓
-    Agregasi per kedai/lokasi/aspek
-                    ↓
-  Opportunity scoring berbasis aturan
-                    ↓
- Dashboard dan rekomendasi transparan
-```
-
-Deteksi aspek dan klasifikasi sentimen adalah dua tahap berbeda. Proyek tidak boleh mengklaim seluruh pipeline ABSA dipelajari oleh model karena tahap deteksi aspek menggunakan aturan.
-
-## 11. Rancangan Eksperimen
-
-Untuk memenuhi tugas secara paling aman, empat model direncanakan:
-
-| Keluarga | Model awal | Peran |
-|---|---|---|
-| Bayesian | Multinomial Naive Bayes | Baseline probabilistik |
-| SVM | LinearSVC | Kandidat kuat untuk fitur teks sparse |
-| Ensemble Tree | Random Forest | Pembanding berbasis ensemble tree |
-| ANN | MLPClassifier sederhana | Pemenuhan kategori ANN tanpa deep learning besar |
-
-Minimum akademik adalah tiga algoritma, tetapi empat model mengurangi risiko salah tafsir terhadap slide tugas. Keputusan final harus dikonfirmasi kepada dosen jika waktu atau komputasi menjadi kendala.
-
-Representasi input minimum:
-
-```text
-[ASPECT=service] pelayanan cukup lama meskipun kopinya enak
-```
-
-Eksperimen fitur yang dapat dibandingkan:
-
-- word TF-IDF unigram dan bigram;
-- character n-gram sebagai eksperimen tambahan;
-- preprocessing minimal versus normalisasi kata informal;
-- teks review penuh versus konteks/klausa yang relevan.
-
-Prinsip eksperimen:
-
-- satu konfigurasi memiliki identitas dan random seed;
-- semua model menggunakan data split dan protokol evaluasi yang sama;
-- vectorizer hanya di-fit pada training set;
-- tuning hanya menggunakan training/validation atau cross-validation;
-- test set dikunci sampai konfigurasi final dipilih;
-- hasil negatif tetap dilaporkan;
-- tidak ada metrik atau hasil eksperimen buatan.
-
-## 12. Pemisahan Data dan Pencegahan Leakage
-
-Satu review dapat menghasilkan beberapa aspect mention. Karena itu semua record dengan `review_id` yang sama wajib berada pada split yang sama.
-
-Protokol awal:
-
-- 80% training dan 20% test, disesuaikan jika distribusi data tidak memungkinkan;
-- group-aware split menggunakan `review_id` sebagai grup;
-- group-aware cross-validation di training set jika ukuran data mencukupi;
-- deduplikasi dilakukan sebelum split;
-- tidak menggunakan test set untuk memilih preprocessing, fitur, model, atau hyperparameter.
-
-Jika distribusi kelas dan aspek tidak seimbang, proses pembagian harus memeriksa distribusi setelah split. Stratifikasi tidak boleh mengorbankan pemisahan berdasarkan grup.
-
-## 13. Evaluasi
-
-Metrik utama pemilihan model adalah **Macro F1**, karena label kemungkinan tidak seimbang.
-
-Metrik sentiment classifier:
-
-- accuracy;
-- macro precision, recall, dan F1;
-- weighted F1;
-- precision, recall, dan F1 per kelas;
-- confusion matrix;
-- jumlah sampel setiap label dan aspek.
-
-Evaluasi aspect detection:
-
-- multilabel precision;
-- multilabel recall;
-- multilabel F1;
-- hasil per aspek;
-- analisis false positive dan false negative.
-
-Evaluasi *end-to-end*:
-
-- ketepatan pasangan `(aspect, sentiment)` dari review mentah;
-- dampak kesalahan aspect detection terhadap hasil akhir.
-
-Analisis kesalahan minimum:
-
-- negasi;
-- bahasa informal;
-- sentimen implisit;
-- review multi-aspek;
-- opini bertentangan;
-- kata yang ambigu antar-aspek;
-- kelas netral;
-- kesalahan akibat konteks terlalu panjang atau terlalu pendek.
-
-## 14. Agregasi dan Rekomendasi Bisnis
-
-Untuk setiap lokasi, kedai, dan aspek, sistem menghitung:
-
-```text
-total_mentions
-positive_count
-neutral_count
-negative_count
-positive_rate
-negative_rate
-supporting_review_count
-shop_coverage
-```
-
-Penyebut persentase hanya berasal dari mention yang benar-benar membahas aspek tersebut.
-
-Aspek terbaik atau terburuk tidak boleh ditentukan hanya dari jumlah atau persentase tunggal. Sistem harus mempertimbangkan:
-
-- jumlah mention;
-- jumlah review unik;
-- proporsi sentimen;
-- cakupan beberapa coffee shop;
-- ambang bukti minimum;
-- ketidakpastian pada sampel kecil.
-
-Recommendation engine bersifat deklaratif dan berbasis aturan:
-
-```text
-Temuan terukur
-    + relevansi target pelanggan
-    + relevansi konsep bisnis
-    + ambang kecukupan bukti
-    = rekomendasi dan alasan
-```
-
-Rekomendasi tidak boleh menyatakan bahwa suatu konsep pasti menguntungkan. Jika bukti tidak mencukupi, keluaran wajib berupa `insufficient_evidence`.
-
-## 15. Struktur Repository yang Direncanakan
-
-```text
-brewscope/
-├── README.md
-├── PROJECT_CONTEXT.md
-├── PROJECT_BRIEF.md
-├── pyproject.toml
-├── .gitignore
-├── configs/
-│   ├── aspects.yaml
-│   ├── experiments.yaml
-│   └── recommendations.yaml
-├── data/
-│   ├── raw/
-│   ├── interim/
-│   ├── processed/
-│   └── annotations/
-├── notebooks/
-│   ├── 01_data_audit.ipynb
-│   ├── 02_eda.ipynb
-│   └── 03_error_analysis.ipynb
-├── src/brewscope/
-│   ├── data/
-│   ├── preprocessing/
-│   ├── aspects/
-│   ├── modeling/
-│   ├── evaluation/
-│   ├── insights/
-│   └── recommendation/
-├── app/
-│   ├── streamlit_app.py
-│   └── pages/
-├── scripts/
-│   ├── validate_data.py
-│   ├── prepare_training_data.py
-│   ├── train_models.py
-│   └── generate_insights.py
-├── models/
-├── reports/
-├── tests/
-└── docs/
-    ├── dataset_card.md
-    ├── annotation_guidelines.md
-    ├── methodology.md
-    ├── experiment_results.md
-    └── limitations.md
-```
-
-Notebook digunakan untuk eksplorasi dan komunikasi hasil. Logika yang dibutuhkan training atau aplikasi harus dipindahkan ke `src/brewscope/` agar dapat diuji dan digunakan kembali.
-
-## 16. Checkpoint Implementasi
-
-1. **Repository Setup** — lingkungan, struktur, lint, dan test dasar.
-2. **Google Maps Data Acquisition & Authorization Audit** — daftar kedai Jatinangor, rancangan scraping, otorisasi, provenance, dan karantina data mentah.
-3. **Data Audit & EDA** — kualitas, distribusi, bias, dan kelayakan scope.
-4. **Aspect Taxonomy & Annotation Guideline** — definisi label dan kasus tepi.
-5. **Pilot Annotation** — agreement dan perbaikan pedoman.
-6. **Preprocessing & Aspect Detection** — baseline dan evaluasi deteksi aspek.
-7. **Feature Engineering & Split** — pasangan aspek-teks dan split bebas leakage.
-8. **Model Training** — Bayesian, SVM, Ensemble Tree, dan ANN.
-9. **Model Evaluation** — pemilihan model dan error analysis.
-10. **Business Insight Engine** — agregasi, threshold, dan recommendation rules.
-11. **Streamlit Application** — integrasi artifact model dan dashboard.
-12. **Testing & Documentation** — validasi akhir, paper, presentasi, dan demo.
-
-Setiap checkpoint harus menjelaskan tujuan, input, output, validasi, keterbatasan, dan acceptance criteria. Checkpoint dependen tidak dimulai sebelum prasyarat kritisnya terpenuhi.
-
-## 17. Acceptance Criteria Checkpoint 1
-
-Checkpoint 1 selesai jika:
-
-- repository Git sudah diinisialisasi;
-- struktur minimum proyek tersedia;
-- versi Python dan dependency manager ditetapkan;
-- `README.md`, `PROJECT_CONTEXT.md`, `.gitignore`, dan `pyproject.toml` tersedia;
-- package `brewscope` dapat di-import;
-- test smoke berhasil;
-- Ruff dan pytest dapat dijalankan;
-- random seed dan lokasi artifact dikonfigurasi;
-- data mentah dan artifact model tidak otomatis masuk Git;
-- instruksi setup dan perintah validasi terdokumentasi;
-- tidak ada dataset, review, metrik, atau hasil eksperimen fiktif.
-
-## 18. Pembagian Kerja Awal untuk Empat Anggota
-
-Pembagian berikut adalah titik awal, bukan silo permanen:
-
-| Peran utama | Tanggung jawab |
+| Item | Snapshot yang diaudit |
 |---|---|
-| Data & Governance | Akuisisi, izin, audit kualitas, dataset card, dan anonimisasi |
-| Annotation & NLP | Taksonomi aspek, pedoman anotasi, preprocessing, dan aspect detection |
-| Modeling & Evaluation | Split, fitur, training empat model, evaluasi, dan error analysis |
-| Product & Research Communication | Streamlit, insight engine, paper, presentasi, dan integrasi hasil |
+| Sumber dan akuisisi | Google Maps melalui scraper Apify; script `scripts/scrape_google_maps.py` |
+| Actor yang didokumentasikan | `compass/google-maps-reviews-scraper`; manifest run historis belum tersedia |
+| Baris raw | 3.593 review; seluruh review ID unik |
+| Kedai | 40 identitas; jumlah final penelitian menunggu keputusan wilayah |
+| Eligible teknis | 3.582 review menurut audit, bukan persetujuan scope penelitian final |
+| Simbol/emoji saja | 11 review; raw dipertahankan, dikecualikan dari eligible teknis |
+| Review pendek | 778 review kurang dari empat kata; tidak otomatis dihapus |
+| Rating lima bintang | Sekitar 85,47%; bukan distribusi label sentimen |
+| Rentang tanggal review | 13 September 2016 sampai 25 Oktober 2026; bukan tanggal scraping |
+| Bahasa | Fokus Indonesia; slang dan code-switching diperiksa, bukan dihapus berdasarkan heuristik saja |
+| Status wilayah | Seluruh 40 identitas masih `UNVERIFIED` secara administratif |
 
-Setiap hasil penting harus ditinjau minimal satu anggota lain. Semua anggota harus memahami metodologi dan hasil karena presentasi serta paper merupakan keluaran kelompok.
+SHA-256 raw:
 
-## 19. Integritas Ilmiah dan Penggunaan AI
+```text
+7b87a53110041da74e976a6c9cb121c1dea7d73be70daeab58b2c07bef775719
+```
 
-Tim tidak boleh:
+Enam kolom raw yang benar:
 
-- membuat data pelanggan sintetis lalu menyajikannya sebagai data penelitian;
-- mengarang sumber, DOI, kutipan, hasil evaluasi, atau temuan bisnis;
-- melatih atau memilih model menggunakan test set;
-- membiarkan mention dari review yang sama tersebar ke split berbeda;
-- menyatakan seluruh sistem sebagai learned ABSA jika aspect detection masih rule-based;
-- menyimpulkan kondisi seluruh pasar dari sampel terbatas;
-- menyalin teks hasil AI langsung ke paper tanpa verifikasi dan penyuntingan manusia.
+```text
+review_id,nama_tempat,rating,tanggal_review,teks_review,url_tempat
+```
 
-Penggunaan AI harus dicatat secara transparan, misalnya untuk:
+Pipeline anotasi memetakan `teks_review` ke `review_text`, dan `place_key` hasil
+audit ke `coffee_shop_id`. Identitas ditelusuri ke metadata sumber. Nama kedai
+saja tidak membuktikan posisi administratif; alamat/koordinat tidak boleh direka.
 
-- asistensi struktur kode;
-- ide pengujian;
-- perbaikan tata bahasa;
-- penyusunan outline;
-- pemeriksaan konsistensi dokumentasi.
+Raw tidak diubah secara destruktif. Review dengan ID berbeda dan teks sama tidak
+otomatis dihapus. Kelompok identik/sangat mirip dicatat untuk triage dan split.
+Jumlah baris final menunggu scope dan QC.
 
-Seluruh klaim, sitasi, kode, angka, dan interpretasi tetap harus diverifikasi oleh anggota tim. Deklarasi AI mengikuti format institusi atau jurnal tujuan; target plagiarisme tetap di bawah 30% sesuai slide tugas, tetapi tim sebaiknya mengutamakan orisinalitas dan sitasi yang benar, bukan sekadar mengejar angka pemeriksa kemiripan.
+Tanggal scraping aktual, build Actor, run/dataset ID, urutan pemilihan review,
+parameter run dan sebagian riwayat transformasi masih `NOT_DOCUMENTED`.
+Default script saat ini bukan bukti konfigurasi historis. Lihat
+[provenance](docs/research/data_provenance.md) dan
+[verifikasi geografis](reports/tables/geographic_verification.csv).
 
-## 20. Risiko Utama
+## 5. Otorisasi, privasi dan wilayah
 
-| Risiko | Dampak | Mitigasi |
+Brief Stage 4 dari pemilik mengizinkan penggunaan dataset untuk penelitian dan
+AI eksternal, termasuk Gemini: **OWNER_ATTESTED**. Deklarasi pemilik berbeda dari
+izin/lisensi pihak sumber yang diverifikasi independen. Bukti izin tertulis
+belum ditemukan dan tidak boleh dibuat-buat.
+
+Keputusan terbaru mengizinkan persiapan manusia, pengujian pipeline dan pilot
+terkontrol menurut protokol Stage 4. Gate izin/geografi dalam artefak Stage 2/3
+merupakan catatan historis; tidak membatalkan otorisasi pilot dari brief terbaru.
+
+| Area | Aturan operasional |
+|---|---|
+| Geografi | Tetap UNVERIFIED sampai bukti identitas dan batas wilayah memadai; tim membagi verifikasi 10 kedai per orang |
+| Scope | Keputusan dipisah dari label: `coffee_shop_id,status,evidence_reference`; dataset dapat diregenerasi setelah keputusan wilayah |
+| Full labeling | Memerlukan scope final, pemeriksaan sumber, gold/evaluasi dan kontrol eksekusi; tanpa menghapus raw |
+| Privasi eksternal | Kirim hanya ID/teks yang diperlukan; suspected PII ditahan; review kontekstual manusia sebelum batch nyata ke Gemini |
+| Publikasi | Periksa ketentuan sumber dan hak kutipan/redistribusi sebelum publikasi raw atau training akhir |
+| Credential | Environment atau `.env` lokal; tidak dicetak atau dimasukkan Git |
+
+Laporan final tetap mencantumkan bias pemilihan review/kedai, dominasi rating,
+provenance yang belum lengkap dan keterbatasan verifikasi wilayah.
+
+## 6. Taxonomy dan definisi label
+
+Definisi: [aspect_taxonomy.yaml](configs/aspect_taxonomy.yaml), versi
+**`0.1.0-draft`**, draft berbasis literatur yang **belum divalidasi empiris pada
+korpus lokal**. Tinjauan Stage 3 memuat tujuh referensi: lima full text dan dua
+metadata/abstrak terverifikasi.
+
+| Aspect ID aktif | Cakupan | Batas penting |
 |---|---|---|
-| Scraping Google Maps tidak memiliki dasar otorisasi yang memadai | Kritis | Dokumentasikan keputusan, minta penilaian/izin tertulis dari pihak berwenang, dan karantina data sampai statusnya jelas |
-| Perubahan struktur halaman atau mekanisme anti-otomasi | Tinggi | Pisahkan adapter sumber, gunakan logging/checkpoint, dan jangan bergantung pada selector rapuh tanpa test |
-| Data scraping tidak lengkap atau bias | Tinggi | Catat periode, kriteria pengambilan, missingness, urutan review, dan batas representativitas |
-| Metadata lokasi/kedai tidak tersedia | Tinggi | Batasi klaim geografis dan fitur kompetitor |
-| Waktu anotasi tidak cukup | Tinggi | Pilot lebih awal, fokus pada scope kecil tetapi berkualitas |
-| Label tidak seimbang | Sedang–tinggi | Gunakan Macro F1, laporan per kelas, dan split terkontrol |
-| Aspect detection lemah | Tinggi | Evaluasi terpisah, iterasi kamus, dan validasi manusia |
-| Review multi-aspek membingungkan model | Tinggi | Gunakan konteks/klausa dan pasangan aspek-teks |
-| Rekomendasi terlalu spekulatif | Tinggi | Threshold bukti, alasan eksplisit, dan `insufficient_evidence` |
-| Paper dikerjakan terlalu akhir | Tinggi | Kumpulkan tabel, konfigurasi, gambar, dan catatan diskusi sejak eksperimen pertama |
-| Overengineering | Sedang | Fokus pada pipeline lokal modular dan kebutuhan penilaian |
+| `product_quality` | Mutu makanan/minuman, rasa, kesegaran, porsi, menu, presentasi | Food dan drinks digabung; waktu tunggu masuk service |
+| `service` | Interaksi staf, keramahan, pemesanan, respons, waktu tunggu | Wi-Fi lambat masuk facilities |
+| `price_value` | Harga, keterjangkauan, promo, kesepadanan biaya/manfaat | Porsi tanpa evaluasi harga tetap product_quality |
+| `ambience` | Suasana, interior, musik, kebisingan, kenyamanan | Kondisi kotor/bersih masuk cleanliness |
+| `facilities` | Keberadaan, kapasitas dan fungsi amenitas | Toilet tidak tersedia: facilities |
+| `cleanliness` | Kebersihan/higiene ruang, meja, toilet, peralatan, sampah | Toilet kotor: cleanliness; tidak otomatis facilities |
 
-## 21. Keputusan yang Masih Terbuka
+`location_accessibility` **provisional/tidak aktif**. Aktivasi atau perubahan
+kategori membutuhkan dokumentasi, versi baru dan validasi pilot. Pujian umum
+tidak otomatis memberi enam aspek positif. Keyword Stage 2/3 adalah indikator
+eksploratif/sampling, bukan label atau bukti akurasi aspect detection.
 
-Keputusan berikut harus diselesaikan sebelum checkpoint terkait:
+| Keputusan | Makna dan penyimpanan |
+|---|---|
+| `mentioned` | Ada bukti aspek dibahas |
+| `not_mentioned` | Tidak dibahas; sentiment `null`, evidence kosong; berbeda dari neutral |
+| `positive` / `neutral` / `negative` | Tiga polaritas untuk aspek yang disebutkan dan terselesaikan |
+| `uncertain` | Workflow/presence belum pasti; sentiment `null`, notes wajib, belum masuk gold/training |
+| Mixed sentiment | Opini positif dan negatif pada aspek sama; kedua evidence disimpan, `mixed_sentiment=true`, pair sentiment `null` |
 
-- sumber dataset telah diputuskan: scraping Google Maps untuk coffee shop di Jatinangor;
-- dasar otorisasi untuk mengambil, menyimpan, mengolah, dan menggunakan ulasan dalam ML;
-- daftar coffee shop, periode data, target volume, dan kriteria inklusi;
-- informasi pengguna apa saja yang harus dihapus atau dipseudonimkan;
-- kebijakan retensi, redistribusi, dan penghapusan data mentah;
-- izin menampilkan nama kedai dan kutipan review;
-- unit anotasi final dan proporsi anotasi ganda;
-- aturan adjudikasi untuk mixed sentiment;
-- jumlah minimum bukti untuk insight bisnis;
-- kebutuhan empat model versus tiga model setelah konfirmasi dosen;
-- jurnal SINTA target dan template penulisannya;
-- tanggal mulai dan tenggat pasti karena slide hanya menyebut durasi dan tanggal tanpa tahun yang jelas.
+Canonical memakai string tersebut. Encoding numerik hanya transformasi modeling
+yang terdokumentasi, tidak dicampurkan dengan rating.
 
-## 22. Definition of Done Proyek
+## 7. Kontrak anotasi dan evidence
 
-Proyek dianggap selesai jika:
+Schema: [annotation_schema.json](schemas/annotation_schema.json). Unitnya
+**review-aspect-annotator**, tepat enam keputusan unik per review per annotator.
+Keputusan hilang adalah output incomplete, tidak otomatis absent atau neutral.
 
-- sumber, metode scraping, provenance, dan status otorisasi dataset terdokumentasi;
-- scope scraping terbatas pada daftar coffee shop Jatinangor yang disepakati;
-- data mentah memiliki checksum, log pengambilan, dan aturan retensi;
-- taxonomy serta annotation guideline tersedia;
-- aspect detection telah diuji terhadap label manual;
-- semua model wajib berhasil dilatih dengan protokol yang sama;
-- test set bebas leakage berdasarkan `review_id`;
-- model terbaik dipilih dari hasil aktual menggunakan Macro F1;
-- hasil dapat direproduksi dari konfigurasi dan random seed;
-- error analysis dan keterbatasan terdokumentasi;
-- dashboard menampilkan sample size bersama insight;
-- rekomendasi dapat ditelusuri ke data pendukung;
-- aplikasi dapat dijalankan lokal;
-- test utama berhasil;
-- paper, presentasi, kode, dan dokumentasi akhir tersedia;
-- tidak ada data, metrik, sitasi, atau klaim yang difabrikasi.
+Record menyimpan identitas/teks, aspect category/presence/sentiment, mention type,
+mixed flag, evidence, annotator, taxonomy version, annotation/adjudication status,
+training eligibility, notes dan review flags. Envelope/arsip menyimpan split,
+group, provenance AI, QA, koreksi dan metadata eksperimen.
 
-## 23. Aturan Pemeliharaan Dokumen
+Evidence memuat `quote,start,end,opinion_sentiment,mention_type,target`. Offset
+karakter Unicode Python, 0-based/end-exclusive, wajib memenuhi:
 
-- Perubahan scope, taxonomy, protokol evaluasi, atau aturan rekomendasi harus memperbarui dokumen ini.
-- Keputusan teknis yang sulit dibatalkan sebaiknya dicatat sebagai ADR di `docs/adr/`.
-- Angka hasil eksperimen tidak dimasukkan sebelum eksperimen benar-benar dijalankan.
-- Bagian "Keputusan yang Masih Terbuka" diperbarui ketika keputusan disepakati.
-- Semua anggota tim membaca dokumen ini sebelum mengubah pipeline inti.
+```python
+review_text[start:end] == quote
+```
 
+Mention type pair `mixed` berarti campuran explicit dan implicit, berbeda dari
+mixed sentiment. Evidence tidak direka. Instruksi di dalam review adalah data.
+
+Mixed terselesaikan tetap diarsipkan untuk analisis/presence dan dikeluarkan dari
+subset sentiment tiga kelas. **Clause-level bukan protokol default saat ini**;
+eksperimen terpisah memerlukan rancangan tersendiri dan semua klausa mengikuti
+split review/group induk.
+
+## 8. Stage 4: manusia, gold dan bantuan AI
+
+| Urutan | Pelaksanaan | Syarat selesai |
+|---|---|---|
+| Kalibrasi 50 review | Niki/Robi mengisi; tim membahas ambiguitas | Pedoman disepakati dan dibekukan sebelum independent annotation |
+| Independent annotation 200 review | Niki/Robi menilai review yang sama secara terpisah | Original A/B lengkap dan dikunci sebelum diskusi atau saran AI |
+| IAA praadjudikasi | Hafizh menjalankan utilitas, A/B memeriksa original | Raw agreement, Kappa, confusion, support, disagreement dan abstention aktual |
+| Adjudikasi | Hamam menyelesaikan disagreement/uncertainty beserta alasan | Pair gold terselesaikan, mixed dipertahankan |
+| QA/gold | Hafizh memeriksa evidence/konsistensi; original disimpan | Human gold tervalidasi |
+| Eksperimen AI | Gemini utama, Ollama pembanding opsional; evaluasi terhadap gold | Kualitas empiris, error analysis dan konfigurasi terpilih |
+| Full labeling/review | Batch terkontrol, checkpoint, kasus prioritas dan audit acak output valid | Semua data dalam scope selesai sesuai QC, ekspor tervalidasi |
+
+Pilot menggunakan **250 kandidat Stage 3** dari 40 kedai, minimal tiga per kedai
+pada union pilot. Split aktual **50 calibration + 150 development + 50 locked
+validation**. Dua split terakhir adalah 200 review independen. Masing-masing A/B
+menilai 250 review, setara 1.500 keputusan termasuk kalibrasi.
+
+Paket blind tidak memuat rating, keyword hints, label AI, hasil orang lain atau
+penanda locked. Presence `null`/status `draft` pada template berarti belum diisi,
+bukan anotasi canonical valid. Kalibrasi bukan independent test.
+
+Grouping dihitung pada seluruh eligible corpus. Near-match memakai shared
+five-token shingle, minimal delapan token, Jaccard token >=0.85 dan
+SequenceMatcher >=0.92. Ini triage konservatif; parafrasa semantik jauh masih
+perlu diperiksa manusia.
+
+Gold berasal dari dua original manusia, adjudikasi dan QA. Label yang sudah
+diperlihatkan AI tidak menjadi gold independen. Label AI yang dikoreksi manusia
+dicatat sebagai **AI-assisted/human-reviewed**; original tidak ditimpa, revisi
+menyimpan identitas dan alasan. Tidak ada anotasi manusia/IAA yang direka.
+
+Format dan perintah: [protokol Stage 4](docs/research/stage4_annotation_protocol.md).
+
+## 9. Provider, biaya dan status Gemini terbaru
+
+| Item | Keadaan yang tercatat |
+|---|---|
+| SDK | `google-genai==2.33.0`, melalui extra `annotation` |
+| Provider | `GeminiProvider`, `OllamaProvider`, `MockProvider` |
+| Kandidat model konfigurasi | `gemini-3.5-flash-lite`; belum dipilih berdasarkan akurasi gold |
+| Ollama | `qwen2.5:3b` lokal terdeteksi pada pemeriksaan sebelumnya; inference/perbandingan gold belum dilakukan |
+| Key Gemini | Ditambahkan pemilik ke `.env` dan sudah terbaca pada pemeriksaan terbaru |
+| Model lookup terakhir | HTTP **429**, `QUOTA_EXHAUSTED`; akses model belum berhasil dikonfirmasi |
+| Tier billing/Free Tier project | `UNKNOWN`; RPM/RPD aktual belum diverifikasi |
+| Upload/generation nyata | 0 review dikirim, 0 generation request, 0 generation token pada pemeriksaan yang tercatat |
+
+Acuan terbaru: [connection check](reports/stage4_gemini_connection_check.json).
+`stage4_environment.json` dan `stage4_notebook_summary.json` adalah snapshot lebih
+awal yang masih mencatat key belum tersedia; keduanya bukan status koneksi terbaru.
+
+[annotation_runtime.yaml](configs/annotation_runtime.yaml) mengatur mode default
+sintetis/dry run. Run All tidak mengirim review nyata atau meminta generation
+cloud. Live memerlukan `--execute` dan verifikasi model/kuota/biaya. Smoke maksimal
+lima review dari calibration. Counter persisten, rate limiting, retry terbatas
+serta checkpoint tersedia; quota exhaustion menghentikan run tanpa paid fallback.
+
+Full memerlukan human gold, evaluasi locked memenuhi kriteria, scope final,
+pemeriksaan sumber/privasi dan persetujuan full dalam config. Threshold YAML
+masih **usulan**, belum kriteria penelitian yang dibekukan. Prompt/protokol
+harus dibekukan sebelum locked inference/evaluation; revisi memakai versi baru.
+
+## 10. Stage 5/6: preprocessing, fitur dan tiga model
+
+Preprocessing dan TF-IDF belum diimplementasikan. Stage 5 menetapkan normalisasi
+ringan, slang, word/character features dan representasi aspek. Negasi/konteks
+sentimen dipertahankan. Stemming/stopwords dievaluasi, tidak diasumsikan membantu.
+
+| Keluarga | Model inti | Pemilik |
+|---|---|---|
+| SVM | LinearSVC sebagai baseline yang direncanakan | Niki |
+| Ensemble Tree | Random Forest | Robi |
+| Bayesian | Multinomial Naive Bayes | Hamam |
+
+Task A adalah multi-label presence enam aspek; Task B sentiment pada pair
+mentioned terselesaikan. Setiap keluarga mengikuti formulasi dan protokol yang
+sama; rincian estimator multi-label/per-aspect ditetapkan Stage 5. Review penuh
+dan identitas aspek dapat menjadi konteks Task B. Fitur disesuaikan dengan
+persyaratan estimator, termasuk nonnegatif untuk Multinomial Naive Bayes.
+
+Keyword/rule dapat menjadi baseline tambahan, bukan ground truth atau satu-satunya
+definisi Task A. Jalur rule-based dilaporkan terpisah dari learned ABSA.
+Gemini/Ollama sebagai annotator bukan tiga classifier pembanding tugas kuliah.
+ANN bukan kewajiban tambahan otomatis dalam rencana terbaru.
+
+## 11. Split dan pencegahan leakage
+
+- Semua pair/clause satu `review_id` berada pada satu split.
+- Kelompok teks identik/sangat mirip juga satu split, termasuk lintas kedai.
+- Teks berulang tidak otomatis dihapus; keputusan filtering dicatat.
+- Split pilot berbeda dari train/validation/test classifier. Proporsi classifier
+  final belum ditetapkan; 80/20 bukan ketetapan.
+- Gold untuk prompt tuning/calibration tidak menjadi independent test ML.
+- Fit vectorizer/statistik preprocessing dan tuning hanya pada training/validation
+  atau CV yang sesuai; test tidak dipakai memilih fitur/model/hyperparameter.
+- Semua model memakai label, split manifest, seed dan evaluasi yang sama.
+  Support kelas diperiksa; grouping tidak dikorbankan demi stratifikasi.
+- Label AI untuk training bukan gold independen bagi klaim akurasi ML.
+
+## 12. Evaluasi dan exception reporting
+
+| Evaluasi | Metrik dan denominator |
+|---|---|
+| Agreement manusia | Raw agreement, Cohen's Kappa, per-aspect agreement/confusion/support, sebelum adjudikasi |
+| Aspect detection | Micro precision/recall/F1, macro/per-aspect F1 dan support |
+| Aspect sentiment | Accuracy, macro F1 sebagai metrik utama sentiment, per-class P/R/F1, per-aspect macro F1, confusion |
+| Conditional sentiment Stage 4 | Seluruh gold-mentioned resolved pairs; missed/abstained tetap salah, tidak hanya aspek yang berhasil dideteksi; gold-conditioned scoring, bukan klaim forced-aspect experiment |
+| End-to-end ABSA | Pasangan aspek-sentiment, termasuk FP/FN karena aspek tambahan/terlewat |
+| Error analysis | Negasi, implicit, slang, code-switching, sarcasm, typo, overlap, mixed, no-keyword dan kelas minoritas |
+
+Uncertain menjadi abstention. Mixed dikecualikan dari evaluasi tiga kelas dan
+jumlahnya dilaporkan. Kappa tanpa variasi/data dapat undefined: `null` dengan
+alasan. Laporkan comparable decisions, coverage, support dan exclusion.
+Invalid/incomplete response atau evidence halusinasi bukan keberhasilan anotasi
+dan tidak diubah menjadi absent/neutral.
+
+Hasil pengujian terakhir yang **tersimpan**: **119 test lulus**, termasuk 77
+Stage 4; notebook Stage 4 mengeksekusi 20 code cell tanpa error. Demonstrasi
+MockProvider menggunakan 17 review sintetis/102 keputusan; resume menambah 0
+request. Ini validasi infrastruktur, bukan akurasi model. IAA nyata, akurasi AI/ML
+dan ranking bisnis aktual belum tersedia. Acuan:
+[validation summary](reports/stage4_validation_summary.json).
+
+## 13. Analisis bisnis dan demo
+
+Agregasi direncanakan per kedai/aspek dan, setelah scope terverifikasi, wilayah.
+Tampilkan review unik, jumlah pair/mention, distribusi polaritas, label source,
+coverage dan ukuran sampel. Pisahkan mixed/uncertain dari tiga polaritas.
+
+Proporsi tiga kelas memakai denominator pair mentioned dengan polaritas
+terselesaikan; laporkan coverage/exclusion terhadap semua pair mentioned.
+Jangan menghitung ulang satu review-aspect hanya karena beberapa evidence span.
+
+Rekomendasi berasal dari temuan terukur, relevansi bisnis dan minimum bukti yang
+belum ditetapkan. Jika kurang bukti, gunakan `insufficient_evidence`. Hindari
+klaim keuntungan, revenue, ROI, estimasi modal atau lokasi pasti unggul. Sampel
+kuota/scraping tidak membuktikan keterwakilan seluruh pasar.
+
+Demo/Streamlit lokal direncanakan membaca artifact tersimpan untuk overview,
+perbandingan aspek, hasil eksperimen dan review baru. Prioritaskan tabel/grafik
+yang benar dan tampilan sederhana. Kebutuhan anggaran hanya konteks, bukan dasar
+estimasi finansial. Demo classifier tidak harus bergantung pada AI eksternal.
+
+## 14. Artefak dan struktur repository aktual
+
+| Lokasi | Isi/status |
+|---|---|
+| `scripts/scrape_google_maps.py` | Akuisisi data |
+| `notebooks/01_data_audit_eda.ipynb` | Audit, data understanding dan EDA |
+| `notebooks/02_aspect_taxonomy.ipynb` | Literatur, taxonomy dan kandidat pilot |
+| `notebooks/03_human_ai_labeling.ipynb` | Panduan/pengujian Stage 4, aman offline |
+| `configs/aspect_taxonomy.yaml` | Enam kategori aktif dan satu provisional |
+| `configs/annotation_runtime.yaml` | Provider, kuota, biaya, privasi dan kontrol eksekusi |
+| `schemas/annotation_schema.json` | Canonical schema Stage 3 yang dipakai Stage 4 |
+| `prompts/absa_gemini_v1.md` dan `.manifest.json` | Prompt terversi dan hash sumber |
+| `src/brewscope/annotation/` | Provider, runtime, storage, validation, pipeline, human, agreement, evaluation dan export |
+| `scripts/run_annotation.py` | CLI dry run, mock, workflow manusia, eksperimen, review dan ekspor |
+| `data/raw/` | Snapshot asli, lokal/diabaikan Git |
+| `data/interim/` | Audit flags, kandidat, formulir manusia, grouping, checkpoint; lokal |
+| `data/processed/` | Keluaran gold/dataset saat tersedia; belum berisi dataset berlabel final |
+| `reports/` | Laporan/ringkasan tahap, tabel/grafik dan pemeriksaan aktual |
+| `tests/annotation/` | Test dan fixture sintetis Stage 4 |
+| `docs/research/` | Provenance, literatur/BibTeX, pedoman, keputusan metodologi |
+| `docs/project_management/TEAM_WORKPLAN.md` | Pembagian bernama, milestone dan serah terima |
+| `app/`, `models/` | Lokasi keluaran berikutnya, bukan bukti aplikasi/model telah dibangun |
+
+Analisis Stage 2/3 berada dalam notebook. Logika Stage 4 yang dipakai notebook
+dan CLI berada di `src/brewscope/annotation` sesuai brief. Modul preprocessing,
+modeling dan insight berikutnya belum dinyatakan tersedia. Dependency ada di
+`pyproject.toml`.
+
+## 15. Tim dan pembagian beban
+
+| Anggota | Stage 4 | Pekerjaan berikutnya |
+|---|---|---|
+| Hafizh | Koordinator, IAA/validator, QA `human:D`, konfigurasi dan batch | Integrasi/reproducibility, pemeriksaan angka, tulisan data dan audit |
+| Niki | Annotator A `human:A`, 50 calibration + 200 independent | Preprocessing/NLP, SVM, tulisan anotasi/NLP/SVM |
+| Robi | Annotator B `human:B`, review sama secara independen | Split/fitur bersama, Random Forest, evaluasi gabungan dan tulisan hasil |
+| Hamam | Adjudikator `human:C`, koordinasi review AI berikutnya | Naive Bayes, insight bisnis, demo sederhana dan integrasi naskah |
+
+Kontribusi Hafizh dari tahap awal dihitung dalam beban kumulatif. Setiap anggota
+memiliki output teknis/tulisan dan memperbaiki pekerjaannya sendiri. Verifikasi
+lokasi dibagi 10 kedai per orang. Rebalancing berdasarkan waktu aktual kalibrasi
+dan kompleksitas. Rincian paper, reviewer dan assignment:
+[TEAM_WORKPLAN.md](docs/project_management/TEAM_WORKPLAN.md). Semua berkontribusi
+pada Discussion/Conclusion dan berlatih presentasi.
+
+## 16. Environment dan eksekusi
+
+Python minimum 3.11; gunakan `.venv` proyek. Setup pada clone baru:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -e ".[annotation,analysis,dev]"
+.venv\Scripts\python.exe -m ipykernel install --prefix .venv --name brewscope --display-name "BrewScope (.venv)"
+```
+
+Dataset tidak tersedia otomatis pada clone; tempatkan snapshot yang disepakati
+melalui kanal privat tim dan periksa hash. Buat `.env` dari `.env.example` hanya
+bila belum ada, isi token/key secara lokal, jangan menimpa credential yang ada.
+Jalankan dari root repo:
+
+```powershell
+.venv\Scripts\python.exe scripts/run_annotation.py --dry-run
+.venv\Scripts\python.exe scripts/run_annotation.py --task prepare-human --execute
+.venv\Scripts\python.exe scripts/run_annotation.py --provider mock --mode synthetic --execute --resume
+.venv\Scripts\python.exe -m pytest -q
+```
+
+`prepare-human` membuat formulir kosong, bukan label manusia. Perintah submit,
+IAA, gold, live dan ekspor ada di protokol Stage 4. Setelah HTTP 429 terakhir,
+periksa project/kuota sebelum mengulang cloud. Penambahan key tidak otomatis
+menyalakan generation atau labeling penuh.
+
+Panduan Git: `main` sebagai baseline bersama, branch `hafizh`, `niki`, `robi`,
+`hamam` untuk pekerjaan masing-masing, gabung lewat PR/review. Status push aktual
+belum diverifikasi di dokumen ini. Credential, venv, dataset/anotasi privat dan
+model lokal tidak ikut Git; periksa juga output notebook sebelum dibagikan.
+
+## 17. Milestone dan definition of done
+
+| Milestone | Selesai ketika |
+|---|---|
+| Stage 4B | Dua original manusia, IAA praadjudikasi, adjudikasi, QA dan human gold benar-benar tersedia |
+| Stage 4C | AI dievaluasi pada gold yang tepat, development/locked dipisahkan, mutu memenuhi kriteria dan error analysis selesai |
+| Seluruh Stage 4 | Data eligible dalam scope final selesai dilabeli/direview sesuai protokol; provenance/checkpoint lengkap; ekspor siap Stage 5 |
+| Stage 5 | Preprocessing, split dan fitur direproduksi dengan pemeriksaan leakage |
+| Stage 6 | Tiga model dibandingkan adil; prediksi/metrik/artifact dan evaluasi final tersimpan |
+| Insight/demo | Hitungan benar, support/limitations ditampilkan, rekomendasi dapat ditelusuri |
+| Proyek akhir | Kode, hasil, analisis bisnis, paper, deklarasi AI, presentasi/demo direview bersama |
+
+Stage 5/6 belum dijalankan sebelum prasyarat Stage 4 terpenuhi. Persiapan desain,
+fixture, format laporan dan tulisan metode dapat paralel; jangan menampilkan
+fixture atau rencana sebagai hasil penelitian.
+
+## 18. Keputusan/pekerjaan yang masih terbuka
+
+| Item | Status |
+|---|---|
+| Kalibrasi, dua anotasi manusia, IAA, adjudikasi dan QA | Belum dilaksanakan |
+| Validasi empiris taxonomy lokal | Menunggu pilot; enam aspek tetap draft |
+| Gemini, billing, RPM/RPD dan privasi batch | Key terbaca; model lookup 429; project belum terverifikasi |
+| Kriteria penerimaan AI | Threshold YAML masih usulan; dibekukan sebelum locked |
+| Scope administratif dan inklusi kedai | 40 UNVERIFIED; bukti dibagi untuk diperiksa tim |
+| Provenance, ketentuan sumber, retensi/kutipan/redistribusi | Sebagian belum terdokumentasi/diverifikasi; deklarasi pemilik tercatat |
+| Split classifier, estimator Task A/B, fitur dan tuning | Keputusan Stage 5/6 berdasarkan label/support aktual |
+| Minimum bukti/aturan prioritas bisnis | Belum ditetapkan, tidak membuat ranking prematur |
+| Jurnal/template, tenggat pasti dan waktu kerja | Belum dicatat; SINTA 3/4 adalah target, belum klaim submission/acceptance |
+
+## 19. Integritas dan pemeliharaan konteks
+
+- Catat bantuan AI, termasuk kode, dokumentasi dan labeling; label AI tidak
+  diatribusikan sebagai anotasi independen anggota manusia.
+- Verifikasi sitasi, angka dan interpretasi; tidak membuat data, metrik, DOI,
+  gold, kontribusi anggota atau temuan bisnis fiktif.
+- Catat timestamp, versi, hash, model/prompt/config dan hasil aktual. Fixture
+  diberi penanda sintetis dan dipisahkan dari penelitian.
+- Dokumen tahap lama adalah snapshot historis. Perubahan operasional dijelaskan
+  melalui dokumen terbaru, bukan mengubah hasil historis diam-diam.
+- Taxonomy/schema/protokol/split berubah melalui versioning dan catatan dampak.
+  Revisi guideline sumber prompt memerlukan prompt versi baru/manifest sesuai.
+- Perbarui konteks setelah milestone/scope/model/peran berubah; keberadaan kode
+  saja tidak menjadi bukti eksperimen penelitian telah selesai.
