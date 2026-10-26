@@ -14,7 +14,7 @@ Otorisasi ini memperbarui gate operasional Stage 3 untuk persiapan manusia dan
 pilot terkontrol. Metadata historis Stage 3 tidak ditulis ulang.
 
 Seluruh 40 kedai masih **UNVERIFIED** secara administratif. Paket pilot tetap
-memuat status ini pada manifest privat. Kualitas label tidak membuktikan lokasi.
+memuat status ini pada manifest koordinator. Kualitas label tidak membuktikan lokasi.
 Dataset raw tidak dihapus. Keputusan wilayah kelak disimpan terpisah dalam CSV
 `coffee_shop_id,status,evidence_reference`, dengan status `VERIFIED_INSIDE`,
 `VERIFIED_OUTSIDE`, atau `UNVERIFIED`. Ekspor dapat diregenerasi dari arsip anotasi
@@ -23,10 +23,11 @@ wilayah lengkap, kemudian mengecualikan yang `VERIFIED_OUTSIDE`.
 
 Periksa [ketentuan Google Maps](https://www.google.com/help/terms_maps/) dan bukti
 hak sumber sebelum publikasi atau pelatihan akhir. Jangan menganggap layanan
-scraper atau deklarasi pemilik sebagai lisensi publikasi ulang. Simpan data,
-assignment, respons, dan label nyata secara lokal dalam folder `data/` yang
-diabaikan Git. Utamakan publikasi kode, protokol, statistik agregat, dan checksum;
-publikasi teks mentah/kutipan membutuhkan pemeriksaan tersendiri.
+scraper atau deklarasi pemilik sebagai lisensi publikasi ulang. Keputusan terbaru
+pemilik membolehkan dataset dan assignment kosong dilacak Git untuk kolaborasi
+kelompok. Checkpoint/respons AI, debug serta folder kerja/submission independen
+tetap diabaikan. Hasil final direview sebelum dibagikan. Rincian ada di
+`data/README.md`; keputusan berbagi tim berbeda dari publikasi ulang terbuka.
 
 ## 2. Lingkungan dan Gemini
 
@@ -117,11 +118,17 @@ ukuran nominal bisa berubah jika snapshot/pengelompokan berubah dengan alasan
 terdokumentasi. Grouping dihitung pada seluruh 3.582 review eligible agar
 duplikat di luar pilot dapat mewarisi split yang sama kelak.
 
-File privat koordinator:
+File acuan koordinator, tidak digunakan annotator saat pengisian independen:
 
 - `data/interim/human_annotations/pilot_manifest.json`: ID, split, kelompok,
   hash teks, versi, status lokasi; tidak berisi label.
 - `corpus_duplicate_groups.csv`: seluruh ID eligible dan kelompoknya.
+
+Repo tim dapat memuat metadata tersebut. Blinding tetap menjadi prosedur kerja:
+annotator hanya menggunakan paketnya, tanpa membuka rating/keyword/manifest
+split atau jawaban pihak lain selama pengisian independen. Gitignore bukan
+kontrol akses per anggota. Original yang belum dikunci disimpan pada folder
+`work/` atau `submissions/` yang diabaikan Git dan diserahkan privat ke koordinator.
 
 Paket annotator:
 

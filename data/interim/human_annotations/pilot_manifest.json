@@ -1,0 +1,2012 @@
+{
+  "assignment_version": 1,
+  "seed": 42,
+  "dataset_sha256": "7b87a53110041da74e976a6c9cb121c1dea7d73be70daeab58b2c07bef775719",
+  "pilot_sha256": "6f292784a9f9fb38e52d040460a37909e56ebdade2e4eae6bddce74cc5ccf48f",
+  "taxonomy_version": "0.1.0-draft",
+  "grouping_method": "exact+five-token-shingle-Jaccard.85-SequenceMatcher.92",
+  "assignments": [
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUM1cjZuY1RnEAE",
+      "coffee_shop_id": "place_id:ChIJG7Rn5TLFaC4RwzAM3_hNzgo",
+      "duplicate_group": "c605397b3afd83909704bbe9c07410a34f1cbcd0f2c854e479be8d2ea365db0e",
+      "split": "calibration",
+      "review_sha256": "7c88a1d8cadebc7c6527136fb033c39ee757efe9bc2393258f0c69655d435655",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUMwc3NQd05nEAE",
+      "coffee_shop_id": "place_id:ChIJhWAFOprEaC4RZmHTLF9KbWs",
+      "duplicate_group": "e523a8350939dceedc638d8a840f47c59cebe1d4b0ccde33d1f617ddb4f06667",
+      "split": "calibration",
+      "review_sha256": "9fdd025f99daa4a71099b5aa2663e4d4c81294801cbdbc360827f75f19e60508",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUN2bTg2aVdBEAE",
+      "coffee_shop_id": "place_id:ChIJaYLXTwDFaC4RxptNPVPk6oU",
+      "duplicate_group": "1e9106372317f2a258fa83d52a72e2609fe566fbc67143a5103c09d264be3b68",
+      "split": "development",
+      "review_sha256": "1cba589af2ce158b7513ca1995a99dc0cbf445ec542fc65095d778d37287b943",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUN2dU5lN1NnEAE",
+      "coffee_shop_id": "place_id:ChIJD3Kiwx7FaC4RUvNZlDxMEdE",
+      "duplicate_group": "b742b7c901ffbc5c8818d715dd55dcc6eddf6fb81cb9fd8d070a1947ae9bc640",
+      "split": "development",
+      "review_sha256": "584b459a639e0e691c854edd55358edd8cd4dfb711e2e7c4ebc263b3dbeb8d3d",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUN6allEc1RnEAE",
+      "coffee_shop_id": "place_id:ChIJs4LU4GHFaC4Rzn0YQ3kgIiE",
+      "duplicate_group": "fc402c466711c68661209151985eb332ab72eff1b1b4b611f3361dacddab4b0d",
+      "split": "development",
+      "review_sha256": "63a288a4c4383cfe4bf0ecc40a4d5f8612bbf79632844064fe80888be137e3ae",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNQN3RPNkJREAE",
+      "coffee_shop_id": "place_id:ChIJyWX2AADFaC4RVjgcebIxB64",
+      "duplicate_group": "ff7b7a9fb6c1dc768cbb4a71d340ee84db38236fce6fe8619828c14a2cc1bae0",
+      "split": "calibration",
+      "review_sha256": "63418568c03b7deb9c9f552cabcee1f50778c273cacd2e6e3024268a2311fb99",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNYNEpqWUtREAE",
+      "coffee_shop_id": "place_id:ChIJ3Vkw8A3FaC4RUVb8di3kkxU",
+      "duplicate_group": "28a76eb90460945ba4814816634f0735968d5a5aff9936978e2fb20f1e5d72a7",
+      "split": "development",
+      "review_sha256": "bee028ec1748137093f020ffce97bd8ab20f838cc713d01f77453a4bf699b3d5",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNfMzlMM2FREAE",
+      "coffee_shop_id": "place_id:ChIJjSdZ8MXFaC4RgdPUBsCQgJQ",
+      "duplicate_group": "fc24cf52c6bba455faf1d80dc1e39da4e3d4c99f28fbc28dd8f488f7ae2a3e64",
+      "split": "development",
+      "review_sha256": "ce4dc763dbb408f5ee2084df9dd3063dd9c15bf553b013832b0113ccc26d2225",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNfOXNUdEZBEAE",
+      "coffee_shop_id": "place_id:ChIJs3kudezFaC4Rm1XdaVNJLaI",
+      "duplicate_group": "2db37b3b011563cad16ddb6758738ac3734493f1f2c136e4d6c23aebd6bb8672",
+      "split": "calibration",
+      "review_sha256": "547668e5b163d59cee19113966fb2283020bd34c30b6f7346b0afc92ed117d30",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNfbVlXLVB3EAE",
+      "coffee_shop_id": "place_id:ChIJg8OgGdTFaC4RF_CwzybV9G4",
+      "duplicate_group": "0d18deb170faaf740a03f7388caf3b5874cf1f377f228f9a85ab88c9b612e439",
+      "split": "development",
+      "review_sha256": "c51c5769fb234660c18ba245a53e2bfeacabf545130658c875e869ce22cb6c51",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNod0tpWkRBEAE",
+      "coffee_shop_id": "place_id:ChIJtYL6JwTFaC4RIA9QZVH2QdI",
+      "duplicate_group": "5b40884549bf505d2c2c03b8022743e1d6686829206c0b85204de9f30ba2d020",
+      "split": "calibration",
+      "review_sha256": "13b59a4ac38d32c1f2b1e6c5cbb3dafb09d858551446856d06d0607e57b11c00",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNsMmZiZElREAE",
+      "coffee_shop_id": "place_id:ChIJf5P2qw_FaC4RbPhVUbcUF8E",
+      "duplicate_group": "18ea5d53fda834e940728b5dc1d9a31bb38e5b7eff66767b0b97e18549a2562a",
+      "split": "calibration",
+      "review_sha256": "5813b76f5582710fa7d3d6b479860ae2f5040643ffe4075c1d2a70cd02627730",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNuOUxqbWFBEAE",
+      "coffee_shop_id": "place_id:ChIJhaAnFIXFaC4Rcwb5m-UKFgw",
+      "duplicate_group": "0fd54d7773f8de1799520d50c421fb7298e663ff7ca80479b92bf13f3ce7905c",
+      "split": "development",
+      "review_sha256": "3ca1c7912efdc08255301a7ae6cd230aa2e710db2f0a77f8b230fb6430cb605b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNuaVpiTFhBEAE",
+      "coffee_shop_id": "place_id:ChIJhaAnFIXFaC4Rcwb5m-UKFgw",
+      "duplicate_group": "d214245d892191788e8ce4fb5b2fa9874d98ab47eac7cdc8a860dde98a9bea1d",
+      "split": "calibration",
+      "review_sha256": "e1be91d93a61602be90d157d281c307b8fc30e61ae3d4a018b9857401aeea394",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNubXJQWGZBEAE",
+      "coffee_shop_id": "place_id:ChIJhaAnFIXFaC4Rcwb5m-UKFgw",
+      "duplicate_group": "4ef0565de91046f0b4c9f4c1485e4d0e127459a3f481cd7ae48dd67a6d93ce69",
+      "split": "calibration",
+      "review_sha256": "770e607624d689265ca6c44884d0807d9b054d23c473c106c72be9de08b7376c",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUNwb3N6V1NnEAE",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "046244a1d59825badd6f01f5a1d82c3db2b24c3681ce142cb6c581dfe6084cce",
+      "split": "development",
+      "review_sha256": "e376925404a40149f5b4505e0b8e665d89d8250a28544f635b6d3f1f79eba986",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSUR6eE9QVEd3EAE",
+      "coffee_shop_id": "place_id:ChIJs4LU4GHFaC4Rzn0YQ3kgIiE",
+      "duplicate_group": "b2da66aa40b8c85f5138d0980861e1b35ad0df20d4347b906901205180533263",
+      "split": "calibration",
+      "review_sha256": "0a519fd4c799a02197d85df40c6f8ff1cdfa5836daa92a6295e3b05cce534743",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSURCaTZLcWJBEAE",
+      "coffee_shop_id": "place_id:ChIJf5P2qw_FaC4RbPhVUbcUF8E",
+      "duplicate_group": "686f6e3e033503fcf614e9dd124221a09001a3b5cf896ba3d9b5625d8b6d7966",
+      "split": "locked_validation",
+      "review_sha256": "d5d477430d91f1779e7c31d9fb028c03fd8d1b7e8755dae4365b4ca734c9ddee",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSURIdS1Eblp3EAE",
+      "coffee_shop_id": "place_id:ChIJhaAnFIXFaC4Rcwb5m-UKFgw",
+      "duplicate_group": "470c97539cbc045119594dbb2c5d8a77c0b13dfa8cc2ab97b940a0e63fa053b9",
+      "split": "development",
+      "review_sha256": "7b6019e02a8abe5dd24207e88065736c05e4cdf51306965ccdadcdc4c1965149",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSURKLXVHY01REAE",
+      "coffee_shop_id": "place_id:ChIJt5vE1wHFaC4R0Kq0D8v6Ys0",
+      "duplicate_group": "d384f7b878f08dc0c4c8be119e02da2111586d81f459d3b672344190ff65c666",
+      "split": "development",
+      "review_sha256": "91a6408089af0f86db08b0b265499ac9548a1b90f0fadd9f7bfbab0783104160",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSURaMDlIMkR3EAE",
+      "coffee_shop_id": "place_id:ChIJG7Rn5TLFaC4RwzAM3_hNzgo",
+      "duplicate_group": "dbb72507023187bed7937a79b78b538ca232a18361399ac21f9e770156b5e150",
+      "split": "development",
+      "review_sha256": "02f65c386cfb269389b53d829ed26c411e7fe611ffa69abfa357bcdc1b6e1d28",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSURfLWRXdkVBEAE",
+      "coffee_shop_id": "place_id:ChIJg8OgGdTFaC4RF_CwzybV9G4",
+      "duplicate_group": "a1b787caf4d441c9ca6e555700d4d71d7690ec76eb238ea9e2f88724d19d8f94",
+      "split": "locked_validation",
+      "review_sha256": "ff9fe6b5d23a9d5464636fb00e2884f1769cc443e2f821d6ae3be2c87078c8e5",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSURfeWZYekF3EAE",
+      "coffee_shop_id": "place_id:ChIJg8OgGdTFaC4RF_CwzybV9G4",
+      "duplicate_group": "b81f9bab6c5208d67f3869b1679338c085536d4599daca74e280c415be2e669b",
+      "split": "development",
+      "review_sha256": "e6b412f4ce64b44660d2a9b8e67bd8a886470ca3def7f9a072fdbbb57951dc80",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSURidEtUMVFBEAE",
+      "coffee_shop_id": "place_id:ChIJt5vE1wHFaC4R0Kq0D8v6Ys0",
+      "duplicate_group": "443235fea0471ab34bb503f79c8442e0c084cce5fc2ae2e3962c73568139c0ba",
+      "split": "locked_validation",
+      "review_sha256": "dc1143c7b608e9d59ada7717a516ec9499520565123969bafb3cb97d43bbcb56",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSURmbS16aGZBEAE",
+      "coffee_shop_id": "place_id:ChIJs3kudezFaC4Rm1XdaVNJLaI",
+      "duplicate_group": "7bdadec8d83e7d2c6a588c39c8f181a8c1e6e0831615dd116349e23ccaf4f6df",
+      "split": "locked_validation",
+      "review_sha256": "bfa5463b093318696a73d1d3175a17c3fdca4b31588a2fbc3cf6ba6c8a89386a",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSURudGV1d2F3EAE",
+      "coffee_shop_id": "place_id:ChIJ97upDAbFaC4RZmnCqoj3EJ4",
+      "duplicate_group": "fc24cf52c6bba455faf1d80dc1e39da4e3d4c99f28fbc28dd8f488f7ae2a3e64",
+      "split": "development",
+      "review_sha256": "ce4dc763dbb408f5ee2084df9dd3063dd9c15bf553b013832b0113ccc26d2225",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnSURwdWNXYVZ3EAE",
+      "coffee_shop_id": "place_id:ChIJ-cfM_abEaC4Rergrpb40f0s",
+      "duplicate_group": "10c9d9db0f71878d5627268bdd822e5b2835aaf57699d9b8bf150e209f282d55",
+      "split": "locked_validation",
+      "review_sha256": "506e9d10a267132edc0969d59875a2946eda42f5b23a8ad73454e1f48b3c17b0",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VJQ0FnTURneThESUNBEAE",
+      "coffee_shop_id": "place_id:ChIJN8u3FwDFaC4R8xU3Ilzh_Lw",
+      "duplicate_group": "7578655d3501ed24e9cbd355b5db2ff938c8f51b89bb4b70f623df5e10524ae5",
+      "split": "development",
+      "review_sha256": "317219e3edc5b68ed6c63379859f0d6f031e7e7a325bdd5d583ec6f1bb461d3e",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChZDSUhNMG9nS0VKekF6ZmJybnBqb1FREAE",
+      "coffee_shop_id": "place_id:ChIJjSdZ8MXFaC4RgdPUBsCQgJQ",
+      "duplicate_group": "94aed9b62c75e9174ff39c7749419b3341d15bf0d8eee01d8da8d6c8707989fc",
+      "split": "locked_validation",
+      "review_sha256": "26bdbc7d533991bb6017985e97136ae8fecd7fb732f9a3d0f05272b5127668db",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUM1X01MczhBRRAB",
+      "coffee_shop_id": "place_id:ChIJf5P2qw_FaC4RbPhVUbcUF8E",
+      "duplicate_group": "73e70167e043eade87d179cf6a6796a7f4f90adc331fa0d84cbd6d5953148043",
+      "split": "development",
+      "review_sha256": "434cda239d451d3bfec2117c92ce0f0196c772b92d360541b6fea031affe424b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUN1MnBXV19RRRAB",
+      "coffee_shop_id": "place_id:ChIJ-cfM_abEaC4Rergrpb40f0s",
+      "duplicate_group": "4ef0565de91046f0b4c9f4c1485e4d0e127459a3f481cd7ae48dd67a6d93ce69",
+      "split": "calibration",
+      "review_sha256": "c939327ca16dcf97ca32521d8b834bf1de16573d21deda3bb2a337cf403787a6",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUN2MDVuaDZBRRAB",
+      "coffee_shop_id": "place_id:ChIJaYLXTwDFaC4RxptNPVPk6oU",
+      "duplicate_group": "7127e502eba8afc6f8dc21e6c4b56784307e39cb67c15f23e3087319b2df6652",
+      "split": "locked_validation",
+      "review_sha256": "bbc5d383e721854c0f24091bb420e564bd9179de6c556acec44168ee30659033",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUN5cXREVDB3RRAB",
+      "coffee_shop_id": "place_id:ChIJt5vE1wHFaC4R0Kq0D8v6Ys0",
+      "duplicate_group": "d9147d3acf13ff3ffb64abcfd967dfb5ed3814b98046f7c81f02344b173422e0",
+      "split": "development",
+      "review_sha256": "8901954ea070e5e0b252ba3b2957a1e25dafcb613c187db4c513363f2f6c0cbf",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUNKdUxqRG9BRRAB",
+      "coffee_shop_id": "place_id:ChIJf5P2qw_FaC4RbPhVUbcUF8E",
+      "duplicate_group": "6d423df31988cf58f0dedd16cc6e8a00409479399c83349499618af2455c7617",
+      "split": "development",
+      "review_sha256": "23c7dadc6241593bda148152dd4058d33c626cef86b58c794e69089bd0df03a2",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUNPb3V5TGtRRRAB",
+      "coffee_shop_id": "place_id:ChIJtYL6JwTFaC4RIA9QZVH2QdI",
+      "duplicate_group": "0df16d7ce18a8d649a6d2573859312c4451c8727ea8c3a54ee0a37905705c325",
+      "split": "development",
+      "review_sha256": "0b5eca62a89ffdbef6bb5aa28166503fc6731e534a5d136c218dff2837c34f5f",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUNQOGY3VThnRRAB",
+      "coffee_shop_id": "place_id:ChIJyWX2AADFaC4RVjgcebIxB64",
+      "duplicate_group": "4b24571bec6e1972c9926bbda250e4cb8f0486c5bab530dc9583ba53d1eb9a71",
+      "split": "development",
+      "review_sha256": "d71a49135faeb8f8330f2b30dee6b1b39f5ca558fc02b2e9f5931b6fc8a68e26",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUNUaWJXdzRRRRAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "0c6e60d330bee53e5bfcd165cea2c622326c752d5c90b77e4f1a8e741b3aba87",
+      "split": "development",
+      "review_sha256": "c524c358d10bb647616cc442fe6801c0c9d89e4bb07283f4ad4483554125a144",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUNaNmZ1MHJRRRAB",
+      "coffee_shop_id": "place_id:ChIJf5P2qw_FaC4RbPhVUbcUF8E",
+      "duplicate_group": "4badee51f05bb37c17946257cd8ba42c08d092b0ac863de50a0cfaa29a0e9e17",
+      "split": "calibration",
+      "review_sha256": "2d40fa9d63e2090dd3a0c38af2d395a5b109d196e4b6609a6d9803132ff044a7",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUNfMmJybjJ3RRAB",
+      "coffee_shop_id": "place_id:ChIJs3kudezFaC4Rm1XdaVNJLaI",
+      "duplicate_group": "f09bc66698136000a48a4023f59692e62a3932025266db7632463513dac68924",
+      "split": "development",
+      "review_sha256": "b9272cb136390a6e7c0ed0ecd0cf3cdb7e5e037e5a8ab8e1a58e0246b90a8b4b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUNfOVpLczRnRRAB",
+      "coffee_shop_id": "place_id:ChIJs3kudezFaC4Rm1XdaVNJLaI",
+      "duplicate_group": "83244f252770a1f973951e760e57ea1a51237b6a0cc7fb037838dbbc67b84ad2",
+      "split": "development",
+      "review_sha256": "3f5d2515a6f43b1fa983427e3d467ae9efa9f86696cae29ffa8ced6fd19c0a73",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUNsNU1mc21RRRAB",
+      "coffee_shop_id": "place_id:ChIJk0u2tInFaC4RNsp-izRMrBs",
+      "duplicate_group": "a23cc8e1559e4848e408f90586a972649094e30f47100c0ffc13e52f6f2809b4",
+      "split": "calibration",
+      "review_sha256": "583495833c016bf7f2e26c4dd863677f14012660705592959348b2e4842f759e",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSUR1eC1uMjFRRRAB",
+      "coffee_shop_id": "place_id:ChIJ-cfM_abEaC4Rergrpb40f0s",
+      "duplicate_group": "aec6f1744fb1087a04619d0f7f52619ec64bb91e395aa9ae5397f03447b550a5",
+      "split": "development",
+      "review_sha256": "84f4b79cd7a1ad73e1c27fc0105289c74a1ee18a8bc7cbb435dd36e2c9871150",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURIbjhHVm1nRRAB",
+      "coffee_shop_id": "place_id:ChIJhaAnFIXFaC4Rcwb5m-UKFgw",
+      "duplicate_group": "a85ea14047e7fb37f87ebd648569671032f2e54e2ebc2a0879de844ea68f1d3a",
+      "split": "development",
+      "review_sha256": "3b1a5195ef9feeadd8763108dd01516b8c3479a539a2549d9c6221d5c658a023",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURIcWVhWDFnRRAB",
+      "coffee_shop_id": "place_id:ChIJ3Vkw8A3FaC4RUVb8di3kkxU",
+      "duplicate_group": "333d81b4132868463abaa324f13fca95feb240a6bffcd94363152d7360e598dc",
+      "split": "development",
+      "review_sha256": "6e987132dfed270bf4809fd6edb722e02b2edd3cd975d4719d3451d5bcc48a32",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURKaWRDY3pRRRAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "35fff50f3013d244eaf9181596c442fbc63cf3a768d1e22ed354b29d872d6688",
+      "split": "development",
+      "review_sha256": "12afebe90d93be3d1f846cb95fe7bd3c47761793585c34e5eb5da9413caebb91",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURMZ3B1YzlRRRAB",
+      "coffee_shop_id": "place_id:ChIJR6Us0trXaC4RdiC1gkwbSlA",
+      "duplicate_group": "8ae2ef243ef8c242737f9da13902d26dea8bdd2c089e79390a2e1867d42c3686",
+      "split": "calibration",
+      "review_sha256": "b0d74196833633145dac00af0d993485f45544cba17f0e9b3cc8f6d7f7a914be",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURkdnZxUTVnRRAB",
+      "coffee_shop_id": "place_id:ChIJt5vE1wHFaC4R0Kq0D8v6Ys0",
+      "duplicate_group": "7a1487cf3456ffc073b4a76496c95b77db26da6bf78715524f03abca4542363c",
+      "split": "development",
+      "review_sha256": "28d38e8820b99028909c3b0a85c4a1af15157498da2112b9926d7d0a0491fe66",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURlLWNIMWtnRRAB",
+      "coffee_shop_id": "place_id:ChIJESf19HPFaC4Rj2ojMGeY_QI",
+      "duplicate_group": "91764fbac784db4d9c5cc2051fd22b06c219561c9548f785c5b9df0e7ba0f661",
+      "split": "locked_validation",
+      "review_sha256": "76056f57934d6de89a78c3d831913cbf75c9c21b562376ded74c1d01e6daf745",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURmcmRqZXdBRRAB",
+      "coffee_shop_id": "place_id:ChIJg8OgGdTFaC4RF_CwzybV9G4",
+      "duplicate_group": "4a0b88b91549d2c9207f85bdafe25549be004482c21bd4378453f2d3294d1ef4",
+      "split": "development",
+      "review_sha256": "eb21d68dd34e406fb2c8bdb696f1f20336c1786fabb99418a79b159b06a3662f",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURpaGJhTWxBRRAB",
+      "coffee_shop_id": "place_id:ChIJhWAFOprEaC4RZmHTLF9KbWs",
+      "duplicate_group": "2b249fc4bdaa82671e2174f17f8c82a0e4e3603ab028f744be092ff51696f5a5",
+      "split": "development",
+      "review_sha256": "e37cf16aca7fd7a7df9017b355993ef51295d858f565edd4b14c48c2ed2deab2",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnSURud19mbXJ3RRAB",
+      "coffee_shop_id": "place_id:ChIJ3Vkw8A3FaC4RUVb8di3kkxU",
+      "duplicate_group": "c126af4729379a19f120f2ed2ad3ed24e852837909964d7a23f7ef2343ef2cd3",
+      "split": "development",
+      "review_sha256": "dcde5510b9c222d986a7ffd88d128a7643892b90c04077be76421ca8748706b5",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNZbXNITmlBRRAB",
+      "coffee_shop_id": "place_id:ChIJk0u2tInFaC4RNsp-izRMrBs",
+      "duplicate_group": "cca24660c0cb0672a4b2732696dd09faca59673808873d3aa2bd15e2bd94799a",
+      "split": "development",
+      "review_sha256": "e7c56ad04e529a1a8d6dcdce8a28082ddcb937c67a5a0d5d3109e8f8d1ba5888",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNvaU9HdHB3RRAB",
+      "coffee_shop_id": "place_id:ChIJG7Rn5TLFaC4RwzAM3_hNzgo",
+      "duplicate_group": "30b78ab3eac23eb31bc861b2379bb4d6f5b406b885f29a9c23400ce49628508d",
+      "split": "development",
+      "review_sha256": "081744958b886126821fb76018de21ea1bd8cd774354ffaed516371916eff394",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VJQ0FnTUR3NU1IeGx3RRAB",
+      "coffee_shop_id": "place_id:ChIJ97upDAbFaC4RZmnCqoj3EJ4",
+      "duplicate_group": "37cfdd42b77370d751c9eea558356cdab2fcb0647ba5e1f7460d721c34e3e331",
+      "split": "development",
+      "review_sha256": "de4f7d4e7b33d62d3e21c429725cf440ff8360d7279cc65dd1b8a8563fe87dd3",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "ChdDSUhNMG9nS0VLeU1vUFg2bXFudnVRRRAB",
+      "coffee_shop_id": "place_id:ChIJN8u3FwDFaC4R8xU3Ilzh_Lw",
+      "duplicate_group": "9089a18a80f70242c74f8493be9a3da5572ee97c32cbf6eba07a4382d6e021bd",
+      "split": "development",
+      "review_sha256": "f5b7e4b77b0311b7dac1f51480f5704a24e43fc3e729dc704a1a7dedca547e4c",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT200d1dETlpWblZSUTBWYU5FNVNNbXBTVjJSRFVuYxAB",
+      "coffee_shop_id": "place_id:ChIJG4zVdlTFaC4RoV1evBcbDdc",
+      "duplicate_group": "ddc71814c11600ba0f07df9914b745b81337b98e1293578f3151ecbcda97bcda",
+      "split": "development",
+      "review_sha256": "2ef2f847000cb2a510957d504c527b9165575db4805b25ed62a4518b4c53ef54",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT200d2RVRnJiaTFmWlZOS1dEZFNlVFkxVTFremFWRRAB",
+      "coffee_shop_id": "place_id:ChIJESjk8CvFaC4RxqXyjed_Ccs",
+      "duplicate_group": "1d969ba1275121c350657ae607bf70ea3da8c041ae9c45baaea3c3fa2b1c3dd7",
+      "split": "development",
+      "review_sha256": "1a7c4f1887648ed9b490e282519466f548410f9480d2d9c1a2fb34229536123b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT201elF6ZzJjMFpqYjJwWGFrWmZNMEZXUkhsdVdFRRAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "56822b4e7bf0611c2306e00259181ead61fb8ed4655d2c2202af093388c98c58",
+      "split": "development",
+      "review_sha256": "88f34e68f810aaab78c4ad0901190266efe1ae309f3d822541c427a270aac486",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205RVNrVnFabUpKZG1sT1REVTBRMHBOVWpWME5VRRAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "01a5b9a2776b79bb6a42062e253b14d96638e9f9914ca8b41627d51ad3de2964",
+      "split": "development",
+      "review_sha256": "d64d48c76f74022708373c797915b58d837ec426b7ea6b1108734a5bced84056",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205VWRrRkxRbU5wTFZad1R6TmhMVk5pZDBkclNVRRAB",
+      "coffee_shop_id": "place_id:ChIJEYk-kg7FaC4Rzcpqv6QePJQ",
+      "duplicate_group": "f5212773ae9261ea896adc2291e587f4fabca7e4803c017efa7b8cdd65d3bb7e",
+      "split": "development",
+      "review_sha256": "5db9886051aabf61a5d105f6add38fa9a87f45cae44edaab76cb377e7f7eb8a3",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205WFYweGZhR3hPUkRSeWRHMDJkRmM0WDNoMk5IYxAB",
+      "coffee_shop_id": "place_id:ChIJD3Kiwx7FaC4RUvNZlDxMEdE",
+      "duplicate_group": "2a7a09c3f3bf7cd37c08abd3c24e6512397e0fa33499ce5cc456bf23e82120ca",
+      "split": "development",
+      "review_sha256": "716241f219e9b5542621e1fcb785c663be01d8361a446c2e3b24383e50050eb7",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT20xTGFETlFWWE5PVTNCeVJrcFlWSE5OU2xCdE9IYxAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "535bc75c5a2424556b4f35e220cbb103fa66d98f3b2ac7ffc57532836c6b4e32",
+      "split": "development",
+      "review_sha256": "d8a6124b26ecffa859470694ee97b55d83b4eb99d755d5ddce3f58934be5fc6b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT20xWVJYQmFWbXM1WkU1UWJDMU1TV05TT0VKNFNsRRAB",
+      "coffee_shop_id": "place_id:ChIJESf19HPFaC4Rj2ojMGeY_QI",
+      "duplicate_group": "4f99cf5320687151ef9661f02a1a4210fecd16775b6e9cf3b2521731a832c8fc",
+      "split": "development",
+      "review_sha256": "bd73c470cd08381fe9f2c05ad7b38587ed26a7f2b2eeb429c4b3f0347baab717",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT210UGVWSlFYM0JFZFdrek5HWkpORVJEUzBZM1MyYxAB",
+      "coffee_shop_id": "place_id:ChIJjSdZ8MXFaC4RgdPUBsCQgJQ",
+      "duplicate_group": "67eed1b44a41e9303de8e625edeab4c15859c63ded5d97c70a4d0085a67c9cd1",
+      "split": "calibration",
+      "review_sha256": "b773805cb30e6983a1db36a6798106d32e672465e445e13af3fef5c93c5ab5c5",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT210YWIwdGpRVmM1ZHpSeE9XRllaVVJJVEROTWRGRRAB",
+      "coffee_shop_id": "place_id:ChIJk0u2tInFaC4RNsp-izRMrBs",
+      "duplicate_group": "962a4d78115d9eadc096280817a372bd4acca21ed9760abfa98502fb445f956a",
+      "split": "development",
+      "review_sha256": "3849730a29fb7167fed650748a879a20c4cfecf910e650151cf9bc658a72a086",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT210aWFXWkpaMGxIYVV4c1VEUkRVbTlEUldkT2QyYxAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "a9aae61a42fecdfdad7557683db0d9fb43e91905e9bd54b7e9600af2dd5ede8f",
+      "split": "locked_validation",
+      "review_sha256": "4e7b68a507483ec5a700640d4260ce8e06790b45da4550356be4e435f2508260",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT214S1ptaHRVVWMxTWpSdllVMXpTRmRJTVd0TFEwRRAB",
+      "coffee_shop_id": "place_id:ChIJAXSIPwDFaC4Rfx8Y1f4oESA",
+      "duplicate_group": "5524e10208a0490f7d82749d5cb0c10c57e153f6f9a0ad114eed6ef4b36d9e8d",
+      "split": "development",
+      "review_sha256": "4e902ba02767c41c0811a4c4612d581128d718602a48a3dbca529096fd77fc12",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21FdE5WTkpiR2h5Wm5NMVMwdzRVR2RCVkVWTVduYxAB",
+      "coffee_shop_id": "place_id:ChIJG4zVdlTFaC4RoV1evBcbDdc",
+      "duplicate_group": "c0113bd0523469cff05e1515c7b99dddd20f6b4f1c1dc07c9e3c32cd88b0f4d0",
+      "split": "locked_validation",
+      "review_sha256": "cc918a074cf4efb5e0f0d1d6dae33433b52ae48395498bc10f120baec1a3e459",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21FeUxUZHFhVFJuVVhGU1RqVXhUek5WYURkNWJXYxAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "b5ee3707dcd802e3080e4f2d276031c3586bdfd7d6628c83423b8a01a34af6d7",
+      "split": "development",
+      "review_sha256": "f018264bdf64f3b9d405f7edbb3be528f43dcf2dd44a242da23e86d2b2dd9e46",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21GTFpUaGhNalJ0U1ZobGRXNWhjR2RxWWxSNWRWRRAB",
+      "coffee_shop_id": "place_id:ChIJR6Us0trXaC4RdiC1gkwbSlA",
+      "duplicate_group": "723e84f54b36f4b62710415783677025960ac8cc168fc24a33bab94331234ca7",
+      "split": "calibration",
+      "review_sha256": "5660d577b0f4030e11c87f61de350e09ea024b236cdf7c81f91c5115aa2ef119",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21GWk9GUlpTbWN6V1dzeU5uaFZTVlJPWjI5Q1gwRRAB",
+      "coffee_shop_id": "place_id:ChIJaYLXTwDFaC4RxptNPVPk6oU",
+      "duplicate_group": "f9b73d96f9c52c684ba1a972fccbdf2092621d4256a5e6816be479c6db81f146",
+      "split": "development",
+      "review_sha256": "f07d3641e69544c099bfb3e90f4797470c6955545662220bcd7a20e7a894006f",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21GWmQwNTFkV2QzV0U4NGJtMDVka3hHY0RCQ1JFRRAB",
+      "coffee_shop_id": "place_id:ChIJG4zVdlTFaC4RoV1evBcbDdc",
+      "duplicate_group": "2cdba42d689a106aa42ae6c1f5727871fa60a7c6948276853de20012ba39365d",
+      "split": "development",
+      "review_sha256": "7257e28d9516ada9949b743c0980baf1df1e871b40b66a63e06c2acc00c40865",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21GaVJqZG5iMG8xVUdkWmJWQjNSVEJ0WHpsUlRYYxAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "9760ab9970570182ad1689493354937fbf42d2bc286c0301163f54689e6a9a15",
+      "split": "development",
+      "review_sha256": "4d871fbffcc1bc567c1e41b77b47c3af82b57a4f45d1d9e3a3843fb4e7033529",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21GbmIwRnFUblZOUWpSVGFHTkxWbVJ1TVhwM1IzYxAB",
+      "coffee_shop_id": "place_id:ChIJV5EXlPfFaC4RDRK6u55TS8Q",
+      "duplicate_group": "29500fe88b3fd7a77d8275b63669fc935efef4c60c39f08a8b2c30eb342bfa5a",
+      "split": "development",
+      "review_sha256": "cdfe9fc3b38a0ecbd4770b1cdf919b1b7f5c86fcf7699ac14c76c352baa52df9",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21Gdk0zcE5PR3hxTmtwaU9YTjJjRVJGYURWd1IyYxAB",
+      "coffee_shop_id": "place_id:ChIJg8OgGdTFaC4RF_CwzybV9G4",
+      "duplicate_group": "19b378d892224c9fbfad07b8944f52ad5c1218d9c7dd6ef2aafba5f0dbbfc5e0",
+      "split": "calibration",
+      "review_sha256": "48156a993532b6d67f0120093336241ea23291461a71178928089a3d70032237",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21JMGMzSmZkekZOU0Raak1HNHpZV2d6U21SbVNIYxAB",
+      "coffee_shop_id": "place_id:ChIJubPydwDFaC4RxUjjmuP9Im0",
+      "duplicate_group": "5a19a32b2f8450a6956e00fc2db00988f3256479d56a818f4af3bbd1592780c8",
+      "split": "development",
+      "review_sha256": "ac3c5d700c30b443b557691ff9646c6ae6f21451878a32e3763f76b2e4e7690e",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21OM1l5MWlORjlNV0V0TlkzQk5abWwyUmxWd1pFRRAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "4b1c3c50e6b8f06e3dff89aad22fb075235a146fed6f57a39547ddc652906a5f",
+      "split": "locked_validation",
+      "review_sha256": "7a9ce5e38e7e43fbd0cf9f9e014a9dca1ab2bafa5b8d77fdd458a4205af47364",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21ONk0wOWxZelZXYjFaUU5qVm9NMlJhTkhBNGFXYxAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "3a3750217dd40b97952e56f9365f6f2143a7d95accedfb3a1b8961d57f420ae8",
+      "split": "development",
+      "review_sha256": "4bc00ca2fc3ae6d8e77ab81f246cd543fb6d36d0aa458fe7b9ba931d692b577f",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21OdFRsUnZMVEJUVW1kaWFXaG9OVXhZVm1vMlYzYxAB",
+      "coffee_shop_id": "place_id:ChIJR6Us0trXaC4RdiC1gkwbSlA",
+      "duplicate_group": "2d6feb6f709a66d6bed74670cfdaf8f76b1a4f91e3d64d1c79d5fb348c0ba809",
+      "split": "locked_validation",
+      "review_sha256": "e242048cbfad7b997be222ec1328fd7b75160c338908f8bed401e9b9714a0a59",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21SVFJqQmpjVzFRVFUxeGVuSXlXbWszVldKa05tYxAB",
+      "coffee_shop_id": "place_id:ChIJA3DPaQTFaC4Rovkr-VOJEuI",
+      "duplicate_group": "7490107aa477e0587783d4124429a0dc4418043fd93d4b7d69c88208bd06f450",
+      "split": "development",
+      "review_sha256": "64e89dcae2e3c16b88b16e0b13b8a38e64fd9bffab029ae0893e18b5b2344a0d",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21Sdk9IUjJPR0o0TW5CdVdqZEVTRzVWTm1wV2IxRRAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "07c292c61ca768540835461063c50fec4577fde8762d56237dd011286d9e5d4c",
+      "split": "development",
+      "review_sha256": "000f07b478cab4c72e54a473a54bd459e4c3b904c3d71cdbab2cd7f2635b8126",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21VNGFsQktRWFo0YkZscVRHeEhMWEZwV1RSMldFRRAB",
+      "coffee_shop_id": "place_id:ChIJG7Rn5TLFaC4RwzAM3_hNzgo",
+      "duplicate_group": "70a689348b2be7b5de0ecf888efe10511a0113588facdc1b821acc4e46410bdc",
+      "split": "development",
+      "review_sha256": "8172775be1cfc097ec312455362559ba58f83e85665c4127049148e328ad53c5",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21WMU9WWklURGRCVDNKa1UzQTVRME5MU1hsb2QyYxAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "3bcbc5dd61af05809679fe6d402315473736468b48df0b51c0979ddb2db03184",
+      "split": "locked_validation",
+      "review_sha256": "f129f6aeef114f83e832e7cd92b0b9decf672e283a13e6ef6fb1047413497722",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21WSFIzbE5URlp1ZGpOUGFVZGtUWEE0WWtneGVIYxAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "87ef6a7c0063ee1cc10fa5f9c5b3ab084bb8f06b6b075fbd9ada1bb12117bdce",
+      "split": "locked_validation",
+      "review_sha256": "cec68d988ecdb656347268cd8fe2a722f8f0a1a8a59c940add549c7a8c690523",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21WSWNXZExTRUZyU0RCNFFWUTVhMWxpZG1saFVGRRAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "73f49f7e9a663c18e138ec4559efd889289a12975204554e9746dde80b008d74",
+      "split": "locked_validation",
+      "review_sha256": "4518a8dbcb13ad7e3d19f58a26811c6f4b79abb20b34237c911b546b1393bf00",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21aWWRXWkJiV0UxZDJVMU9HWnlXVkkyVDIwemFuYxAB",
+      "coffee_shop_id": "place_id:ChIJn-uHCALFaC4RRJN_2efiaXI",
+      "duplicate_group": "817f5e21498a068b0bbbb654e19b9cfdd8325c525afb668cace7a6656282c9a7",
+      "split": "development",
+      "review_sha256": "ca813c771833bb7e97139952e5d03ba14711b6a036bb21ffc2a3ff4992b6695f",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21acU5sWlljRFZPU0hOQ1VHcHROSFZMWlZKMloxRRAB",
+      "coffee_shop_id": "place_id:ChIJubPydwDFaC4RxUjjmuP9Im0",
+      "duplicate_group": "ddc8867d7b4cf982b752cab0adb475c132ab1df3a52dac8e766ab804c1a4528c",
+      "split": "development",
+      "review_sha256": "64d50347262174c28cfe90544db04e82279fc5b60fb3a8abcc4f787f7c6634d0",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21kMGEyOTFWM1ZTTUd4SWFrbG1hbHBJU0RaWU5tYxAB",
+      "coffee_shop_id": "place_id:ChIJA3DPaQTFaC4Rovkr-VOJEuI",
+      "duplicate_group": "a468dfd7c9c8c765b511e792f5d2d8b05b04fb8dd0b562934a0ea0ad8e657bac",
+      "split": "development",
+      "review_sha256": "b578ddeffc7dab73a06a328e234f91123d3b9864ed6144730ef0eb31a2f2ec9b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21kRmNtRnhUakY2WDB4MVJXSkRWMGx4TXpOemMzYxAB",
+      "coffee_shop_id": "place_id:ChIJWYkCVdLFaC4RKMzVdVu8iE0",
+      "duplicate_group": "c69f9264743ecc9584357a2544dc5b0324b6a08d322cbcf873532bd4b4715928",
+      "split": "development",
+      "review_sha256": "f70a5923cb15cb4148f5bbc0cf962fb380c1a06e22c036106fc552e8c5100458",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21ndFFuaFljVlEyYTNJMlkxRnFNV1E0WkUxT05rRRAB",
+      "coffee_shop_id": "place_id:ChIJg8OgGdTFaC4RF_CwzybV9G4",
+      "duplicate_group": "c63b1a530f32d3310fa39102ef511efd4dc5555736920d636e926f513b3182db",
+      "split": "development",
+      "review_sha256": "e306dad13688596abb0f9fcc80f13c278b7c70341e80bb32a135bf146a546910",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21ocGNWVmpkM0pqTjNjd1JXcEVhRGh3WTNWU2JYYxAB",
+      "coffee_shop_id": "place_id:ChIJUw0tP3PFaC4RldVvxGfgNBc",
+      "duplicate_group": "89fae8460ebd35cf1cd0ff4aed752853f30791c63dad872b1504d2213f94749b",
+      "split": "calibration",
+      "review_sha256": "f4aa7aa01f34dcf1e866ef53d1461c894f2e4f33dbcd8de105bb947fa338a9de",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21sVFZFUkdaRFp0Wm01cFIydHBXbEJEUVhkNVptYxAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "fdb00c37b24db0ea784a84a92041dac9d5b6692cdaa0872cc90eab56a33f028f",
+      "split": "calibration",
+      "review_sha256": "b6f731d8448a7565e82234f8eb726aedb1f6909ed589b5c4c3d522c1ca6fcfa2",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21sblgzWTNORWxvTjNWNGFEbEVUelowTVd0blgyYxAB",
+      "coffee_shop_id": "place_id:ChIJEYk-kg7FaC4Rzcpqv6QePJQ",
+      "duplicate_group": "654ea182cdb886c53483c7f54d3b3da37b15adc158011275326005bad0cc2cc7",
+      "split": "locked_validation",
+      "review_sha256": "8fa8d514f0dbf2a214514b91c4ce106e0b34faeb4c67be84810901f3fc174b81",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21vNVdVRlBUSGRmYzE4M2IwZ3pUblp2TVUxalMwRRAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "3af42718d05fee0d468490db9022c28c0c5cdd6d11e0f36b1df4551c2d10416b",
+      "split": "locked_validation",
+      "review_sha256": "b07159c21c28013e616857fb68db91ca21e3feb6fe52db3759d3a8aeb5e016ef",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21wUmRqWXhiRkp0TkdSc09GaHBTMjUzYjFGV1IxRRAB",
+      "coffee_shop_id": "place_id:ChIJUw0tP3PFaC4RldVvxGfgNBc",
+      "duplicate_group": "3b9bae230a9e4bf9869a478244d60b17c553738617f1d06330f1ccdaa72c7d4f",
+      "split": "development",
+      "review_sha256": "10e60a51f2bf55ae03589091ed43c27ae7ded13686f2362cce72c338bfe96d1f",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CNFYwRm9lbXhOU0daVlYyeHBRelpqU21KVmEyYxAB",
+      "coffee_shop_id": "place_id:ChIJcUXA8dHFaC4RvqSQfANop64",
+      "duplicate_group": "74a313163e972a562a9e44b9508ef75c1bec7c4172c037f5d3b53cbf9ccb979e",
+      "split": "development",
+      "review_sha256": "6b026af665a4b54ef2947be038837d0996ab92f1e73fb191d019582484479bbc",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CSU1tOXNOM3AyT1ZWYVgwZzBWVkJXYUhVemJtYxAB",
+      "coffee_shop_id": "place_id:ChIJV5EXlPfFaC4RDRK6u55TS8Q",
+      "duplicate_group": "4ef0565de91046f0b4c9f4c1485e4d0e127459a3f481cd7ae48dd67a6d93ce69",
+      "split": "calibration",
+      "review_sha256": "c939327ca16dcf97ca32521d8b834bf1de16573d21deda3bb2a337cf403787a6",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CYWNqWkhSMmxsZG5CMFVXWjFkRlZLUkVwRWJGRRAB",
+      "coffee_shop_id": "place_id:ChIJobvDql_FaC4RaI3AOTkygHY",
+      "duplicate_group": "4ee1e43357f7a5d61144352d5e4be27046fe047f7e3b9544ba1ae1202c461d37",
+      "split": "locked_validation",
+      "review_sha256": "2686b5cfe437a3d73596257bc54fdda7a7e043275547450ceb1642e27c5fa875",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25Ca1p5MTVSVU56TTNreVVFeGtkbTl3WWprM1JWRRAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "59043a6b39fd7db48e1316891e6f64b75624d6ea3541575503eacdd4b97aac2e",
+      "split": "development",
+      "review_sha256": "9e61b0637acc58a0db7b118b9ae4effab4d0c1c6c2bf6cfc4acff6f8eb442b59",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CaGVtSkVWbk5GVWtWelh6SnFORk0wVmxrMGJHYxAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "f5c8e47ee46744307b01df80597583a75dd83e4eee3e36d37b50cb6be9fe983f",
+      "split": "development",
+      "review_sha256": "be94ca4a2c8c82cfebe79854321b1f54c7c449ff1cec0ae37ea8e200082506f9",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CdFUwdDZXVll3Y1dFNGRWTkVaMWhtVDJsTE5rRRAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "b5cf57a1b8df0475686d89f06bbdf1b1138c6f11a384f3eca45aa3d4d0ac1ae1",
+      "split": "locked_validation",
+      "review_sha256": "e21abd5577097fbd6d015143ed2a70c7e354926b8628c875bd260ad76f03d7c6",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25FMFNVTXlWbmxVVVZZdExVMDVZVm96ZUV0MVprRRAB",
+      "coffee_shop_id": "place_id:ChIJs4LU4GHFaC4Rzn0YQ3kgIiE",
+      "duplicate_group": "5478029aa6ed6c4d2e41ee109e05e8cc0a328f77363d70dbea8214759e48c1ef",
+      "split": "development",
+      "review_sha256": "b55b3e6dede193947fc8cfa90fabe2659833fbd638e9b061380f6de5651a7408",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25FNWNtNXpZWFV6UmxCalIwMVJOMWc0WkY4eFkwRRAB",
+      "coffee_shop_id": "place_id:ChIJN8u3FwDFaC4R8xU3Ilzh_Lw",
+      "duplicate_group": "4c73dfd1a2acc7d5b38aca8c0b19f7052d02b9ae91b3b6b3f940349faa6b81c9",
+      "split": "development",
+      "review_sha256": "59570e13802af10f37b7e945c9d469022aacbc8983a79e34f10f5dd1d55c7a12",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25GNU9VVjNkazVtVDBWV2F6bEJUelZNYzFCWlIzYxAB",
+      "coffee_shop_id": "place_id:ChIJs3kudezFaC4Rm1XdaVNJLaI",
+      "duplicate_group": "2b3e14411eff8e482d7245f3b1158e19dc6086503d8d223aa28f16eca5148b4e",
+      "split": "development",
+      "review_sha256": "c560e77c16cbdaed92de97dbff130300bd86734d30073695f2a79df027adfff6",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25GaFZtWjNNQzFZYkUxVlpXTnRRVTFNVmsxdFdIYxAB",
+      "coffee_shop_id": "place_id:ChIJyWX2AADFaC4RVjgcebIxB64",
+      "duplicate_group": "8f95792d50e95afe5fed640b59e73b17e7d6f240a1e23faad587f95887cf3426",
+      "split": "development",
+      "review_sha256": "b1668491bf7c13bcd7150a6c63b9eb2ece840324c634a6fe6df7d115a50bc0ee",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25GbUxVOUhhRmhhTWxGSlJ6Tk5URXQxV1V0S2RWRRAB",
+      "coffee_shop_id": "place_id:ChIJUw0tP3PFaC4RldVvxGfgNBc",
+      "duplicate_group": "b23e66eb698e033394c494d90c23284a6624aa85137be43bb35d0b17dcc86863",
+      "split": "development",
+      "review_sha256": "2a6e745b721f044c4b83f7f8fda3d3cffd5f3d65fb45ab89cd2f1494f11b610b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25JeU1WcG1lWHBUYmw5dVIxOUtRMGd4UjFJdGJFRRAB",
+      "coffee_shop_id": "place_id:ChIJ55_Cj1bFaC4R7GBBwGbwzXA",
+      "duplicate_group": "48d26f0d623cfc4c6ca6f12baab4de16447eb11a3da4d5dd729bdc6f357cfe5c",
+      "split": "locked_validation",
+      "review_sha256": "81aeaeaa56da1c7225da533eac670b96705ee660298baf45e1770731e384d9e0",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25KV1ZrcGpNRTFRUTBkR05GYzRRMU5uZUdadlNWRRAB",
+      "coffee_shop_id": "place_id:ChIJESjk8CvFaC4RxqXyjed_Ccs",
+      "duplicate_group": "d4318764643d6c3f587ba7165674284fc0f3ec4f9b4bd0b10873681d0a2584cf",
+      "split": "calibration",
+      "review_sha256": "9aa7656a7102887e53f532d5562a227cc49d670f30a6fafd1b7f2f8c66da7df9",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25KVE1VSjNObXBaTUc5bWJsSmZhMncwZW1odWQxRRAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "00fc22d5ad9bd61bd5edce6ec946cca4a604305537e7fe7d76114d3acbc9663a",
+      "split": "development",
+      "review_sha256": "ebd5cf37c1f492d1e51d81c9ae6bfc4efc246690729dce5d330cf3055ee9cd63",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25KYVNXUXdkbEZvVFhOblRuSjJRVFp5UWtKTlRsRRAB",
+      "coffee_shop_id": "place_id:ChIJEYk-kg7FaC4Rzcpqv6QePJQ",
+      "duplicate_group": "72087c3c07dbd9262351b6fa5b2cb54da629a62014d694f4bb1cea45f9d828f1",
+      "split": "development",
+      "review_sha256": "95365ae3edb39d010dfefb6c692e7387c4624e519fd0eebef5d20ae2cb5671a6",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25KblpYaFlTWEpJT0hoT1pXazRVVEZ6WkMxUWNYYxAB",
+      "coffee_shop_id": "place_id:ChIJUw0tP3PFaC4RldVvxGfgNBc",
+      "duplicate_group": "a4c9e4c009f1a6990cc7f7ab8e11b73adb1ecd3019db245afc9b632e569787dd",
+      "split": "calibration",
+      "review_sha256": "340b190bfbd8becec6c4de84580276d4ba9caa6c6903dd2f7875b53ba32bc06f",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25Nd1VFTnZhVTFpVlUxbFRIaFZVVGhOZFV0aWJuYxAB",
+      "coffee_shop_id": "place_id:ChIJobvDql_FaC4RaI3AOTkygHY",
+      "duplicate_group": "95083e931d6d06cf8df5229dbd168fda60215c6c9ea7d11bc187fc37d98ebeec",
+      "split": "calibration",
+      "review_sha256": "d4326b6765506ef80d18fa0a1b67c616eb60821bd16466a709fd38e8af011466",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25OZlRGTlBhRFZYUkVOU1JHZHpSRlJpVTJOck9YYxAB",
+      "coffee_shop_id": "place_id:ChIJV5EXlPfFaC4RDRK6u55TS8Q",
+      "duplicate_group": "2d70b1e1d433a9920efd38ca685c89cefe1a990b676c2681a73d65c43842de9f",
+      "split": "calibration",
+      "review_sha256": "e97f7c93a9e32eaba8e2255310d9372181e99220510baef80035bbd2aeedb0c1",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25OdVRscDBNVmRYZUZReldIVnlObk54WTBocFIxRRAB",
+      "coffee_shop_id": "place_id:ChIJWYkCVdLFaC4RKMzVdVu8iE0",
+      "duplicate_group": "26ad749cf9a6661842ec41dd586a1b8e19e6117c3ede6ab330da2a079ad37e36",
+      "split": "development",
+      "review_sha256": "7072817c70e662eb67e4bd7dcd8f15d8dacfd269c9ae96a0bac4476a0d154cb7",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25Sc2JsaFZNRk5DZDBGZlRtVmtSVlJ5YURoMVIxRRAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "67ddd04a8715225212429d7be9f2349cfd02030ba96f071e56fc7f26942e8d8b",
+      "split": "locked_validation",
+      "review_sha256": "398672d19c8608dd3dad21f6a89e2087313a7e25a1c908fc8908e906a43a9607",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25SdVRqTm9PRVZwTFZacFUwWk1RelZJYzBKTE9HYxAB",
+      "coffee_shop_id": "place_id:ChIJWYkCVdLFaC4RKMzVdVu8iE0",
+      "duplicate_group": "58f50cba4b6af170122e3323719aea0154d8d8caeeba3d07d8f99f687f832817",
+      "split": "locked_validation",
+      "review_sha256": "0d91b74ec43006ab050fa908bf264d5d8fac017c4d6a27d2f19e015c48ca57ac",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25VNGRHRmFiRmd5ZERZelRqWnJSVlpWVkVwTGNHYxAB",
+      "coffee_shop_id": "place_id:ChIJA3DPaQTFaC4Rovkr-VOJEuI",
+      "duplicate_group": "684f4590891e46818760b99c6d0dd6f59ea96d7afa74a68fbd443978ad1423aa",
+      "split": "development",
+      "review_sha256": "5b9e4abfc6612955c1b1350e5a420f7ce7c9d31171f664677ef72e9b740e3fb5",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WQ2JIRnNhRVJyWDJwWmEzRXdORTh5YjNFeU1WRRAB",
+      "coffee_shop_id": "place_id:ChIJEYk-kg7FaC4Rzcpqv6QePJQ",
+      "duplicate_group": "9e097c9ef66f0a70fbf1c2179161faf95532dda090315be95c51d51f4c290223",
+      "split": "development",
+      "review_sha256": "42f40e7ccdb140cde1f2929c4ea5d7d893a0e264206b8473007199a89fffd3d6",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WR1kzZFNka0pJTVhKdGVVWktObE5vU25CYVdVRRAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "2d1eaedba8a9992acf1b874cac4dba7c1fb2ceb04061ef69f141c79f427c2fac",
+      "split": "calibration",
+      "review_sha256": "1099a786a6644d70f511f2216c0703cc3c6e71bd2c9c5ba45f69c1bbdee3db4c",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WSU5HTkVUVFZHVGpCQlgweFpTR2RuVjJsaVNuYxAB",
+      "coffee_shop_id": "place_id:ChIJubPydwDFaC4RxUjjmuP9Im0",
+      "duplicate_group": "6ecbc609165e511d93e7b1e1a453bb7ac305621f45f075a3dfc635e1a5fd6fb0",
+      "split": "development",
+      "review_sha256": "9eb2b34d0bc0e07ac72bd7561bba326c1b1b419f276faa5853420b224616d48a",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WT09XdElXVmQ2U2tkTmREQjRTVzVpT0RSdGRVRRAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "a24546c7480a4ce15eba71d70c5d2437c26380e1c2d9969d4d143fed26b5f020",
+      "split": "development",
+      "review_sha256": "cf93770fc4fb7f409a25dfe4235ee082f246e6bd05cf1eecf6fb5602e1c2caf2",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WTE16aEJkbVJoTlV0cE1XcFpOM2hOTVZoelQyYxAB",
+      "coffee_shop_id": "place_id:ChIJ3Vkw8A3FaC4RUVb8di3kkxU",
+      "duplicate_group": "7c2c90c4e6d44c935a53adc29008b4f609f2efc8acb15e98e2def4576dddc373",
+      "split": "calibration",
+      "review_sha256": "6762f5f2e32c2e0740599cbbb7bb3eb3e4b190938ef9950f6336e487f359ad10",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WYWIzVllUVzlUVW1vMlh6aEhkVGM0UzNnM1QwRRAB",
+      "coffee_shop_id": "place_id:ChIJs3kudezFaC4Rm1XdaVNJLaI",
+      "duplicate_group": "1341144e405c560c641c78bdfda6d7156f0a4147462085060098de9d88332759",
+      "split": "development",
+      "review_sha256": "a8dc76a64ba29c068c12d51d480f0ac2ceab9f1580fbbb46137f0a865a77e5c7",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25ZM0xYTm9ZVGx6ZGpKSlRrMXBWa1pDVmt4NlZYYxAB",
+      "coffee_shop_id": "place_id:ChIJESjk8CvFaC4RxqXyjed_Ccs",
+      "duplicate_group": "aec6f1744fb1087a04619d0f7f52619ec64bb91e395aa9ae5397f03447b550a5",
+      "split": "development",
+      "review_sha256": "84f4b79cd7a1ad73e1c27fc0105289c74a1ee18a8bc7cbb435dd36e2c9871150",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25aUlRVeGZRV05HYzNndE1VUlhZVlIyYlRWd1pGRRAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "c573b312f533638930cfa91778ba3df611b32e3f350383e101d2fac070febf0d",
+      "split": "development",
+      "review_sha256": "583324ea8f95583ccf88bca484ef0262501eeb11b4a39a21cfb0746142ded8eb",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25kTGJYZHdjVVp5ZGtKd2RrUkJNMFJJVEhWemFrRRAB",
+      "coffee_shop_id": "place_id:ChIJtYL6JwTFaC4RIA9QZVH2QdI",
+      "duplicate_group": "85e23483616f9ac241974e8b845c7c580ec166e1f3d16f86a5936840d0628628",
+      "split": "development",
+      "review_sha256": "7ab307209581ac93edab214c1e2158f335f2c55f2ef9a441c3cb93f3277801b1",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oNGJWRTBZMUp0VmxaRVdGcFFhR0p0ZWtGaGMzYxAB",
+      "coffee_shop_id": "place_id:ChIJ0-dDG6vFaC4RzIWYf3ViB2s",
+      "duplicate_group": "6f2057042b296bb2a97721e08ce7a0a8c40fa0f8e78bf57700ba50a4abe34cf6",
+      "split": "development",
+      "review_sha256": "0f009ee05db63b34b9dfef571a35f925020990a55ca0c420af742e19fea43690",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oVFYydHBhRGxuVWpsell6SlpOa1pTZG1KYWFrRRAB",
+      "coffee_shop_id": "place_id:ChIJ55_Cj1bFaC4R7GBBwGbwzXA",
+      "duplicate_group": "07252268fdd5f80f63f60525ae424ae37bef6217f164719a20ccb4033ccbf70c",
+      "split": "development",
+      "review_sha256": "cd3a8d541339b470305858963d8eccfc3d4b97423abfa3e38dc7a7d6eee14eec",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oVWNHeHdiMmhxYnpGUkxURldiVkZ4YUcxUVJVRRAB",
+      "coffee_shop_id": "place_id:ChIJA3DPaQTFaC4Rovkr-VOJEuI",
+      "duplicate_group": "f7156828525405e0500231ffe977d64dd3295eb1c0362234aa29af104ec7e4f2",
+      "split": "development",
+      "review_sha256": "9934f755a76312871f5e5d707e1770f17a5f30dcbd9c24502dc137900270fd1b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oaGVYWXdRV1Z6TkZwTVJWSnFTWFIzVW1ocGFXYxAB",
+      "coffee_shop_id": "place_id:ChIJV5EXlPfFaC4RDRK6u55TS8Q",
+      "duplicate_group": "4552c8006b318ebf8c4a2344e7aef0abe8dda67a65f73b74dc1fd0ff92be8478",
+      "split": "development",
+      "review_sha256": "dd6d876548037ec722252b45795206575e7040eba1ca076cf1732a4a903cadba",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25obFZrWTVNMHRxU0ROQk56TllVbVJaVld0cVQzYxAB",
+      "coffee_shop_id": "place_id:ChIJG4zVdlTFaC4RoV1evBcbDdc",
+      "duplicate_group": "28d2c459d60ac147ba2d5b57e5db8954b232f840f8bccb98fe740688e03ed34c",
+      "split": "development",
+      "review_sha256": "a0e55ca44cfae45c06c76906f0623bf7d0da64087f12dbbdffca858712a176df",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25odGIwaG9XVmRSWlRKWGVUUnFXVGx2VW5WMmJXYxAB",
+      "coffee_shop_id": "place_id:ChIJUw0tP3PFaC4RldVvxGfgNBc",
+      "duplicate_group": "4c9cb173284350b454fdb45cca7ee0efc768821512eaf171b852ea9541730ee9",
+      "split": "calibration",
+      "review_sha256": "97ba41c76fbf45d4f434f65e1dda776f9724bf60ef488cc0912693c51bdb1913",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25rM2FGVjNhbkl6TkZCd1pqVlROR2R6UjBWNFZYYxAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "44f70ac58d23399524203d71425ea9faaff7e92c696f416825e60e1b1b832c3c",
+      "split": "development",
+      "review_sha256": "3e9f62ddf367283b5ca90136e7456c0b5fe6541640e820dd7e7e103f29170dd9",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25sVU1GcGFaRjlXTjNKemRtWkNRa2R2TVZoZlUzYxAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "9d000834fa879a4c2817d9aa3fdb38a9321a67cc872554ee591b1d983fddbf56",
+      "split": "development",
+      "review_sha256": "1712f948e80e010a9d15d9a6a40ea4da9dfce88c32a4951da34b2fb87ae97f56",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25vMFMwZFlNVVV5VmxsNmQzVnlXSFp3WmpGTlVVRRAB",
+      "coffee_shop_id": "place_id:ChIJ55_Cj1bFaC4R7GBBwGbwzXA",
+      "duplicate_group": "3e7f1e222bfcc9a332f3e06a1ae30d210a9b46ed2c0776318897f894fd3e1bda",
+      "split": "development",
+      "review_sha256": "4adc855feada05bb78834552af57d9708ec93f03e62f236d6ce6c3718c341ef8",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25veVpXWXpRMjh3VTBwcWJHNHROMGhLTWxsTWRHYxAB",
+      "coffee_shop_id": "place_id:ChIJA3DPaQTFaC4Rovkr-VOJEuI",
+      "duplicate_group": "f9c6693eebdc23286369c4e5bd3336403ae7cafa271dba8ec7d327dda145099f",
+      "split": "locked_validation",
+      "review_sha256": "d5504d8b45d363fe9f1b483414f09478dddd9ff0018d6db53c95f76e57b45e40",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25wbU9ETmhWVmxhYlcxZlEyTjVUVXBIVkhSVVVuYxAB",
+      "coffee_shop_id": "place_id:ChIJcUXA8dHFaC4RvqSQfANop64",
+      "duplicate_group": "354b99f738e4013f20b826f612695ad4bc52421c65df955f0dcb7dbaa0867485",
+      "split": "development",
+      "review_sha256": "c94539f4649b6eb902fc452886122e0b1465c0374807bdfaa25367a6c6ceb63b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25wcU9WRnBSa1kyU2xOdVkzWTFVV3h1WW1oTGRuYxAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "b90e04684d17cb2c431668b0f44383513ea5f98829eb3dfcfab1a82b3abb8577",
+      "split": "development",
+      "review_sha256": "f2ac91803e91110ad521019f5363a7a2ae5d5bc206c6dc46501630c658ed195a",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxV1ptbzFUR2xLZWtFdGNVbE9VRUZhTW1obFJXYxAB",
+      "coffee_shop_id": "place_id:ChIJ55_Cj1bFaC4R7GBBwGbwzXA",
+      "duplicate_group": "9649825bc0b1f6fc54c8ff122418414c2493f1f7f832ec7399958721f53637cf",
+      "split": "calibration",
+      "review_sha256": "9a1553e0a821908a9c5d1b9402b418ec651e902c2f4543256b0d2ad945845ca9",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pCQmFtZFVlWFYzUVd3d2NIUjBXSFp5YUdSMlUwRRAB",
+      "coffee_shop_id": "place_id:ChIJ55_Cj1bFaC4R7GBBwGbwzXA",
+      "duplicate_group": "74dd50453ce2d753de0c1c684acce2f1956d5effd7cceb061d18b1efea8ef537",
+      "split": "development",
+      "review_sha256": "8c120e29d66d370813db3f2cdd96fa251d34afc6d71fe9a8e51e172e75610302",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pCRmNFRXdhR1pZY25oa1FWbHdkalZoYUVsVk9GRRAB",
+      "coffee_shop_id": "place_id:ChIJEYk-kg7FaC4Rzcpqv6QePJQ",
+      "duplicate_group": "49e892e3d7c4e6771df499af86d1dc5fe8176ca0967c664b98ba8bf8f1148205",
+      "split": "development",
+      "review_sha256": "f173ab8426194b8a4864df1a695d74fee63139ae1856b2cb6fd0be76c97a0316",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pCTFlqQlRZVEpGUkZOWGMwMDJlR05HUlVSNVNuYxAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "7e6e05af5e686a44c69359fee9fdca51f2e7a81689f23fb0baddf96ba1fa4c94",
+      "split": "locked_validation",
+      "review_sha256": "ce60bc61f7ee3fd7a6fbb8a4a95332b02b39f7f145e26016ac3511c241403cf9",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pCYVVXMWhVRlpCYUdwd1RtRkJZeTFoVkc1aVIzYxAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "c7177c21a01ccb124b34b913e628ff1d32f509566c40888ac6a2e9adeb55aad9",
+      "split": "locked_validation",
+      "review_sha256": "992757b2a6ca7f0b88b3d0383ea49ef5948a75b621f9ab317e7621e83a372832",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pCdFYzaE9lR1ZHYjJkSVYwUXhRbXRhZVhoekxYYxAB",
+      "coffee_shop_id": "place_id:ChIJG4zVdlTFaC4RoV1evBcbDdc",
+      "duplicate_group": "0cb3ea0920219117223bf8479dd9a8e1ba87a3cc73541c3c101c8bb1632074f7",
+      "split": "calibration",
+      "review_sha256": "61f75e9bb9714f07057ed809f5065fbe2c9551f59f5b24bf05e2e5af043fc5dc",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pGVFduQlJkWFZqVEZrelVXeE5XV3RsVURObVZFRRAB",
+      "coffee_shop_id": "place_id:ChIJUw0tP3PFaC4RldVvxGfgNBc",
+      "duplicate_group": "6249871430afd2075f4b01fb043fd9b8f9928328d35c7acd82b1471828cf281a",
+      "split": "development",
+      "review_sha256": "d8f970e2eac8d5f0a7308881b5d1883fecb27de42a77e9d65fee2c93faa28cab",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pGeVkwRlZhbVJ6YW5kWVRGQjBVbVZrUkRabE4wRRAB",
+      "coffee_shop_id": "place_id:ChIJA3DPaQTFaC4Rovkr-VOJEuI",
+      "duplicate_group": "1cb638e34df330385267db09b2a82c3c1bdddf5e098a99dcee28435c5abdf80b",
+      "split": "development",
+      "review_sha256": "eb544e754a1f49981807c775c0d8f783700210d453e2c1b2c7b06f1bf27edbd2",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pJeE9UTlJabWQxVnpGU04zaFFNSFZpWVRoNlQyYxAB",
+      "coffee_shop_id": "place_id:ChIJESf19HPFaC4Rj2ojMGeY_QI",
+      "duplicate_group": "5057e0974ae4987bf278ccfeecf57b8980981e7e6643ed9af385d181aadf1f88",
+      "split": "development",
+      "review_sha256": "03c5b5bdae5bff038d87a979f8fd21ca7812b25643750364efe4221a3098c3d2",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pJeGJUQXdVa0ZMUVRKSWFVOURSazlPTmtkc2VGRRAB",
+      "coffee_shop_id": "place_id:ChIJG7Rn5TLFaC4RwzAM3_hNzgo",
+      "duplicate_group": "bf58ba96f38d21ab9ada2d4043d7227579fa4abf21cc110f477dbd63644b8b4e",
+      "split": "locked_validation",
+      "review_sha256": "dc8bdb1bf2f72f2120580bc6742b5719fec582fb83891fbc959540bca7129b57",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pJek5URlNVbms0WkRKblVWcGliVWRZV1ZOeVoyYxAB",
+      "coffee_shop_id": "place_id:ChIJubPydwDFaC4RxUjjmuP9Im0",
+      "duplicate_group": "25cabbb7d1235ea800c3872ddea28c4bdc42fe278a2044c4b640a87c2507b64f",
+      "split": "calibration",
+      "review_sha256": "f59e6ffb24674b9a847acd4d0b167390bfa81cdb95b84425cf39c513c06afc85",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pOYU1VNXZOR054UVhwdVEyOXpVRXRVTUhvM1NVRRAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "fc3eddaa4a21346dc74eb9370654ab961542a0ada89dbd2fff7422dcefcefe2a",
+      "split": "development",
+      "review_sha256": "1ae5a0a37bd47b2905838ddd31aa3a3cb25d958aa2db2339c78f0121fa68f62e",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pOZlMyRkJiRkJLVDFRd0xXdEhWamhCVjJOMWVXYxAB",
+      "coffee_shop_id": "place_id:ChIJubPydwDFaC4RxUjjmuP9Im0",
+      "duplicate_group": "b06914c70ba1ef4f264cb33a45397b4d0b70c289fa36772ad10426228deb4491",
+      "split": "locked_validation",
+      "review_sha256": "490e1ffd8b2e4d63c662a3aedf0d40d54ab68cb53c0bde86391b4f126df4575c",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pReU5HVkpjSE5hT0ROVWRFeHBjVTF3UkVOck9VRRAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "1e26fe0e979ee3ead0d4155001df4612b0af899c81e068f929f22bb47326ea81",
+      "split": "locked_validation",
+      "review_sha256": "f32c949e053120b703e3e55e42cd9128b766133d21c3d9c0fa0a57ba9c7cbadd",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pSMGMzZDZhMlZ6ZUZoWFNHUjVhRUZOY25ST1lWRRAB",
+      "coffee_shop_id": "place_id:ChIJEYk-kg7FaC4Rzcpqv6QePJQ",
+      "duplicate_group": "fc9222675738278ed50644606518e53f272b8950e46b20e95df293d53161b718",
+      "split": "locked_validation",
+      "review_sha256": "c1d11e4e8e20ff402e365e63e321c9e257b292a453be6afa5a8d9c1e07c379ee",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pSSlZTMTJlbWxYWTI5VU9GVlBiMDh6Y0ZGeVJsRRAB",
+      "coffee_shop_id": "place_id:ChIJaz9SfsnFaC4R7D2k-8g6YH8",
+      "duplicate_group": "9d5a49df2af87edc5be17718aec497831e757d0126f76dc37d27028dbc5421b5",
+      "split": "locked_validation",
+      "review_sha256": "3d5de203500fb6e8f8e8bdee7f93d2fec111d65fb981e817469c3ba68ea8d5d9",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pSSmVFRTVUR2hGV0ZOMVNtSnNXV3Q0Ymtkc01YYxAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "76fe05f95e1cc233670c10784d364dbda3ed9d7f4f79758f55121fe203d09845",
+      "split": "calibration",
+      "review_sha256": "dbab11300f065caf4b74c8d6351348d13938b2eeee682ab950f18388757f026e",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pSb1NUaFVjaTFGUmsxWlowNUpWV1UyTVVKeE5tYxAB",
+      "coffee_shop_id": "place_id:ChIJV5EXlPfFaC4RDRK6u55TS8Q",
+      "duplicate_group": "8a2b0e0821cba28eb9ac5fdcb4813806333b46d30d3c1ebe929769c34fa14a14",
+      "split": "development",
+      "review_sha256": "cefd41a567f7ac5c7cc260c827c2fc066a87faccc47e273c9e975886821508a5",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pVMU5GTldNVzlaVEdsbFdYTjJNVFZhYzFKT2EwRRAB",
+      "coffee_shop_id": "place_id:ChIJs3kudezFaC4Rm1XdaVNJLaI",
+      "duplicate_group": "8def31efd8a938c02741692cfda61140099bed2a4ca1587687f4ad2e4b09305a",
+      "split": "calibration",
+      "review_sha256": "c60d3fa4558eeb9122ea11aaf8db7ef3a7381d37457b9a86fbd78a97ca9738cf",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pWM1owUkZOVU5pVjI1VFRGTnhRMU5VV1ZsMVZGRRAB",
+      "coffee_shop_id": "place_id:ChIJg8OgGdTFaC4RF_CwzybV9G4",
+      "duplicate_group": "c6a6aed09bd074455892fcf56fd872f166d758f886b64044450d07dcb92e5d5d",
+      "split": "calibration",
+      "review_sha256": "3824567c56da33f0ffe6991a467da2c7ca384dfc426874be9223d5b7f53b4d06",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pWV01XMTZiREZ1YWxsVWRWOXFVRWROUlZaQ1QwRRAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "22c72c57933bc10d096fac995ee0ac861de698b953ccbae1b9e7c44419f9e9a4",
+      "split": "locked_validation",
+      "review_sha256": "5ebb55318ee5e6e8d69226741f4e36373ebc4dfdf258f43b265d69a32a75724d",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pZNWNFaHFkbHBzUjBOaGRXSk9hbkZzZUY5S1QwRRAB",
+      "coffee_shop_id": "place_id:ChIJcUXA8dHFaC4RvqSQfANop64",
+      "duplicate_group": "eb87410c2ffb52be30c3d25024cdb6758b13a63b68e33400776c81a0d0cd3d76",
+      "split": "calibration",
+      "review_sha256": "4c01e165e22b136e0d28e4d83c9855db656ce1209dbfe184680473d5709be543",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pZekxVTjFjVEJNTjFSd2FYQnZiRkZyWTNGSVdFRRAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "ca9db315811eb1da85e60db500569c07b931d05b63bc0f11be605227ca54708a",
+      "split": "development",
+      "review_sha256": "07d904fe753ce1f05c06f6955971fa092e219469148d52f3457391dc2c7f9219",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2paYVZVb3RkREpUUjJVeVgyRjVhVWxGZEZaUFVtYxAB",
+      "coffee_shop_id": "place_id:ChIJaz9SfsnFaC4R7D2k-8g6YH8",
+      "duplicate_group": "4e505555d611b93b7790b92d97584a9bbce265c60748cd32a7ee7a090675825d",
+      "split": "development",
+      "review_sha256": "cb7f7cc34ed404a6b7e383d8716656b1e142c423232ffb0d7a78dbd584b44323",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2paYWRrcDJSR1ZUY2pkMGNtRTJPVjlHVkd0Rk9GRRAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "b4fee57833827efa23c3bf35323e179364507d27603d3808c6c6ad8b900cf8c3",
+      "split": "locked_validation",
+      "review_sha256": "fccac07315c338a943a483bdbb8672e44c87e94a244c72e02191c67eed6db636",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pkU2FHNDRkbVpRY2tSRmJsUjZabkZ0TmxGVVpGRRAB",
+      "coffee_shop_id": "place_id:ChIJaz9SfsnFaC4R7D2k-8g6YH8",
+      "duplicate_group": "4731c316935346fb170887af0007701f0e24175b61dbdcb70cef8faa04a2b79d",
+      "split": "calibration",
+      "review_sha256": "6e6fbba69c4ee54cec056c7d602faf721b74d8ae4b8fb089ebed660733777482",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pnelZIWnJMVUkyTkZrd2JreEhZMjFJVlVWQ1dHYxAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "3c0ef9794630385d0355d551ccb519dbaef4f399f8d3f0e9289a504bf351a621",
+      "split": "calibration",
+      "review_sha256": "2f2b3665c5d3ef1e088bae180d6cddd9715cf0ed4edcd0200b8855e5f356f6b1",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2poMVIyUndZVUZNTUV0SUxWZDBXbEJvUzBaS1lVRRAB",
+      "coffee_shop_id": "place_id:ChIJ0-dDG6vFaC4RzIWYf3ViB2s",
+      "duplicate_group": "dd293551a908596c7ade89bb36a606c2eeac1513ef703faed8e7d4a3c55f8f7f",
+      "split": "development",
+      "review_sha256": "08c6c14bf9c3a0efb7919dbdf662ad1a100efef306ab1ed9e0bdff321b4a4207",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2poSFVVZDVXbGcyTFZoc2FUQjNXbDkyV2tJMmFuYxAB",
+      "coffee_shop_id": "place_id:ChIJWYkCVdLFaC4RKMzVdVu8iE0",
+      "duplicate_group": "65559f23188d2165f0457ac6f8a7b5c88bcda53ea882378491c7858192fc82d0",
+      "split": "development",
+      "review_sha256": "5222773815a4c462deb1d585e91a26dec56597fe5cf2ed82687429a01ee7c8f8",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2poaWJUbERNa2gxVFRjeFJEbGxTbUZWT1hWdmJFRRAB",
+      "coffee_shop_id": "place_id:ChIJcUXA8dHFaC4RvqSQfANop64",
+      "duplicate_group": "08195c1568564f849fd4b2242404328e9393e87e017bd54e807f0161de693f36",
+      "split": "development",
+      "review_sha256": "e74320e5277f03e0c551c8c973ade2162339179bc8166921afe05dc5b7edee6f",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pob1EzbDRTbWhLVDJndFYwcHNUbTFZU0RjdGFsRRAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "c80d5fbd0aa9a1ac8be77587401603fa29490a29c746a80c2a5d4feef5797b4a",
+      "split": "development",
+      "review_sha256": "8f7982cba4f98485dc116656f3d6feca3c4dbd804549f140426ba6224464fee6",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pob1IxVlVMVk0wVjNCdGJFcFFaMDlSU2w5TVNtYxAB",
+      "coffee_shop_id": "place_id:ChIJA3DPaQTFaC4Rovkr-VOJEuI",
+      "duplicate_group": "f908f2a49bfba20af5c020f63cabf55fc611feff550b45732f58fefc173d3480",
+      "split": "development",
+      "review_sha256": "a2b7e68ea31a8eb6bbe561480fcc711455cda51d2c041788a30bc05fe1cba343",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2psVFQyWkVibTFMVjNabVNuWXdjVjluTm1wYVFrRRAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "bd685359ab553eeb6b524c10dad99b9ad862add5898984ce1b0c256cc37f247c",
+      "split": "calibration",
+      "review_sha256": "3c3ff027f9bea1246a5b1215356b37a7048824f1cbb86bce61dbdb5064851dc5",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1M2FEWXdTMFZtYmtzeVpUaE1iVmx4UVVVelZrRRAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "3809689090f25caa11a1390959f06ee3ad066178d438b818813ae65dc32382f9",
+      "split": "development",
+      "review_sha256": "c5cb5b13bfcf955b0ee6df874f708d49648009f9641949dbcc7cbcf52d1732f3",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1SWJEbHVZV2xxZW1kRWVHcENXVlZyY0RONVNYYxAB",
+      "coffee_shop_id": "place_id:ChIJk0u2tInFaC4RNsp-izRMrBs",
+      "duplicate_group": "cd894da90e5d49258d029a1edda75bb7065d43166c6482740b50a5eed5344707",
+      "split": "locked_validation",
+      "review_sha256": "b9205e2a45cc5a27873d97927f31d29ecd92dbe98089b66dac3e93d8ca6cd88e",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1T1NXaFFlRW90TTI5alJsRnVSRmxZWW0wdGVXYxAB",
+      "coffee_shop_id": "place_id:ChIJs3kudezFaC4Rm1XdaVNJLaI",
+      "duplicate_group": "d3eefdf7ef657fb9f8273aa4187ea1e9b88803336a569ef5cfcdd56459e24ceb",
+      "split": "calibration",
+      "review_sha256": "72be65ef43c2fe861156777e3ab5ca03534927441cd7bd4564a39bcb8d9f9ab7",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1UWF6RnlWV1JtTkhGWWFtNHlRMHQ0TnpjeFpYYxAB",
+      "coffee_shop_id": "place_id:ChIJWYkCVdLFaC4RKMzVdVu8iE0",
+      "duplicate_group": "b9f0864ad1eb3372c2ec294af98d12241ce36fc2ed7467b4b5a764d2de6a48fd",
+      "split": "calibration",
+      "review_sha256": "2d58e3a7abc69956c4a4bcb07edfe1cf88c481f36833691df78adf06505c6e8b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1VFRYTkplbXhpWWpOUkxYTXdTWFpCTjJ0QmFXYxAB",
+      "coffee_shop_id": "place_id:ChIJn-uHCALFaC4RRJN_2efiaXI",
+      "duplicate_group": "276a24a5423b7d95448863da59d47261f6a72acc740ed9655b727d6173b8b7ce",
+      "split": "locked_validation",
+      "review_sha256": "2cee4bcd5818998d4518ddfbc3adc611128fe1def151a31f4b993359b4904e8e",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1dGJFMDRjMmRMUjBnd1JVZHROWFYzYm1od1ExRRAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "73665b97217697e32c1de0257cab072a5662480732cfa639a9195fbad48cfa79",
+      "split": "development",
+      "review_sha256": "b9efa73ee55bae81c94e0696d8f0bb7282fa66dda84373ad69a1587f46cb85ad",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1dGNGQmxXV2xCUlhaaVdIWkVVVlZaUldoTFZXYxAB",
+      "coffee_shop_id": "place_id:ChIJk0u2tInFaC4RNsp-izRMrBs",
+      "duplicate_group": "859533a04d8fa738a12a0b799a62be167af10ae308d7a5f4baa3721c03db00cc",
+      "split": "development",
+      "review_sha256": "8b312206292e7bb53d2fa3088363ce3010110b99d846f879bebb9a6562ccd10c",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s5bVpFZ3diVU13U3pSbFgyMTBkemhaVTBoT2VXYxAB",
+      "coffee_shop_id": "place_id:ChIJg8OgGdTFaC4RF_CwzybV9G4",
+      "duplicate_group": "785547c46c4be9d0f2cedf0ebcee38399415deff7a05d8e1bb0c3747289aedb4",
+      "split": "development",
+      "review_sha256": "0f38f6c99e8da055f64dd6ac6435a0187d4c463760f9318f3d88a2d9c06e4806",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2sweWEySnpVRk5xY1hOUVgxTkdOekF3UWtONVQyYxAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "53c9f6188c88e3fde24faa78885e74feee50ba8ef1cd93ed10c2f79098376920",
+      "split": "locked_validation",
+      "review_sha256": "45e08fdbe8f3bdb180b92ffa67b7c21e34f8264c297ffaeec94503c0d08a5d6d",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2sxd2JWQXRXSEpaWDA1MmJtcEpZWGczVkd4aVRVRRAB",
+      "coffee_shop_id": "place_id:ChIJ97upDAbFaC4RZmnCqoj3EJ4",
+      "duplicate_group": "132a8885e42bd0e8c2e3cf98c9ce83cb09d9f6e6b1ccbce6bb1886175733ff0c",
+      "split": "development",
+      "review_sha256": "cc0684e4e329f73bd1f830c2d0e5a217be008292baf41d5c235354178b205e9b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t0RFdHczFXbGMzT0RRd1IzRkZVVWxOYW1WeVVuYxAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "30af3bf2897eb038b9338f344d0eaf2b69aaa53d9469b4787199e9984c7efcdb",
+      "split": "development",
+      "review_sha256": "0e318a6fdf03345264ea77aed681fe90d941df8a85475d6d036682b3d5411e03",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t4cFJGcExhVkZ6WkZwSExUZG9NakJpUXpoTU4yYxAB",
+      "coffee_shop_id": "place_id:ChIJb1RNRrDFaC4RvTc2SNCNJhU",
+      "duplicate_group": "d3d9462b5c81ad32bd2b63cf0ec343e56e2d85b939a0b49c8c2024cdae887923",
+      "split": "development",
+      "review_sha256": "aa8c9016869b5b62d72ad1e83a6431e2639a19ced29bbcb0f4b771e18bfea732",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t4cmR6aEllR2RNZWpBelFrOWxiWEp1TFVGRWJYYxAB",
+      "coffee_shop_id": "place_id:ChIJubPydwDFaC4RxUjjmuP9Im0",
+      "duplicate_group": "76c32bc4d81d74b056cc953894eaa12b37c374db44e26f4a641fa77dde437222",
+      "split": "development",
+      "review_sha256": "a4c3b64e47b9319837956cfd3b7cd2fb1f4a3d310742e54b117a1be34b61e05b",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tFMU1raEZTbEZXWmpoMVIwdDVjbnBrYjJOSFoyYxAB",
+      "coffee_shop_id": "place_id:ChIJWYkCVdLFaC4RKMzVdVu8iE0",
+      "duplicate_group": "a7355400bec4d32404bedc9141c83341573e9636949efaa372374bb2ffb516a7",
+      "split": "development",
+      "review_sha256": "d713856b5de5b97ba1b561e8eead489bc3b8216ca37eae8bda1c83ebeb281f4c",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tFdE16Z3pNek5zT0ZsWlJFRkNRV1ZRTWpKUWNGRRAB",
+      "coffee_shop_id": "place_id:ChIJA3DPaQTFaC4Rovkr-VOJEuI",
+      "duplicate_group": "17c07b657f07095d4bab9794b1d6c154cf3f3e96a5b0dc3da9d582264a04a771",
+      "split": "locked_validation",
+      "review_sha256": "1e35c4744a738ead37d1b900f8e5a23b736b74a1990cb10b55173ff52583bfcc",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tFeGVXMWlaVEY2YlU5SWRETnlXRnBRT1c0dGExRRAB",
+      "coffee_shop_id": "place_id:ChIJobvDql_FaC4RaI3AOTkygHY",
+      "duplicate_group": "3797d1dfc12fdd9552371cf3d44b6fc73ecc590566fa7b2d7f8cbafabae752cc",
+      "split": "development",
+      "review_sha256": "36ca9eeb5ea6c20cb88f87f8d16d16f55f816a725d5f9a080adfd2bc1c20a974",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tGRU4xTlhVRkowWTJWalRWb3hNbkpIVUdaNmRWRRAB",
+      "coffee_shop_id": "place_id:ChIJA3DPaQTFaC4Rovkr-VOJEuI",
+      "duplicate_group": "e03b093546d37104705e5a4093176d68341cd72bd4ce1e5ddaab732d5fd65431",
+      "split": "development",
+      "review_sha256": "f8cede42ab701cd946ef6844cbb468745efe9a3dc9bb870789b4593c4cb9ad8d",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tGdlIwMW5aMHB3WkZGS09HeDVSR1YxVEc0eGEzYxAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "556e00204c630bba6fea38894c2a8a6c27b5fda309bfd25f9fa2d4241fc05788",
+      "split": "development",
+      "review_sha256": "3ee0f784e9c9dcbb6644057ebae0f3a6d2313f522249d3e596e36345689b4dd6",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tJMlJVSmtVamt6UlRsa2FYcEJkV3hrYzJsTVVGRRAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "21530a4a1957c0ff9670b48d659b1feed7822faeb7a0bccea9098ce583fa2010",
+      "split": "development",
+      "review_sha256": "8b625a8def714d902397390057705b361a9f51c32eb1d4dde9e148ec8b7ba678",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tJdFlXVnBSbWhqVVdWYWNtdGpaMlF6UldKRE9GRRAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "fc9222675738278ed50644606518e53f272b8950e46b20e95df293d53161b718",
+      "split": "locked_validation",
+      "review_sha256": "c1d11e4e8e20ff402e365e63e321c9e257b292a453be6afa5a8d9c1e07c379ee",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tOMUxWUTNhVGQ0ZWpkMmRWbFBVazV5UWtSaGEyYxAB",
+      "coffee_shop_id": "place_id:ChIJWYkCVdLFaC4RKMzVdVu8iE0",
+      "duplicate_group": "39811dceb41178b602fc91a804b3a44008c097386d654655e2110ad44bcf4cb7",
+      "split": "locked_validation",
+      "review_sha256": "2281a2e32e2263b0058395c214f47e121ccaac87fc77fb7d16ed24d6101ccffe",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tOSGJraFJiMGN4TTJ3NE0zcFlPRWN5Y0VWc1lXYxAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "a874b1689b1d0c1f3b25814e6968308e1fdc00cfacc3dcdf855f1c02fb856191",
+      "split": "locked_validation",
+      "review_sha256": "3d2b9d971ecef6422f2ee7bb1daeb5bb6f71572987fbe2470d1fbea68b850de2",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tSMFRHVjNlVEp0V0Vka05rMHlNMVI0UVVvMmIyYxAB",
+      "coffee_shop_id": "place_id:ChIJUw0tP3PFaC4RldVvxGfgNBc",
+      "duplicate_group": "053a3e523ff036694b0aacbbd0a386301e3f80d4429d01a8a9ce01aa36a50222",
+      "split": "development",
+      "review_sha256": "1c5f0dacdc174bb9457784fa8d5a067c73b97e0689cef49ba625b18924766fec",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tSV2VHWkplWFY0U1dGc01VcFVaM053WlZoMU5FRRAB",
+      "coffee_shop_id": "place_id:ChIJcUXA8dHFaC4RvqSQfANop64",
+      "duplicate_group": "039d7c8ee839cf42bb9894456026c6a10d498f1610b91d9cab307ab9289981b5",
+      "split": "calibration",
+      "review_sha256": "3dd518cc0d1e1e44b111ba83e5bc4a1724f2dcc2a69874a1932ab21c44ce3d17",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tSaFJVcGxSbk5wWlUxVWVsWndZMHBWTmpkeFluYxAB",
+      "coffee_shop_id": "place_id:ChIJmwVyWLfFaC4Rd1bXnsAfE3k",
+      "duplicate_group": "4d4695fff584f49aba6cc09fc021ada021707de02ccfac6da04254e545b276b7",
+      "split": "locked_validation",
+      "review_sha256": "6c88d622a6a4e8140e120a909c8b6c3ee74639b96d3c44076fd43a81ac0ab5ce",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tScmNVZFVMVU13YkVoaVpXOUxOMEZxYlZkWlNXYxAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "42127e99f25b5aeb3315a6ce00b64c357bea9a93a9199832b6bf3957a887d14b",
+      "split": "locked_validation",
+      "review_sha256": "90f00d2e8b216addde7a5cc970f99745fe12f5433cc48799d9a968489279d178",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tVMlJXUXpZa1ZMWjNObkxUVktMVEppVXpaUGVsRRAB",
+      "coffee_shop_id": "place_id:ChIJhWAFOprEaC4RZmHTLF9KbWs",
+      "duplicate_group": "35d5f2c9a7fd33fd2cd923ce070d7cd3a62d20900d5b0c42d26445fd34eb8889",
+      "split": "locked_validation",
+      "review_sha256": "fad43d40614ebe3ce018506249ef6185399b2792ee4e70e1b044c899dcc21402",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tVNU1HRjBSa04wUkVaMWMzWjFWRWhWU3pGclVtYxAB",
+      "coffee_shop_id": "place_id:ChIJV5EXlPfFaC4RDRK6u55TS8Q",
+      "duplicate_group": "e295703eadad28685fda35b7d22deba027747b3adbbe96b334125ed02288ebf1",
+      "split": "locked_validation",
+      "review_sha256": "3c64662b3a007225fced001c112f5e7cae22d47d5c74b07e940f6f4c1b547320",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tWblYwMXhWVVZYTUVGUWNtUldVVTlHTVVGc1JWRRAB",
+      "coffee_shop_id": "place_id:ChIJ55_Cj1bFaC4R7GBBwGbwzXA",
+      "duplicate_group": "3ddfa5ad4058d28f133781411d0e1849165cb93619c4ba45385ddcfd15b633ad",
+      "split": "calibration",
+      "review_sha256": "26716dfd7d3e02718b62a5ef6c5ffc8f3c9a901066e43108d2b70f6ed1bb4c3a",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taTWJVeFRWVzR6VDFsa2RXbEZNRk5PVFZKMWEyYxAB",
+      "coffee_shop_id": "place_id:ChIJubPydwDFaC4RxUjjmuP9Im0",
+      "duplicate_group": "477ac90e999322d97c94d90b96476d5219dee415a90938c052b436c49e7ef383",
+      "split": "locked_validation",
+      "review_sha256": "d47f85cf41c7a08e0d60874f2a46b094034006104022561a2a9f5dc49bb915ed",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2toQ1p6QTNhM1kwTURaRk9TMW1WWHBFVUZkblpWRRAB",
+      "coffee_shop_id": "place_id:ChIJEYk-kg7FaC4Rzcpqv6QePJQ",
+      "duplicate_group": "5142ce5ab2800953e1c3a999e053e63c91ec1adce1da4efaed50df02b398de5f",
+      "split": "development",
+      "review_sha256": "564b20beaa6475ee2cea7188b809553013f111b889ecf617f4acabafb4aaea7d",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2toWWR6UkVOVFF6WlZCbWRWOHdjRkJuWkhkTE1VRRAB",
+      "coffee_shop_id": "place_id:ChIJs4LU4GHFaC4Rzn0YQ3kgIiE",
+      "duplicate_group": "3c7b26ae6d35f4df186f7087eaad0ff2319acf31f9aa8f97415642abdae3a999",
+      "split": "development",
+      "review_sha256": "c2a0742dfe72e0cdeba1d6882f7583999e9b758013e9924dde986dbf7cbe4ffd",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2todVUya3pURU0yYUZZMWIwMWZWWGx6YWxNeE1rRRAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "382f63a1361690713a391d0e3ea3286a835a9dbb59b059ba4018ad5f0e5907d8",
+      "split": "development",
+      "review_sha256": "6f77bde54970d368e2f228de8aeb19ddf6d788d65b1a2081847810d1f75645be",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2trellqTkhXSEZaUzB0d1VWVkdVbGRMUVd4cFRtYxAB",
+      "coffee_shop_id": "place_id:ChIJAXSIPwDFaC4Rfx8Y1f4oESA",
+      "duplicate_group": "5c7c34bd7123ebef5fdf4cff4d2b2c7ba3e1b16fb6c9ead440a90efd8e135e08",
+      "split": "calibration",
+      "review_sha256": "51b29d8fc8a323017693b024b0ed0c3884609301111f49f5f051a5c78b9d5a39",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tsSVRtaDVXRFpZUWpCMGEydGFaRWQzVVZacmFrRRAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "619f68f586da2ec964dabaf4e434d30c051fd16683afaf9bc632346fd3060615",
+      "split": "calibration",
+      "review_sha256": "0737f8725a56c4eb2688b4dfacabd8ef775003363f27b5f3b6bb2780718245df",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tsZlMzY3hWblJOYVdreFMwa3hXalJwVmxab1psRRAB",
+      "coffee_shop_id": "place_id:ChIJ0-dDG6vFaC4RzIWYf3ViB2s",
+      "duplicate_group": "132cfbdc31eb422f2659fef12bf446e9b653b5c9b511a89cf66e112d0344089e",
+      "split": "development",
+      "review_sha256": "bf12875f13c9b083e8a4bbb98c43a954bd73cc909a570596a8b107356f65de8d",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tvMFFqVXRabXAwZUdwVFpFZFlMV3BhTWs4MVgwRRAB",
+      "coffee_shop_id": "place_id:ChIJjSdZ8MXFaC4RgdPUBsCQgJQ",
+      "duplicate_group": "dcaacd78cc9908190aa1be96b6b5ce1851283f12fba91f3e89f2c58ee2e9a880",
+      "split": "development",
+      "review_sha256": "c8d508ff6158ece9220fe298d33d9f27c1d1d912536d8c431311fc48abdf1a19",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twMFRscHdYMmR0YUdKeFYzRkpXbm81VjJoUWNYYxAB",
+      "coffee_shop_id": "place_id:ChIJESjk8CvFaC4RxqXyjed_Ccs",
+      "duplicate_group": "029deb654a0108e8ede98339dedbdb3a5a36b57ad490dc929f7c0c02f94fd5e9",
+      "split": "development",
+      "review_sha256": "97650c5d648272eb192a40220a1df998cf4930e8790b49b4693fec6c2aa9d0ee",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twNGNsVXdWRWhNZHpoRFJGSjFZMmMyUTNRd1ptYxAB",
+      "coffee_shop_id": "place_id:ChIJf5P2qw_FaC4RbPhVUbcUF8E",
+      "duplicate_group": "dffa20d59cbafd5d00e0245c3059d8c4468994d18955324f94341451fb652f32",
+      "split": "development",
+      "review_sha256": "f60c2735a2b5767dee277a0d190fefbd0e486b7c287b98d6e64cb0de01c1c808",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twNmMwTk5iR2h2TFZab05XcG9kV1paUXkxUUxWRRAB",
+      "coffee_shop_id": "place_id:ChIJubPydwDFaC4RxUjjmuP9Im0",
+      "duplicate_group": "0904b1437ce97387a8b1857ed4912da21b23bd3b7180cc8a6674194b40aa7d75",
+      "split": "development",
+      "review_sha256": "a857ed4fdb6b34bb8728b95cf9c4219dcab60340c5d810e4d6afcdab61b8f165",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twbFowRjZTMXA2V2xaQk9IZFVMWE0wWVhabVpWRRAB",
+      "coffee_shop_id": "place_id:ChIJj33agDrFaC4RnSeMcgzRR24",
+      "duplicate_group": "cf09c14fccb592493ec0103017bc9123d0ab189625e153f81ef2495b570f42a6",
+      "split": "development",
+      "review_sha256": "532549e1d18ed2adbdaaf75281b842d3b9ec7a201b2d8dd5e2c99764e915ec4c",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twcFkyWnlRM1Y0YVVOSVVWWlNWbEZ2WHpsS2JtYxAB",
+      "coffee_shop_id": "place_id:ChIJ3Vkw8A3FaC4RUVb8di3kkxU",
+      "duplicate_group": "bfcb41feaff3f065a5d44b1ddfa32840361a35282ce854194a5cb0f382c069a4",
+      "split": "development",
+      "review_sha256": "687c9a364ecde8626e8e9a0885a86983ebe67fa835725bb0c5d8ce8d0bd9aebe",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twdWFHdFdXR3BrVEVFeVlUazRZVlZZVTE5VFVYYxAB",
+      "coffee_shop_id": "place_id:ChIJcUXA8dHFaC4RvqSQfANop64",
+      "duplicate_group": "efae1b090c259d1afc1b131c27536438290ef21c5ce496c82c064562d6fce4b2",
+      "split": "development",
+      "review_sha256": "fdc5486ff704c40f99b576b1c0a6372b4b321a5bf4bfd945c0a496b14d6a319e",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2w5SVFrRkxjMmhGTkdGMlFVaDZSbXhxTW5GYVpHYxAB",
+      "coffee_shop_id": "place_id:ChIJN8u3FwDFaC4R8xU3Ilzh_Lw",
+      "duplicate_group": "398a965e744b1677dfc0a26f08ea6dba34e65a818f2a23dd7e528f86a54b553d",
+      "split": "development",
+      "review_sha256": "8764a998cebf1f9ea9ab724c8e493c9408746234c85c8c74850d18528a552d97",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2w5a2REWlBXRUYwYzBaYVVEaDBNazlJVG1GemExRRAB",
+      "coffee_shop_id": "place_id:ChIJV5EXlPfFaC4RDRK6u55TS8Q",
+      "duplicate_group": "ecd6fe3bad7d60adab5c1620c765256d819105f98ff247d6ac7f55f1ab19235a",
+      "split": "development",
+      "review_sha256": "37c1b05501258dfb12ed6aff519ed8162128a46dcd5aa2612cbe393800c15f17",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2w5dGNtRklVbXBIWlVGUWEwRm5OMFZ3TUZaa1FVRRAB",
+      "coffee_shop_id": "place_id:ChIJEYk-kg7FaC4Rzcpqv6QePJQ",
+      "duplicate_group": "80c3249fa05aa3a8d3a040ed0a0b4e9d98d93eb3e1a3f581fe8ad93a26f9c949",
+      "split": "development",
+      "review_sha256": "116cc0cd00bbeaa302f964598cfb542d8b7594ae2df47e537a5fabd01730ac58",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xBMFdVUmtOMVEwVmtGNWIzTnJNbVpwVEhkR1lrRRAB",
+      "coffee_shop_id": "place_id:ChIJD3Kiwx7FaC4RUvNZlDxMEdE",
+      "duplicate_group": "1121c2ca6a4f2ffd4a9591a2a0bac1e108074951ace79370329b4a5d213e4d75",
+      "split": "calibration",
+      "review_sha256": "fd510c83a0264999fbc052a16aa372a0963762dcc1891ac0a1aafea4132eb1df",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xBMmVXUldjbkZ1UnpkcE1razJSVjh3WnpkaFRrRRAB",
+      "coffee_shop_id": "place_id:ChIJV5EXlPfFaC4RDRK6u55TS8Q",
+      "duplicate_group": "3487409cf6f479fbb732e4f58b8af9073b8f580fee269cfd5b047a55cf1749fa",
+      "split": "calibration",
+      "review_sha256": "7dcad10f751560e3fc9f529f05f873260efb30d2d9f1f5c22e96f4d8c461a538",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xCM2NUQkRaMnh0YkY5WFZERllSMm81YjFoelJXYxAB",
+      "coffee_shop_id": "place_id:ChIJubPydwDFaC4RxUjjmuP9Im0",
+      "duplicate_group": "637a6e24e1e2359421af579f6607125f6df3d293b894056397c7b06ad9a3a4f7",
+      "split": "locked_validation",
+      "review_sha256": "fb1101b96d3dc6bb4846372f25842cdb2df29d376d58ef29fd76e4bf356cddb3",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xCNmFrTTBWbTA0UzFGd2JqZHlORWRSYkRWeE5tYxAB",
+      "coffee_shop_id": "place_id:ChIJAXSIPwDFaC4Rfx8Y1f4oESA",
+      "duplicate_group": "053a3e523ff036694b0aacbbd0a386301e3f80d4429d01a8a9ce01aa36a50222",
+      "split": "development",
+      "review_sha256": "9ca4e315b41a79a86182b6acab96fe89b0ceb92cbeb565971866ae8a3c37b4ba",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xCR2NFOXlSa3RaVWs5SldWbHFPSFZ1Y0MxWVpVRRAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "fd3d5f996b91932b4875ea45dd274cddfa1508325003b1af02f97d4ff579e368",
+      "split": "development",
+      "review_sha256": "1c57650f01b67a6bd2f3719acdf1b370f18118859147794bece689a87cd9abe4",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xCYWMzRjFlRVZNT0VkbGN6SkphMkZrVGpZeFkwRRAB",
+      "coffee_shop_id": "place_id:ChIJn-uHCALFaC4RRJN_2efiaXI",
+      "duplicate_group": "e0716516773073d8d34cc132b9cbfa5aca1ba327ef27ef1456e78f3c71b8812a",
+      "split": "locked_validation",
+      "review_sha256": "08be44e31250efa668804e04a47f0a29e233062463ec6f5e2c508c1fcdfe5a33",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xFNVppMWpSRGc0TTFaWlJYbHROVnBXTVVnMmIxRRAB",
+      "coffee_shop_id": "place_id:ChIJn-uHCALFaC4RRJN_2efiaXI",
+      "duplicate_group": "11acdabd75f0410514087744c59c677afd27118c3f68f41e56f1510a744c05d5",
+      "split": "development",
+      "review_sha256": "1443f886770619cf485e924b8199e8820ff408279d428aa9397e8f9d0ffd60cf",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xFd1dVaHBOMjFGVkdFNVltMXhablZKT1ZWRU5rRRAB",
+      "coffee_shop_id": "place_id:ChIJn-uHCALFaC4RRJN_2efiaXI",
+      "duplicate_group": "2806bcd5a49c13837c43df8752ae600ccb2ae5fc356d8a6056bcff24383374df",
+      "split": "development",
+      "review_sha256": "2b2317a922d375fde3cfe58c78636492f3625c7001acfb8027750f59055cc4d8",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGbmNXRXdkMUJrTW5WbVRYRnNXbkkyYWxkeFVuYxAB",
+      "coffee_shop_id": "place_id:ChIJA3DPaQTFaC4Rovkr-VOJEuI",
+      "duplicate_group": "7d7e96da5cb7532a614c94a53c51ceddb5a8fc9598a40e9ebf206eb3e49bf305",
+      "split": "development",
+      "review_sha256": "893ef38e61ec4fc8681910e3d657c2a1346ba0fbc512b2839f795e0f3954a8b8",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xGdWMybERSV05JUjFKM01XaGtORGxRWW1VNWVIYxAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "d2892b668e0f4585bd8e2d8627b8af746afc9d97255d6872ec05ca933151fc98",
+      "split": "development",
+      "review_sha256": "3a17535e9c7baba808444b2a5651bcbdc12f3358185a09e2c41bffb368351860",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xJMlpFaHlhRTVCTVdjd1FYbGtXRTVNYUhWVFozYxAB",
+      "coffee_shop_id": "place_id:ChIJjSdZ8MXFaC4RgdPUBsCQgJQ",
+      "duplicate_group": "3db2b518b87fe3e02ba429d1310bb28750c31834e1f90687540024a67550e645",
+      "split": "development",
+      "review_sha256": "df16e5dd25b0ddcdd58cd855d79807bad3a81c52ca4f3b06860f0394f545b896",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xKQmFubE5MVms1VDJ0NWRrTXlUSEZhTUZFMVQzYxAB",
+      "coffee_shop_id": "place_id:ChIJV5EXlPfFaC4RDRK6u55TS8Q",
+      "duplicate_group": "5d39a0747876b60e36bedf9a21f9537d2b337cd4f666b99b8b24a5b2e013dfe3",
+      "split": "development",
+      "review_sha256": "0be1490f424f20a4db09b759453f36a304adb3bc3b2821547a7ff10679f5f83a",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xOUE1YTTJWbFJzTFVsSlYzcFFUVUZKTTJSM1ZFRRAB",
+      "coffee_shop_id": "place_id:ChIJjSdZ8MXFaC4RgdPUBsCQgJQ",
+      "duplicate_group": "9bfc2c4d13cc1ae2e82e839d0387b78d2b2c8b73ed4f7e1c8ee65a9ba9332f38",
+      "split": "calibration",
+      "review_sha256": "3ffe34c5c4db904f4322cd2e5e6019eca811fce60e8e71d6109a8eb33da6875d",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xOc1UxQnNNRWhvVUVGSGVIUTVXV0pQVTI1TWMyYxAB",
+      "coffee_shop_id": "place_id:ChIJobvDql_FaC4RaI3AOTkygHY",
+      "duplicate_group": "8cd2bc2d4ddde0199881b0637faf55b2e6baecbe1e4937795f52e1bc1cfdaff7",
+      "split": "development",
+      "review_sha256": "17acd3e931e790fd527d749f8f3217c5088207a37dd3c78874df36d12dade9dc",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xOeVprRjRibkF5VlVKd01GTlZSMmszUnpaRFVIYxAB",
+      "coffee_shop_id": "place_id:ChIJR6Us0trXaC4RdiC1gkwbSlA",
+      "duplicate_group": "260576353f860b879dc908684ee334c8a448a240fa2c608e00c9b6aa517a01e7",
+      "split": "calibration",
+      "review_sha256": "8645eb0b935924e5e68167f497a0dfa8cf7c3c49cdd4be281e5232db53816662",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xRMFVGcFdXbFpEVkVobFgwMVpSSHBTY1ZKZk1WRRAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "d18ede269234dce846e9caea4c369e165075a23e1974e25f6f2f7c3700e7152f",
+      "split": "development",
+      "review_sha256": "dfba8b05786958b319df620987d5ceebed03b566033ffc72446da5523dcd7dd3",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSNGIzcGlSVmhJVWxoTE9WOUtURWgyWmt0T1duYxAB",
+      "coffee_shop_id": "place_id:ChIJD3Kiwx7FaC4RUvNZlDxMEdE",
+      "duplicate_group": "2806bcd5a49c13837c43df8752ae600ccb2ae5fc356d8a6056bcff24383374df",
+      "split": "development",
+      "review_sha256": "2b2317a922d375fde3cfe58c78636492f3625c7001acfb8027750f59055cc4d8",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xSTk9IRkZXWFUwWTJ3eVZXZFpORGt6YW1ORlJuYxAB",
+      "coffee_shop_id": "place_id:ChIJN8u3FwDFaC4R8xU3Ilzh_Lw",
+      "duplicate_group": "13fe2c546bf92fd218931b2a628ac91232d43b91d8e9412e2ab379b57a7411de",
+      "split": "calibration",
+      "review_sha256": "a6436df0b387883e28853ebeda4a2dfa3e2bb0f8333ff73b653bc169f7ab0b0a",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xWbGNIbDZUMjVvYURKbldXbElSbWRPTW5kWVptYxAB",
+      "coffee_shop_id": "place_id:ChIJobvDql_FaC4RaI3AOTkygHY",
+      "duplicate_group": "95ae565d33b0c9dc741139238ecc32903461aee3b5d9541328e78c4c009798c8",
+      "split": "calibration",
+      "review_sha256": "f29869f5cbd9f51e68e671cff70403ff076368fba6aec5a412cfaa0f78b98444",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaMU9Wb3Rha0ZPUTBvMlJtdExWWEE1Wm5VM2IyYxAB",
+      "coffee_shop_id": "place_id:ChIJG7Rn5TLFaC4RwzAM3_hNzgo",
+      "duplicate_group": "75796e35a9dbaf556a73149313d7f9979a689ddb93b9425ebb0944d6f97fb1f4",
+      "split": "calibration",
+      "review_sha256": "94dd5c4eaddd8fb05f872180b8958df20a7eb898e88368e2c782de36fc7f4580",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaNFpFNDRUVEJvTlRSSE56VnNhVTVGTWtGaGQxRRAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "3e188e8fb15965c62f5fb02892871ffd87db8cac648cb8c3100d5a19b144409e",
+      "split": "locked_validation",
+      "review_sha256": "0640783b0999b00252a4b33390268c0272e892fe56a4e73878b50afa90463477",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xjNGJFWkxMWGhZVFU5eWNqVlhUekp0U1c1VmRWRRAB",
+      "coffee_shop_id": "place_id:ChIJWYkCVdLFaC4RKMzVdVu8iE0",
+      "duplicate_group": "d2524d15c358e0e25ad214115f05cfdb74a7e5f9ae66e693908668b2cec074b3",
+      "split": "development",
+      "review_sha256": "4e3d28d2994c3a578742a14e8a056ebd654a9c88eebbf3b9043f3e4cd464dd4c",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xkdk0wdEVPVEJOUW5sM1JsUmxiVjg0ZFhwaWVXYxAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "0d34b135e6d5a8ed6686b22c39c3de4a922f8ecf52d84978a4ad8b324f91fbf0",
+      "split": "development",
+      "review_sha256": "906400566a57e5ba5b109b673d8b87f47431b8738e5ebc16c3097287a583d52d",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xnMVZuZHJZalJ3TFVKeWRXWlJlRXR5UjJOUGEwRRAB",
+      "coffee_shop_id": "place_id:ChIJUw0tP3PFaC4RldVvxGfgNBc",
+      "duplicate_group": "286b1c96af09418e50083f6ef0eb442d4156c818b7b3cd802332497dfdd44cc7",
+      "split": "development",
+      "review_sha256": "a772e10f6ad8ad7b1aedf93a64ecc579b96d044d4547097aa2577783a089df32",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xoSlozUk5YMWx5TmtJeWVsRXdTVEV5U25oNmRXYxAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "b932fc61ed8160a58513373f926034f7cdd4811760a821eb440aa2db4140c397",
+      "split": "development",
+      "review_sha256": "0d0e24944af3228542c328a4e023d9bc1c52ecca084545d4cd3b7162b50c3d56",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xrNWRWcHlPRTB4ZERaSWIwMXNZbVpXT1dWRVRWRRAB",
+      "coffee_shop_id": "place_id:ChIJWYkCVdLFaC4RKMzVdVu8iE0",
+      "duplicate_group": "49af0db847b3f2050c8cac8876f838045f1782d259c15f18aa365e4de9d03fac",
+      "split": "locked_validation",
+      "review_sha256": "049e0165543e15bf17e26fb738314ef35484ad95b686613429b264487a6a1d2d",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xrd2NWaDFUbTluTlRGNk5YUnZRbVZhVmpkV01HYxAB",
+      "coffee_shop_id": "place_id:ChIJpZhMAU3baC4RNxguGr-vu3I",
+      "duplicate_group": "bff5c73c8a9d66bf4597d91a8d24c3b77d0f7e920bd6432ebe0bc13b0cd1d468",
+      "split": "locked_validation",
+      "review_sha256": "292a63f0ee3786ebb3f88de748e4565dc6bcb2f316266b1bc21a935d52280442",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xsU1ZIaGpRM0ZXWlhacldWZDVWRzgzTVZSblFuYxAB",
+      "coffee_shop_id": "place_id:ChIJobvDql_FaC4RaI3AOTkygHY",
+      "duplicate_group": "5057e0974ae4987bf278ccfeecf57b8980981e7e6643ed9af385d181aadf1f88",
+      "split": "development",
+      "review_sha256": "03c5b5bdae5bff038d87a979f8fd21ca7812b25643750364efe4221a3098c3d2",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xsUVYxcFJPRVIyYVRWdVFqaGFObTF2YlcxUGNWRRAB",
+      "coffee_shop_id": "place_id:ChIJNZfmYuHFaC4RR7-4TNQ_NKE",
+      "duplicate_group": "98ec82e7b7f554336467eb960f58a0543b59394e1707e22354ae946b0f942074",
+      "split": "development",
+      "review_sha256": "672b33a2c8223873ae2bfa2275e2467bcf08ea9b712e4fd327567d23513aa689",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xsaldWWm9abTFhVm1KaVh6QTBNamRLT1hSSGNYYxAB",
+      "coffee_shop_id": "place_id:ChIJk0u2tInFaC4RNsp-izRMrBs",
+      "duplicate_group": "65126393077cc1de4c7046a87d45d5b8f76c2e91264b25f1996c58b2dbe94bfa",
+      "split": "locked_validation",
+      "review_sha256": "cdd142b07bf3588f8e0e901146714da9d68a223506d0643c433a99c7eb80827a",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xveVJuUmlNVE5OVWtOVWJtWkJNVzh6YlZFMGVGRRAB",
+      "coffee_shop_id": "place_id:ChIJR6Us0trXaC4RdiC1gkwbSlA",
+      "duplicate_group": "5d243449f12ec4b1438c6d942dbe1ab4415461c21e27a29dbe387ced7d2fd6de",
+      "split": "calibration",
+      "review_sha256": "7255cf82b6cdd1367ab1a8ee5bd4e8de3a6b37ece4d06a7c638b2712aadc7d68",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xwYVdXMTRSVGczTTNkb1NHb3pXazUyT1ZVdFMyYxAB",
+      "coffee_shop_id": "place_id:ChIJjSdZ8MXFaC4RgdPUBsCQgJQ",
+      "duplicate_group": "a5d522aa5769655a488229ebafcc9a3d5b20adcab4a4e47c0c714b0b0c351d17",
+      "split": "development",
+      "review_sha256": "04f1020c58ba57faa871e71acce065498146cb417e36be41bb0c939a1ccf5ac9",
+      "geography_status": "UNVERIFIED"
+    },
+    {
+      "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xwb01taEdVemhEYjNaQ1MxVk5TSHA1WHpkbFlYYxAB",
+      "coffee_shop_id": "place_id:ChIJV5EXlPfFaC4RDRK6u55TS8Q",
+      "duplicate_group": "c169162edee5a65a7f0f6a5bf4a0337d42bccd929036da8baa04390fde24150b",
+      "split": "development",
+      "review_sha256": "2bb813680ffd47092d4dd995cd2f3337165e2a233de4e70fb882c0bbb7c50962",
+      "geography_status": "UNVERIFIED"
+    }
+  ],
+  "annotation_state": "UNANNOTATED",
+  "authorization": "OWNER_ATTESTED"
+}

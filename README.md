@@ -73,6 +73,12 @@ jumlah ulasan dan lokasi file input dapat diatur melalui `.env`.
 
 ## Aturan data
 
+- Dataset penelitian dan formulir anotasi kosong dapat di-commit agar anggota
+  kelompok memperoleh snapshot yang sama melalui clone/pull repository tim.
+- Rincian file dan alur kerja bersama ada di [data/README.md](data/README.md).
+- Checkpoint/respons AI, screenshot debug, serta folder kerja dan submission
+  anotasi independen tetap lokal. Hasil final yang telah direview dapat
+  dibagikan melalui `data/processed/` sesuai keputusan tim.
 - Jangan mengubah file di `data/raw/` secara manual.
 - Jangan mencampurkan fixture/demo dengan dataset penelitian.
 - Catat sumber, waktu akuisisi, parameter, versi scraper, dan checksum.

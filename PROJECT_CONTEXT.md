@@ -358,8 +358,8 @@ estimasi finansial. Demo classifier tidak harus bergantung pada AI eksternal.
 | `prompts/absa_gemini_v1.md` dan `.manifest.json` | Prompt terversi dan hash sumber |
 | `src/brewscope/annotation/` | Provider, runtime, storage, validation, pipeline, human, agreement, evaluation dan export |
 | `scripts/run_annotation.py` | CLI dry run, mock, workflow manusia, eksperimen, review dan ekspor |
-| `data/raw/` | Snapshot asli, lokal/diabaikan Git |
-| `data/interim/` | Audit flags, kandidat, formulir manusia, grouping, checkpoint; lokal |
+| `data/raw/` | Snapshot asli yang dilacak Git untuk kolaborasi tim; tidak diedit langsung |
+| `data/interim/` | Audit flags, kandidat, grouping dan formulir kosong dilacak Git; checkpoint/debug serta kerja/submission independen tetap lokal |
 | `data/processed/` | Keluaran gold/dataset saat tersedia; belum berisi dataset berlabel final |
 | `reports/` | Laporan/ringkasan tahap, tabel/grafik dan pemeriksaan aktual |
 | `tests/annotation/` | Test dan fixture sintetis Stage 4 |
@@ -398,9 +398,12 @@ python -m venv .venv
 .venv\Scripts\python.exe -m ipykernel install --prefix .venv --name brewscope --display-name "BrewScope (.venv)"
 ```
 
-Dataset tidak tersedia otomatis pada clone; tempatkan snapshot yang disepakati
-melalui kanal privat tim dan periksa hash. Buat `.env` dari `.env.example` hanya
-bila belum ada, isi token/key secara lokal, jangan menimpa credential yang ada.
+Keputusan terbaru pemilik: dataset dan formulir kosong dibagikan melalui Git
+agar anggota memakai snapshot yang sama. Setelah commit/push data digabung,
+clone/pull menyertakan file tersebut; tetap periksa hash. Checkpoint dan jawaban
+independen yang belum dikunci tidak ikut. Lihat [panduan data](data/README.md).
+Buat `.env` dari `.env.example` hanya bila belum ada, isi token/key secara lokal,
+jangan menimpa credential yang ada.
 Jalankan dari root repo:
 
 ```powershell
@@ -417,8 +420,9 @@ menyalakan generation atau labeling penuh.
 
 Panduan Git: `main` sebagai baseline bersama, branch `hafizh`, `niki`, `robi`,
 `hamam` untuk pekerjaan masing-masing, gabung lewat PR/review. Status push aktual
-belum diverifikasi di dokumen ini. Credential, venv, dataset/anotasi privat dan
-model lokal tidak ikut Git; periksa juga output notebook sebelum dibagikan.
+belum diverifikasi di dokumen ini. Credential, venv, checkpoint, kerja/submission
+anotasi independen dan model lokal tidak ikut Git. Dataset dan formulir kosong
+boleh dilacak sesuai keputusan berbagi tim; periksa output sebelum dibagikan.
 
 ## 17. Milestone dan definition of done
 

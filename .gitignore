@@ -20,15 +20,17 @@ venv/
 .vscode/
 .ipynb_checkpoints/
 
-# Local data and generated artifacts
-data/raw/*
-!data/raw/.gitkeep
-data/interim/*
-!data/interim/.gitkeep
-data/processed/*
-!data/processed/.gitkeep
-data/annotations/*
-!data/annotations/.gitkeep
+# Research datasets and blank annotation assignments are versioned for the team.
+# Keep machine-specific state, raw AI responses and independent working labels local.
+data/interim/ai_annotation_checkpoints/
+data/interim/ai_annotations/
+data/interim/debug_maps/
+data/interim/human_annotations/work/
+data/interim/human_annotations/submissions/
+data/**/.run.lock
+data/**/.writing-*
+
+# Generated model artifacts and scraper diagnostics
 models/*
 !models/.gitkeep
 reports/scraping_debug/
