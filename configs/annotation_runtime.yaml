@@ -1,0 +1,66 @@
+# Tidak ada credential di file ini. Null harus diisi dari project AI Studio aktual.
+runtime_version: 1
+provider: gemini
+model: gemini-3.5-flash-lite
+model_candidates:
+  - gemini-3.5-flash-lite
+  - gemini-2.5-flash
+  - gemini-2.5-flash-lite
+documentation_checked_on: '2026-10-26'
+documented_free_models:
+  - gemini-3.5-flash-lite
+  - gemini-2.5-flash
+  - gemini-2.5-flash-lite
+project:
+  quota_scope: brewscope-default-project
+  billing_tier: UNKNOWN
+  verified_on: null
+  verification_reference: null
+  rpm: null
+  daily_requests: null
+  # Opsional: isi bila batas token aktif project diketahui.
+  input_tokens_per_minute: null
+execution:
+  default_mode: synthetic
+  smoke_max_reviews: 5
+  batch_size: 1
+  max_attempts: 3
+  backoff_seconds: 2
+  timeout_seconds: 60
+  max_input_characters: 20000
+  max_output_tokens: 6000
+  temperature: 0
+  seed: 42
+  prompt_version: absa_gemini_v1
+  prompt_path: prompts/absa_gemini_v1.md
+authorization:
+  status: OWNER_ATTESTED
+  basis: Brief Stage 4 dari pemilik penelitian, diterima 26 Oktober 2026.
+  external_ai_processing: true
+  independently_verified_source_permission: false
+  geography_policy: retain_unverified_for_controlled_pilot
+privacy:
+  policy: hold_suspected_pii
+  # Pemindaian pola tidak membuktikan bebas nama/identitas kontekstual.
+  external_pii_review_completed: false
+  review_reference: null
+ollama:
+  base_url: http://127.0.0.1:11434
+  model: qwen2.5:3b
+quality:
+  # Usulan penelitian; harus dipraregistrasi sebelum membuka locked holdout.
+  criteria_frozen: false
+  criteria_reference: null
+  protocol_path: data/interim/human_annotations/evaluation_protocol.json
+  detection_micro_f1_min: 0.80
+  detection_macro_f1_min: 0.70
+  conditional_sentiment_macro_f1_min: 0.70
+  end_to_end_micro_f1_min: 0.70
+  random_audit_fraction: 0.10
+  minimum_locked_reviews: 40
+full:
+  explicitly_approved: false
+  approval_reference: null
+  scope_finalized: false
+  source_terms_reviewed: false
+  pilot_evaluation_path: data/interim/stage4_pilot_evaluation.json

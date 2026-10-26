@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "codebase-design": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/codebase-design/SKILL.md",
+      "computedHash": "fb1d8ab98ad151551eeade003e3ae55a46578a380fd9fc3ed4dbf9c2fbce0a9f"
+    },
+    "google-maps-scraper": {
+      "source": "gosom/google-maps-scraper",
+      "sourceType": "github",
+      "skillPath": "skills/google-maps-scraper/SKILL.md",
+      "computedHash": "7a286ee35b0d754c21718472ad342e59213f023ac208a9c512122cc5b3ae61c3"
+    },
+    "research": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/research/SKILL.md",
+      "computedHash": "2c8b768d5f0309eaea9f92ef740101e813645b39aef88fb82733a52eae23dc0b"
+    },
+    "tdd": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/tdd/SKILL.md",
+      "computedHash": "535d1a6f3bd5bded8971e7e4ea76538907cbff6b6d32c39cf97b669869dcd383"
+    }
+  }
+}

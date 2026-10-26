@@ -1,0 +1,458 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://brewscope.example/schemas/annotation_schema.json",
+  "title": "BrewScope annotation: one review-aspect-annotator record",
+  "description": "Schema metodologi draft. Stage 3 memvalidasi fixture sintetis saja. Aspect provisional tidak aktif. Pemeriksaan quote/offset dan duplikasi pair dilakukan oleh validator notebook.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "annotation_id",
+    "review_id",
+    "coffee_shop_id",
+    "data_origin",
+    "review_text",
+    "aspect_category",
+    "aspect_presence",
+    "sentiment",
+    "mention_type",
+    "mixed_sentiment",
+    "evidence",
+    "annotation_status",
+    "annotator_id",
+    "taxonomy_version",
+    "adjudication_status",
+    "training_eligible",
+    "notes",
+    "review_flags"
+  ],
+  "properties": {
+    "annotation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "coffee_shop_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "data_origin": {
+      "enum": [
+        "synthetic",
+        "authorized_review"
+      ]
+    },
+    "review_text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aspect_category": {
+      "enum": [
+        "product_quality",
+        "service",
+        "price_value",
+        "ambience",
+        "facilities",
+        "cleanliness"
+      ]
+    },
+    "aspect_presence": {
+      "enum": [
+        "mentioned",
+        "not_mentioned",
+        "uncertain"
+      ]
+    },
+    "sentiment": {
+      "enum": [
+        "positive",
+        "neutral",
+        "negative",
+        null
+      ]
+    },
+    "mention_type": {
+      "enum": [
+        "explicit",
+        "implicit",
+        "mixed",
+        null
+      ]
+    },
+    "mixed_sentiment": {
+      "type": "boolean"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/opinion"
+      }
+    },
+    "annotation_status": {
+      "enum": [
+        "draft",
+        "uncertain",
+        "completed"
+      ]
+    },
+    "annotator_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "taxonomy_version": {
+      "const": "0.1.0-draft"
+    },
+    "adjudication_status": {
+      "enum": [
+        "not_required",
+        "pending",
+        "resolved"
+      ]
+    },
+    "training_eligible": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "review_flags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "general_praise",
+          "out_of_taxonomy",
+          "needs_context",
+          "sarcasm",
+          "code_switching",
+          "misspelling"
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "opinion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "quote",
+        "start",
+        "end",
+        "opinion_sentiment",
+        "mention_type",
+        "target"
+      ],
+      "properties": {
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "opinion_sentiment": {
+          "enum": [
+            "positive",
+            "neutral",
+            "negative",
+            null
+          ]
+        },
+        "mention_type": {
+          "enum": [
+            "explicit",
+            "implicit"
+          ]
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "aspect_presence": {
+            "const": "not_mentioned"
+          }
+        },
+        "required": [
+          "aspect_presence"
+        ]
+      },
+      "then": {
+        "properties": {
+          "sentiment": {
+            "type": "null"
+          },
+          "mention_type": {
+            "type": "null"
+          },
+          "mixed_sentiment": {
+            "const": false
+          },
+          "evidence": {
+            "maxItems": 0
+          },
+          "training_eligible": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "aspect_presence": {
+            "const": "uncertain"
+          }
+        },
+        "required": [
+          "aspect_presence"
+        ]
+      },
+      "then": {
+        "properties": {
+          "sentiment": {
+            "type": "null"
+          },
+          "annotation_status": {
+            "const": "uncertain"
+          },
+          "training_eligible": {
+            "const": false
+          },
+          "notes": {
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "aspect_presence": {
+            "const": "mentioned"
+          }
+        },
+        "required": [
+          "aspect_presence"
+        ]
+      },
+      "then": {
+        "properties": {
+          "evidence": {
+            "minItems": 1
+          },
+          "mention_type": {
+            "enum": [
+              "explicit",
+              "implicit",
+              "mixed"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "annotation_status": {
+            "const": "uncertain"
+          }
+        },
+        "required": [
+          "annotation_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "sentiment": {
+            "type": "null"
+          },
+          "training_eligible": {
+            "const": false
+          },
+          "notes": {
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "adjudication_status": {
+            "const": "pending"
+          }
+        },
+        "required": [
+          "adjudication_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "annotation_status": {
+            "const": "uncertain"
+          },
+          "training_eligible": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "mixed_sentiment": {
+            "const": true
+          }
+        },
+        "required": [
+          "mixed_sentiment"
+        ]
+      },
+      "then": {
+        "properties": {
+          "aspect_presence": {
+            "const": "mentioned"
+          },
+          "sentiment": {
+            "type": "null"
+          },
+          "training_eligible": {
+            "const": false
+          },
+          "evidence": {
+            "minItems": 2,
+            "allOf": [
+              {
+                "contains": {
+                  "properties": {
+                    "opinion_sentiment": {
+                      "const": "positive"
+                    }
+                  },
+                  "required": [
+                    "opinion_sentiment"
+                  ]
+                }
+              },
+              {
+                "contains": {
+                  "properties": {
+                    "opinion_sentiment": {
+                      "const": "negative"
+                    }
+                  },
+                  "required": [
+                    "opinion_sentiment"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "annotation_status": {
+            "const": "completed"
+          },
+          "aspect_presence": {
+            "const": "mentioned"
+          },
+          "mixed_sentiment": {
+            "const": false
+          }
+        },
+        "required": [
+          "annotation_status",
+          "aspect_presence",
+          "mixed_sentiment"
+        ]
+      },
+      "then": {
+        "properties": {
+          "sentiment": {
+            "enum": [
+              "positive",
+              "neutral",
+              "negative"
+            ]
+          },
+          "evidence": {
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/opinion"
+                },
+                {
+                  "properties": {
+                    "opinion_sentiment": {
+                      "enum": [
+                        "positive",
+                        "neutral",
+                        "negative"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "training_eligible": {
+            "const": true
+          }
+        },
+        "required": [
+          "training_eligible"
+        ]
+      },
+      "then": {
+        "properties": {
+          "aspect_presence": {
+            "const": "mentioned"
+          },
+          "sentiment": {
+            "enum": [
+              "positive",
+              "neutral",
+              "negative"
+            ]
+          },
+          "mixed_sentiment": {
+            "const": false
+          },
+          "annotation_status": {
+            "const": "completed"
+          },
+          "adjudication_status": {
+            "enum": [
+              "not_required",
+              "resolved"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

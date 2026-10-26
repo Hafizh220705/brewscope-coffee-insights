@@ -1,0 +1,13 @@
+﻿severity,issue,affected,status,action
+Critical,Integritas field dan konflik ID,0,LULUS,Periksa missing/validitas/konflik pada review_audit_flags.csv; adjudikasi ke sumber.
+Moderate,Text Suitability Issue — Symbol/Emoji-only Reviews,11,REVIEW,"Tinjau kelayakan leksikal untuk ABSA; hanya dikecualikan pada simulasi eligible, tidak dihapus dari raw."
+Critical,Wilayah administratif Jatinangor,40,BELUM TERVERIFIKASI,Verifikasi alamat/koordinat tiap place ID terhadap batas Kecamatan Jatinangor; jangan putuskan dari nama.
+Moderate,Pengulangan teks potensial,255,REVIEW,Bedakan ungkapan sah dan duplikasi melalui ID/metadata; jangan hapus otomatis.
+Moderate,Kedai dengan <30 review,5,REVIEW,Sampling anotasi per kedai; laporkan ukuran sampel sebelum membandingkan bisnis.
+Moderate,Dominasi rating sumber,3071,REVIEW,Laporkan bias seleksi; jangan konversi rating menjadi label sentimen aspek.
+Moderate,Review pendek/bahasa/relevansi,1262,REVIEW,"Tinjau sampel manual termasuk slang, campuran, dan review tanpa keyword; pertahankan teks asli."
+Moderate,Privasi teks,0,TIDAK ADA POLA TERDETEKSI,Tinjau PII yang tidak tercakup pola email/telepon sebelum membagi data.
+Moderate,Cakupan enam aspek,1,EKSPLORATIF,Tetapkan enam aspek termasuk Cleanliness; pilot manusia untuk mengevaluasi kamus.
+Moderate,Metadata historis pengumpulan belum lengkap,10,NOT_DOCUMENTED,Lengkapi run manifest historis; jangan menganggap default script terbaru sebagai konfigurasi pengumpulan.
+Critical,Hak penggunaan data penelitian,1,PERMISSION_NOT_VERIFIED,"Verifikasi bukti izin pengumpulan, penyimpanan, anotasi, training ML, dan publikasi."
+Minor,Sinkronisasi dokumentasi audit,0,DIDOKUMENTASIKAN,Gunakan laporan/JSON revisi ini dan tabel geografis; raw dan perhitungan EDA dipertahankan.

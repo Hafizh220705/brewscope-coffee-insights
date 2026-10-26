@@ -1,0 +1,51 @@
+{
+  "stage": 3,
+  "taxonomy_version": "0.1.0-draft",
+  "source_sha256": "7b87a53110041da74e976a6c9cb121c1dea7d73be70daeab58b2c07bef775719",
+  "taxonomy_sha256": "e73ae34262f300d5551ade75d732a1b99ba84799a034565da47778f9671ef2c8",
+  "schema_sha256": "44bbdb75cbdc2ef87c7f958ac0491c6088ea9f6ddbb5325196490055a0909648",
+  "literature_source_count": 7,
+  "literature_verification": {
+    "VERIFIED_FULL_TEXT": 5,
+    "VERIFIED_METADATA_AND_ABSTRACT": 2
+  },
+  "active_aspects": [
+    "product_quality",
+    "service",
+    "price_value",
+    "ambience",
+    "facilities",
+    "cleanliness"
+  ],
+  "provisional_aspects": [
+    "location_accessibility"
+  ],
+  "synthetic_fixture_records": 31,
+  "pilot_candidate_count": 250,
+  "pilot_place_count": 40,
+  "pilot_minimum_per_shop": 3,
+  "seed": 42,
+  "pilot_sha256": "6f292784a9f9fb38e52d040460a37909e56ebdade2e4eae6bddce74cc5ccf48f",
+  "quota_shortfall": 0,
+  "keyword_coverage": {
+    "product_quality": 1452,
+    "service": 889,
+    "price_value": 430,
+    "ambience": 1343,
+    "facilities": 277,
+    "cleanliness": 175
+  },
+  "no_keyword_rows": 1052,
+  "multi_keyword_rows": 1309,
+  "gates": {
+    "geography": {
+      "UNVERIFIED": 40
+    },
+    "permission": "PERMISSION_NOT_VERIFIED",
+    "real_annotation_performed": false,
+    "sentiment_classification_performed": false,
+    "model_training_performed": false,
+    "empirical_taxonomy_validated": false
+  },
+  "status": "METHODOLOGY_DRAFT_READY_FOR_REVIEW; REAL_ANNOTATION_BLOCKED"
+}

@@ -1,0 +1,333 @@
+# Semua contoh adalah sintetis. Draft metodologi, bukan label korpus.
+taxonomy_version: "0.1.0-draft"
+status: "LITERATURE_GROUNDED_DRAFT_NOT_EMPIRICALLY_VALIDATED"
+language: "id"
+examples_origin: "SYNTHETIC_ONLY"
+schema_path: "schemas/annotation_schema.json"
+evidence_policy:
+  literature: "Rujukan kategori/dimensi; bukan bukti validasi taksonomi lokal."
+  local: "Statistik keyword Tahap 2 saja; bukan anotasi aspek/sentimen."
+  data_use: "PERMISSION_NOT_VERIFIED"
+  geography: "40 UNVERIFIED; verifikasi sebelum anotasi aktual."
+academic_sources:
+  -
+    source_id: "pontiki2014"
+    doi: "10.3115/v1/S14-2004"
+    url: "https://aclanthology.org/S14-2004/"
+  -
+    source_id: "pontiki2016"
+    doi: "10.18653/v1/S16-1002"
+    url: "https://aclanthology.org/S16-1002/"
+  -
+    source_id: "zainuddin2025"
+    doi: "10.31331/joined.v8i2.4325"
+    url: "https://doi.org/10.31331/joined.v8i2.4325"
+  -
+    source_id: "latifah2026"
+    doi: "10.35315/dinamik.v31i1.10417"
+    url: "https://doi.org/10.35315/dinamik.v31i1.10417"
+  -
+    source_id: "suksarifanti2024"
+    doi: "10.22146/jamadev.v5i1.12984"
+    url: "https://doi.org/10.22146/jamadev.v5i1.12984"
+  -
+    source_id: "wiastuti2024"
+    doi: "10.18778/0867-5856.34.2.02"
+    url: "https://doi.org/10.18778/0867-5856.34.2.02"
+sentiment_definitions:
+  positive: "Evaluasi menguntungkan terhadap aspek yang disebutkan."
+  neutral: "Aspek disebutkan secara faktual atau tanpa polaritas evaluatif yang cukup."
+  negative: "Evaluasi merugikan/keluhan terhadap aspek yang disebutkan."
+workflow_definitions:
+  not_mentioned: "Aspek tidak didukung bukti teks setelah review lengkap; sentiment=null, bukan neutral."
+  uncertain: "Status anotasi untuk ketidakpastian; bukan kelas sentimen keempat."
+  mixed: "Opini positif dan negatif pada kategori sama disimpan terpisah sebagai evidence; pair sentiment=null, mixed_sentiment=true; bukan neutral."
+policies:
+  annotation_unit: "Satu record review–aspect–annotator dengan satu/lebih evidence opinion-level."
+  evidence_offsets: "Indeks karakter Unicode Python 0-based, end-exclusive pada teks asli; quote harus sama dengan slice."
+  rating: "Rating disembunyikan dari annotator; tidak dipakai sebagai label."
+  general_praise: "Jangan menyebarkan pujian umum ke semua aspek; catat kebutuhan konteks/coverage gap."
+  mixed_training: "Pair mixed dikeluarkan dari subset tiga kelas review-aspect. Evidence tetap disimpan. Eksperimen clause-level hanya sebagai task terpisah setelah protokol disepakati."
+  uncertain_training: "Tidak masuk gold/training sampai adjudikasi; alasan wajib di notes."
+  overlap: "Kategori dipilih dari objek+predikat evaluatif, bukan nomina saja; dua aspek hanya jika dua klaim mandiri."
+  provisional: "Aspect provisional tidak boleh masuk schema active; aktivasi memerlukan validasi pilot dan version bump."
+aspects:
+  -
+    id: "product_quality"
+    name: "Product Quality"
+    decision: "ADAPT"
+    active: true
+    operational_definition: "Kualitas intrinsik makanan/minuman, rasa, kesegaran, porsi, variasi menu, dan presentasi produk."
+    sources:
+      - "pontiki2014"
+      - "pontiki2016"
+      - "zainuddin2025"
+      - "latifah2026"
+      - "suksarifanti2024"
+    evidence_locations:
+      - "pontiki2014 §3.2, pp.29–30; FOOD"
+      - "pontiki2016 restoran FOOD/DRINKS entity–attribute"
+      - "suksarifanti2024 Table 3, p.50"
+    inclusion:
+      - "Kopi/minuman/makanan dan rasa/aroma/kesegarannya"
+      - "Porsi, pilihan menu, presentasi hidangan"
+    exclusion:
+      - "Harga dan perbandingan nilai → price_value"
+      - "Kebersihan meja/toilet → cleanliness"
+      - "Kecepatan penyajian → service"
+    explicit_expressions:
+      - "kopinya"
+      - "rasa makanan"
+      - "variasi menu"
+    implicit_expressions:
+      - "Baru diseruput sudah terasa gosong."
+    examples:
+      positive: "Kopinya harum dan rasanya enak."
+      neutral: "Menu menyediakan kopi dan teh."
+      negative: "Rotinya sudah basi."
+    overlaps:
+      - "Harga dibanding porsi: pisahkan price_value dan product_quality hanya bila ada dua evaluasi."
+    justification: "Gabungkan FOOD dan DRINKS serta atribut menu/porsi menjadi kategori operasional coffee shop; tidak mengklaim keenam kategori berasal utuh dari satu studi."
+  -
+    id: "service"
+    name: "Service"
+    decision: "ADOPT"
+    active: true
+    operational_definition: "Interaksi dan proses layanan staf: keramahan, pemesanan, waktu tunggu, respons, serta penanganan keluhan."
+    sources:
+      - "pontiki2014"
+      - "pontiki2016"
+      - "zainuddin2025"
+      - "latifah2026"
+      - "suksarifanti2024"
+    evidence_locations:
+      - "pontiki2014 SERVICE; §3.2"
+      - "suksarifanti2024 Table 4, p.51, PL11"
+    inclusion:
+      - "Keramahan/respons staf dan pengalaman memesan"
+      - "Antrean, keterlambatan pesanan, respons komplain"
+    exclusion:
+      - "Kecepatan internet → facilities"
+      - "Kualitas rasa minuman → product_quality"
+    explicit_expressions:
+      - "pelayanan"
+      - "kasir"
+      - "barista"
+    implicit_expressions:
+      - "Pesanan baru datang setelah satu jam."
+    examples:
+      positive: "Stafnya ramah dan cepat membantu."
+      neutral: "Pesanan dilakukan melalui kasir."
+      negative: "Keluhan saya diabaikan staf."
+    overlaps:
+      - "Waktu tunggu diperlakukan sebagai bagian service, bukan kelas ketujuh."
+    justification: "Mengadopsi makna umum kategori SERVICE; aturan bahasa Indonesia dan batas kasus merupakan operasionalisasi lokal yang masih perlu pilot."
+  -
+    id: "price_value"
+    name: "Price & Value"
+    decision: "ADAPT"
+    active: true
+    operational_definition: "Evaluasi harga, keterjangkauan, promosi, dan kesepadanan biaya terhadap manfaat/kualitas."
+    sources:
+      - "pontiki2014"
+      - "pontiki2016"
+      - "zainuddin2025"
+      - "latifah2026"
+      - "suksarifanti2024"
+    evidence_locations:
+      - "pontiki2014 PRICE"
+      - "pontiki2016 atribut PRICES"
+      - "suksarifanti2024 Table 3, p.50"
+    inclusion:
+      - "Mahal/murah/terjangkau dan worth it"
+      - "Harga dibanding mutu/porsi; evaluasi promo"
+    exclusion:
+      - "Angka porsi tanpa pembahasan biaya → product_quality"
+      - "Akses/jarak menuju lokasi → location_accessibility provisional"
+    explicit_expressions:
+      - "harga"
+      - "harganya"
+      - "worth it"
+    implicit_expressions:
+      - "Segelas kecil bikin dompet menjerit."
+    examples:
+      positive: "Harganya terjangkau untuk mahasiswa."
+      neutral: "Americano tercantum seharga dua puluh ribu rupiah."
+      negative: "Harganya terlalu mahal untuk kualitas ini."
+    overlaps:
+      - "Porsi besar tidak otomatis membuat value positif; ikuti evaluasi dalam teks."
+    justification: "Memperluas harga menjadi penilaian value secara eksplisit; perlu validasi batas value vs product pada pilot."
+  -
+    id: "ambience"
+    name: "Ambience"
+    decision: "ADAPT"
+    active: true
+    operational_definition: "Pengalaman suasana dan kenyamanan: interior, kebisingan, musik, kepadatan ruang, serta kesesuaian aktivitas."
+    sources:
+      - "pontiki2014"
+      - "pontiki2016"
+      - "zainuddin2025"
+      - "latifah2026"
+      - "suksarifanti2024"
+      - "wiastuti2024"
+    evidence_locations:
+      - "pontiki2014 AMBIENCE"
+      - "suksarifanti2024 Table 4, p.51, PL8"
+      - "wiastuti2024 Tables 2/5"
+    inclusion:
+      - "Suasana/interior/musik/kebisingan"
+      - "Kenyamanan bekerja, belajar, mengobrol, dan luas ruang yang dirasakan"
+    exclusion:
+      - "Ketersediaan/kerusakan amenitas → facilities"
+      - "Kebersihan fisik → cleanliness"
+    explicit_expressions:
+      - "suasana"
+      - "interior"
+      - "nyaman"
+    implicit_expressions:
+      - "Bisa fokus mengerjakan tugas tanpa gangguan."
+    examples:
+      positive: "Suasananya tenang untuk belajar."
+      neutral: "Interiornya memakai warna cokelat."
+      negative: "Tempatnya terlalu sempit dan berisik."
+    overlaps:
+      - "Nyaman tanpa objek fasilitas spesifik → ambience; kursi kurang/tidak tersedia → facilities."
+    justification: "Mengadaptasi atmosphere untuk praktik nugas/WFC lokal; kebersihan dipisah sebagai keputusan operasional penelitian."
+  -
+    id: "facilities"
+    name: "Facilities"
+    decision: "ADAPT"
+    active: true
+    operational_definition: "Keberadaan, kapasitas, fungsi, dan kemudahan memakai amenitas tempat."
+    sources:
+      - "latifah2026"
+      - "suksarifanti2024"
+      - "wiastuti2024"
+    evidence_locations:
+      - "latifah2026 lima kategori termasuk fasilitas; batas klaim pada literature review"
+      - "suksarifanti2024 Table 4, p.51, PL1–PL3"
+      - "wiastuti2024 Table 2 item amenitas"
+    inclusion:
+      - "Wi-Fi, parkir, colokan, toilet, AC, musala"
+      - "Ketersediaan kursi/meja atau kapasitas amenitas"
+    exclusion:
+      - "Toilet/meja kotor → cleanliness saja bila evaluasi hanya kebersihan"
+      - "Jalan menuju lokasi/proximity → location_accessibility provisional"
+      - "Respons petugas parkir → service bila evaluasinya tindakan staf"
+    explicit_expressions:
+      - "wifi"
+      - "parkir"
+      - "colokan"
+    implicit_expressions:
+      - "Baterai habis karena tidak ada tempat mengisi daya."
+    examples:
+      positive: "Wi-Fi lancar dan colokan mudah dipakai."
+      neutral: "Di sini tersedia Wi-Fi."
+      negative: "Toiletnya tidak tersedia."
+    overlaps:
+      - "Toilet kotor ≠ fasilitas negatif otomatis; Wi-Fi lambat ≠ service."
+    justification: "Memisahkan fungsi amenitas dari pengalaman suasana dan kebersihan; survei atribut bukan anotasi ABSA sehingga pemetaan merupakan adaptasi."
+  -
+    id: "cleanliness"
+    name: "Cleanliness"
+    decision: "ADAPT"
+    active: true
+    operational_definition: "Keadaan bersih/higienis ruang, meja, toilet, peralatan, serta pengelolaan sampah."
+    sources:
+      - "suksarifanti2024"
+      - "wiastuti2024"
+    evidence_locations:
+      - "suksarifanti2024 Table 4, p.51, PL3/PL6"
+      - "wiastuti2024 Table 2, AA4"
+    inclusion:
+      - "Kotor/bersih/lengket/berdebu pada area dan amenitas"
+      - "Higiene peralatan/penyajian yang secara eksplisit dibicarakan"
+    exclusion:
+      - "Toilet tidak ada/rusak → facilities"
+      - "Makanan basi/rasa buruk tanpa klaim higiene → product_quality"
+    explicit_expressions:
+      - "bersih"
+      - "kotor"
+      - "kebersihan"
+    implicit_expressions:
+      - "Bekas minuman pelanggan sebelumnya masih menempel di meja."
+    examples:
+      positive: "Meja dan toiletnya bersih."
+      neutral: "Meja dibersihkan setiap sore."
+      negative: "Toiletnya kotor dan berbau."
+    overlaps:
+      - "Bau sampah → cleanliness; musik terlalu keras → ambience; jangan menambah dua label tanpa dua proposisi."
+    justification: "Memisahkan dimensi kebersihan dari kelompok service/ambience pada literatur untuk keterlacakan operasional; coverage keyword rendah bukan alasan menghapusnya."
+  -
+    id: "location_accessibility"
+    name: "Location & Accessibility"
+    decision: "PROVISIONAL"
+    active: false
+    operational_definition: "Kenyamanan posisi geografis, kemudahan menemukan tempat, akses jalan, dan kedekatan destinasi."
+    sources:
+      - "pontiki2016"
+      - "suksarifanti2024"
+      - "wiastuti2024"
+    evidence_locations:
+      - "pontiki2016 LOCATION#GENERAL"
+      - "suksarifanti2024 Table 4, p.51, PL10"
+      - "wiastuti2024 Table 2, EA4"
+    inclusion:
+      - "Letak strategis/dekat kampus"
+      - "Akses jalan menuju kedai dan mudah/sulit ditemukan"
+    exclusion:
+      - "Kapasitas parkir di dalam tempat → facilities"
+      - "Kenyamanan berada di ruang → ambience"
+    explicit_expressions:
+      - "lokasi strategis"
+      - "akses jalan"
+    implicit_expressions:
+      - "Harus masuk gang sempit untuk sampai ke sana."
+    examples:
+      positive: "Lokasinya mudah ditemukan dari jalan utama."
+      neutral: "Kedai berada di dekat kampus."
+      negative: "Jalan menuju kedai sulit dilalui."
+    overlaps:
+      - "Dekat kampus faktual netral; lokasi strategis evaluatif positif; parkir hanya fasilitas kecuali akses jalan dibahas."
+    justification: "Landasan literatur ada, tetapi coverage lokal belum diaudit dengan protokol yang memadai dan scope administratif belum pasti. Uji pada pilot berizin sebelum aktivasi."
+adaptation_decisions:
+  -
+    candidate: "Food + Drinks + Menu/Porsi"
+    decision: "MERGE"
+    destination: "product_quality"
+    reason: "Granularitas kategori operasional coffee shop."
+  -
+    candidate: "Waiting Time"
+    decision: "MERGE"
+    destination: "service"
+    reason: "Proses layanan; pertahankan evidence granular tanpa kelas terpisah."
+  -
+    candidate: "General Praise / Miscellaneous"
+    decision: "REJECT"
+    destination: "workflow_gap"
+    reason: "Tidak menjadi label sentimen per aspek; pujian umum tanpa aspek dicatat sebagai gap/uncertain dan ditinjau."
+  -
+    candidate: "Facilities versus Cleanliness"
+    decision: "ADAPT"
+    destination: "dua kategori aktif"
+    reason: "Pisahkan fungsi amenitas dari kondisi kebersihannya."
+sampling:
+  target: 250
+  seed: 42
+  minimum_per_shop: 3
+  selection_method: "SHA-256(seed|review_id) stable rank; kuota bertahap overlap-aware; tanpa teks/label pada CSV kandidat."
+  quota_targets:
+    rare_cleanliness: 20
+    facilities_candidate: 20
+    no_keyword: 35
+    low_rating: 30
+    mid_rating: 15
+    long_review: 25
+    multi_keyword: 50
+    slang_or_mixed: 40
+    potential_duplicate: 15
+    short_review: 35
+    small_shop: 20
+    high_rating: 30
+  representativeness: "Pilot kuota/oversampling bukan estimasi distribusi alami. Kuota bukan kelas label."
+  actual_annotation_gate: "Geografi, izin anotasi/berbagi, keputusan duplikasi/kelayakan teks, dan protokol manusia harus diselesaikan."

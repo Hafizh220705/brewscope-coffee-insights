@@ -1,0 +1,12 @@
+﻿pemeriksaan,severity,jumlah_masalah,status,keterangan
+dataset_tidak_kosong,FAIL,0,PASS,Dataset harus memiliki minimal satu baris.
+schema_wajib,FAIL,0,PASS,Seluruh kolom wajib harus tersedia.
+missing_value,FAIL,0,PASS,Baris dengan nilai wajib kosong tidak siap dianotasi.
+teks_kosong,FAIL,0,PASS,Review harus memiliki teks.
+rating_invalid,FAIL,0,PASS,Rating harus numerik pada rentang 1–5.
+tanggal_invalid,WARN,0,PASS,Tanggal yang gagal diparsing perlu diperiksa.
+review_id_duplikat,FAIL,0,PASS,review_id harus unik.
+teks_duplikat_per_kedai,WARN,94,WARN,Teks identik pada kedai yang sama perlu dideduplikasi.
+indikasi_data_pribadi,WARN,0,PASS,Email/nomor telepon perlu disamarkan sebelum anotasi.
+review_bahasa_manual,WARN,786,WARN,Flag heuristik; jangan menghapus otomatis.
+kedai_di_bawah_20_review,WARN,5,WARN,Sampel kecil membatasi kekuatan insight bisnis.

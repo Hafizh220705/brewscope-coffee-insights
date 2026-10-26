@@ -1,0 +1,13 @@
+﻿group,target_minimum,available_in_eligible_pool,selected_count,shortfall
+rare_cleanliness,20,175,20,0
+facilities_candidate,20,277,22,0
+no_keyword,35,1041,75,0
+low_rating,30,242,30,0
+mid_rating,15,104,15,0
+long_review,25,419,34,0
+multi_keyword,50,1309,104,0
+slang_or_mixed,40,1207,87,0
+potential_duplicate,15,253,26,0
+short_review,35,767,58,0
+small_shop,20,65,20,0
+high_rating,30,3236,205,0

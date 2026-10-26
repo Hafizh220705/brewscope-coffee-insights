@@ -1,0 +1,27 @@
+{
+  "checked_on": "2026-10-26",
+  "versions": {
+    "google-genai": "2.33.0",
+    "python-dotenv": "1.2.4",
+    "jsonschema": "4.26.0",
+    "PyYAML": "6.0.3",
+    "pandas": "2.3.3",
+    "tzdata": "2026.5"
+  },
+  "gemini": {
+    "api_key_present": false,
+    "project_billing_tier": "UNKNOWN",
+    "actual_rpm": null,
+    "actual_daily_requests": null,
+    "actual_model_availability": "NOT_CHECKED_KEY_MISSING",
+    "live_generation_requests": 0,
+    "live_tokens": 0
+  },
+  "ollama": {
+    "model": "qwen2.5:3b",
+    "accessible": true,
+    "installed_models": [
+      "qwen2.5:3b"
+    ]
+  }
+}

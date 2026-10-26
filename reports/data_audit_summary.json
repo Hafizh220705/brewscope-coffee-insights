@@ -1,0 +1,597 @@
+{
+  "audit_cutoff": "2026-10-25T23:59:59+07:00",
+  "source": "data/raw/google_maps_reviews_jatinangor_raw.csv",
+  "source_sha256": "7b87a53110041da74e976a6c9cb121c1dea7d73be70daeab58b2c07bef775719",
+  "raw_unchanged": true,
+  "versions": {
+    "pandas": "2.3.3",
+    "numpy": "2.4.6",
+    "matplotlib": "3.11.2",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0",
+    "python": "3.11.9"
+  },
+  "overview": {
+    "total_reviews": 3593,
+    "coffee_shop_identities": 40,
+    "unique_coffee_shop_names": 40,
+    "unique_review_ids": 3593,
+    "unique_place_urls": 40,
+    "column_count": 6,
+    "memory_mib": 2.6999311447143555,
+    "review_date_min": "2016-09-13 14:39:50.043000+00:00",
+    "review_date_max": "2026-10-25 05:07:03.416000+00:00"
+  },
+  "quality": [
+    {
+      "column": "review_id",
+      "null_count": 0,
+      "empty_string_count": 0,
+      "whitespace_only_count": 0,
+      "missing_total": 0
+    },
+    {
+      "column": "nama_tempat",
+      "null_count": 0,
+      "empty_string_count": 0,
+      "whitespace_only_count": 0,
+      "missing_total": 0
+    },
+    {
+      "column": "rating",
+      "null_count": 0,
+      "empty_string_count": 0,
+      "whitespace_only_count": 0,
+      "missing_total": 0
+    },
+    {
+      "column": "tanggal_review",
+      "null_count": 0,
+      "empty_string_count": 0,
+      "whitespace_only_count": 0,
+      "missing_total": 0
+    },
+    {
+      "column": "teks_review",
+      "null_count": 0,
+      "empty_string_count": 0,
+      "whitespace_only_count": 0,
+      "missing_total": 0
+    },
+    {
+      "column": "url_tempat",
+      "null_count": 0,
+      "empty_string_count": 0,
+      "whitespace_only_count": 0,
+      "missing_total": 0
+    }
+  ],
+  "validity": [
+    {
+      "check": "invalid_rating",
+      "flagged_rows": 0,
+      "flagged_pct": 0.0
+    },
+    {
+      "check": "invalid_date",
+      "flagged_rows": 0,
+      "flagged_pct": 0.0
+    },
+    {
+      "check": "future_date",
+      "flagged_rows": 0,
+      "flagged_pct": 0.0
+    },
+    {
+      "check": "invalid_url",
+      "flagged_rows": 0,
+      "flagged_pct": 0.0
+    },
+    {
+      "check": "is_symbol_only",
+      "flagged_rows": 11,
+      "flagged_pct": 0.30615084887280825
+    },
+    {
+      "check": "is_short_review",
+      "flagged_rows": 778,
+      "flagged_pct": 21.653214583913165
+    },
+    {
+      "check": "is_potentially_irrelevant",
+      "flagged_rows": 0,
+      "flagged_pct": 0.0
+    },
+    {
+      "check": "needs_privacy_review",
+      "flagged_rows": 0,
+      "flagged_pct": 0.0
+    },
+    {
+      "check": "possible_mixed_language",
+      "flagged_rows": 164,
+      "flagged_pct": 4.56443083774005
+    },
+    {
+      "check": "has_slang_hint",
+      "flagged_rows": 1120,
+      "flagged_pct": 31.171722794322292
+    },
+    {
+      "check": "language_needs_review",
+      "flagged_rows": 1019,
+      "flagged_pct": 28.360701363762875
+    },
+    {
+      "check": "inconsistent_place_name",
+      "flagged_rows": 0,
+      "flagged_pct": 0.0
+    },
+    {
+      "check": "same_name_multiple_locations",
+      "flagged_rows": 0,
+      "flagged_pct": 0.0
+    },
+    {
+      "check": "identity_needs_review",
+      "flagged_rows": 0,
+      "flagged_pct": 0.0
+    }
+  ],
+  "duplicate_categories": [
+    {
+      "category": "ID review duplikat",
+      "involved_rows": 0,
+      "pct": 0.0
+    },
+    {
+      "category": "Rekaman enam field identik",
+      "involved_rows": 0,
+      "pct": 0.0
+    },
+    {
+      "category": "Teks exact pada kedai sama",
+      "involved_rows": 61,
+      "pct": 1.6977456164764821
+    },
+    {
+      "category": "Teks normalisasi pada kedai sama",
+      "involved_rows": 94,
+      "pct": 2.6161981630949067
+    },
+    {
+      "category": "Teks normalisasi lintas kedai",
+      "involved_rows": 247,
+      "pct": 6.874478151962149
+    }
+  ],
+  "confirmed_duplicate_extra_rows": 0,
+  "possible_legitimate_repetition_rows": 255,
+  "per_place_review_statistics": {
+    "count": 40.0,
+    "mean": 89.825,
+    "std": 37.996550113303975,
+    "min": 10.0,
+    "25%": 73.75,
+    "50%": 97.5,
+    "75%": 113.75,
+    "max": 151.0
+  },
+  "small_places_under_30": 5,
+  "geography": {
+    "unverified_places": 40,
+    "name_hints_to_verify": [
+      "Kopi Menak Rancaekek"
+    ],
+    "status_counts": {
+      "VERIFIED_INSIDE": 0,
+      "VERIFIED_OUTSIDE": 0,
+      "UNVERIFIED": 40
+    },
+    "candidate_coordinate_places": 39,
+    "evidence_table": "reports/tables/geographic_verification.csv",
+    "verification_method": "Inventaris URL raw dan koordinat kandidat lokal; tanpa pencocokan POI/batas yang konklusif."
+  },
+  "provenance": {
+    "source_platform": "Google Maps",
+    "collection_tool": "Apify",
+    "actor_id": "compass/google-maps-reviews-scraper",
+    "actor_evidence_basis": "Deklarasi brief pemilik proyek dan Actor ID pada script terkini; tanpa run manifest historis.",
+    "dataset_format": "CSV",
+    "observation_unit": "Ulasan pelanggan",
+    "intended_scope": "Kecamatan Jatinangor, Kabupaten Sumedang, Jawa Barat",
+    "observed_unique_places": 40,
+    "collection_datetime": "NOT_DOCUMENTED",
+    "historical_actor_version": "NOT_DOCUMENTED",
+    "historical_run_id": "NOT_DOCUMENTED",
+    "historical_dataset_id": "NOT_DOCUMENTED",
+    "historical_max_reviews": "NOT_DOCUMENTED",
+    "historical_processed_place_count": "NOT_DOCUMENTED",
+    "historical_place_selection_method": "NOT_DOCUMENTED",
+    "historical_empty_text_filter": "NOT_DOCUMENTED",
+    "historical_deduplication": "NOT_DOCUMENTED",
+    "historical_review_sort_order": "NOT_DOCUMENTED",
+    "current_script_configuration": {
+      "evidence": "scripts/scrape_google_maps.py; inspeksi source tanpa menjalankan Actor atau membaca .env",
+      "max_places_default": 40,
+      "max_reviews_default": 170,
+      "language": "id",
+      "personal_data": false,
+      "charge_cap_usd_default": "0.05",
+      "filter": "URL https; drop_duplicates URL; head(max_places). Review text/reviewText kosong dilewati.",
+      "deduplication": "review_id keep=first setelah normalisasi dan penggabungan CSV.",
+      "fallback_id": "SHA-256 placeId|URL|tanggal|teks ketika reviewId tidak tersedia.",
+      "historical_configuration_confirmed": false
+    },
+    "permission_status": "PERMISSION_NOT_VERIFIED",
+    "permission_collection": "PERMISSION_NOT_VERIFIED",
+    "permission_storage": "PERMISSION_NOT_VERIFIED",
+    "permission_annotation": "PERMISSION_NOT_VERIFIED",
+    "permission_training_ml": "PERMISSION_NOT_VERIFIED",
+    "permission_publication": "PERMISSION_NOT_VERIFIED",
+    "documentation": "docs/research/data_provenance.md"
+  },
+  "readiness_dimensions": {
+    "technical_data_quality": {
+      "status": "READY",
+      "integrity_issue_rows": 0,
+      "symbol_only_rows": 11,
+      "eligible_simulation_rows": 3582,
+      "note": "Simbol/emoji-only adalah kelayakan teks, bukan konflik integritas ID."
+    },
+    "annotation_pilot": {
+      "status": "CONDITIONALLY_READY_FOR_SAMPLE_PREPARATION",
+      "eligible_simulation_rows": 3582,
+      "actual_annotation_authorized": false,
+      "note": "Persiapan rancangan/sampel teknis dimungkinkan; anotasi aktual memerlukan penyelesaian scope, izin, tinjauan teks, duplikasi, dan protokol pilot."
+    },
+    "research_data_usage": {
+      "status": "NOT_READY_PENDING_VERIFICATION",
+      "permission_status": "PERMISSION_NOT_VERIFIED",
+      "provenance_status": "INCOMPLETE",
+      "geography_counts": {
+        "VERIFIED_INSIDE": 0,
+        "VERIFIED_OUTSIDE": 0,
+        "UNVERIFIED": 40
+      },
+      "note": "Kesiapan teknis tidak menyatakan izin penelitian, training, atau publikasi."
+    }
+  },
+  "revision": {
+    "scope": "Minor finalization Stage 2",
+    "symbol_issue_severity": "Moderate",
+    "integrity_issue_rows": 0,
+    "symbol_only_rows": 11,
+    "figure_files_reused": true
+  },
+  "rating_distribution": [
+    {
+      "rating": 1,
+      "reviews": 189,
+      "pct_of_all_reviews": 5.260228221541887
+    },
+    {
+      "rating": 2,
+      "reviews": 53,
+      "pct_of_all_reviews": 1.4750904536598943
+    },
+    {
+      "rating": 3,
+      "reviews": 105,
+      "pct_of_all_reviews": 2.9223490119677153
+    },
+    {
+      "rating": 4,
+      "reviews": 175,
+      "pct_of_all_reviews": 4.870581686612859
+    },
+    {
+      "rating": 5,
+      "reviews": 3071,
+      "pct_of_all_reviews": 85.47175062621764
+    }
+  ],
+  "rating_high_pct": 90.34233231283051,
+  "rating_low_pct": 6.735318675201782,
+  "rating_word_spearman": -0.2858051041993437,
+  "text_statistics": {
+    "char_count": {
+      "count": 3593.0,
+      "mean": 96.64,
+      "std": 142.68,
+      "min": 1.0,
+      "25%": 26.0,
+      "50%": 56.0,
+      "75%": 115.0,
+      "90%": 213.0,
+      "95%": 308.4,
+      "max": 2681.0
+    },
+    "word_count": {
+      "count": 3593.0,
+      "mean": 15.09,
+      "std": 22.66,
+      "min": 0.0,
+      "25%": 4.0,
+      "50%": 9.0,
+      "75%": 18.0,
+      "90%": 33.8,
+      "95%": 48.0,
+      "max": 411.0
+    }
+  },
+  "text_length_bands": [
+    {
+      "word_band": "<4 kata",
+      "reviews": 778,
+      "pct": 21.653214583913165
+    },
+    {
+      "word_band": "4–10 kata",
+      "reviews": 1298,
+      "pct": 36.125800166991375
+    },
+    {
+      "word_band": ">10 kata",
+      "reviews": 1517,
+      "pct": 42.22098524909546
+    }
+  ],
+  "aspect_distribution": [
+    {
+      "aspect": "Product Quality",
+      "review_mentions": 1452,
+      "coverage_pct": 40.411912051210685
+    },
+    {
+      "aspect": "Service",
+      "review_mentions": 889,
+      "coverage_pct": 24.74255496799332
+    },
+    {
+      "aspect": "Price & Value",
+      "review_mentions": 430,
+      "coverage_pct": 11.967715001391594
+    },
+    {
+      "aspect": "Ambience",
+      "review_mentions": 1343,
+      "coverage_pct": 37.37823545783468
+    },
+    {
+      "aspect": "Facilities",
+      "review_mentions": 277,
+      "coverage_pct": 7.709435012524353
+    },
+    {
+      "aspect": "Cleanliness",
+      "review_mentions": 175,
+      "coverage_pct": 4.870581686612859
+    }
+  ],
+  "aspect_keywords": {
+    "Product Quality": [
+      "kopi",
+      "kopinya",
+      "coffee",
+      "espresso",
+      "latte",
+      "cappuccino",
+      "minuman",
+      "minumannya",
+      "makanan",
+      "makanannya",
+      "menu",
+      "rasanya",
+      "rasa",
+      "matcha",
+      "croissant",
+      "pastry",
+      "roti",
+      "snack"
+    ],
+    "Service": [
+      "pelayanan",
+      "pelayanannya",
+      "layanan",
+      "service",
+      "staff",
+      "staf",
+      "barista",
+      "kasir",
+      "ramah",
+      "antre",
+      "antri",
+      "antrean",
+      "antrian",
+      "nunggu",
+      "menunggu",
+      "pesanan",
+      "waktu tunggu",
+      "waiter",
+      "waitress"
+    ],
+    "Price & Value": [
+      "harga",
+      "harganya",
+      "price",
+      "murah",
+      "mahal",
+      "terjangkau",
+      "affordable",
+      "worth it",
+      "value for money",
+      "promo",
+      "diskon",
+      "budget"
+    ],
+    "Ambience": [
+      "suasana",
+      "suasananya",
+      "nyaman",
+      "nyamannya",
+      "cozy",
+      "ambience",
+      "ambiance",
+      "interior",
+      "berisik",
+      "bising",
+      "tenang",
+      "nongkrong",
+      "nugas",
+      "estetik",
+      "aesthetic",
+      "view",
+      "pemandangan",
+      "musik"
+    ],
+    "Facilities": [
+      "wifi",
+      "wi fi",
+      "wi-fi",
+      "internet",
+      "parkir",
+      "parkirnya",
+      "stopkontak",
+      "stop kontak",
+      "colokan",
+      "toilet",
+      "wc",
+      "ac",
+      "air conditioner",
+      "mushola",
+      "musala",
+      "kursi",
+      "meja",
+      "fasilitas"
+    ],
+    "Cleanliness": [
+      "bersih",
+      "bersihnya",
+      "kebersihan",
+      "kebersihannya",
+      "kotor",
+      "jorok",
+      "higienis",
+      "hygiene",
+      "clean",
+      "cleanliness",
+      "sampah",
+      "debu",
+      "berdebu",
+      "lengket"
+    ]
+  },
+  "no_aspect_keyword_rows": 1052,
+  "multi_aspect_keyword_rows": 1309,
+  "basic_quality_pass_rows": 3582,
+  "simulated_unique_record_rows": 3582,
+  "readiness": "Teknis: READY; Pilot: CONDITIONALLY_READY_FOR_SAMPLE_PREPARATION; Penggunaan penelitian: NOT_READY_PENDING_VERIFICATION",
+  "issues": [
+    {
+      "severity": "Critical",
+      "issue": "Integritas field dan konflik ID",
+      "affected": 0,
+      "status": "LULUS",
+      "action": "Periksa missing/validitas/konflik pada review_audit_flags.csv; adjudikasi ke sumber."
+    },
+    {
+      "severity": "Moderate",
+      "issue": "Text Suitability Issue — Symbol/Emoji-only Reviews",
+      "affected": 11,
+      "status": "REVIEW",
+      "action": "Tinjau kelayakan leksikal untuk ABSA; hanya dikecualikan pada simulasi eligible, tidak dihapus dari raw."
+    },
+    {
+      "severity": "Critical",
+      "issue": "Wilayah administratif Jatinangor",
+      "affected": 40,
+      "status": "BELUM TERVERIFIKASI",
+      "action": "Verifikasi alamat/koordinat tiap place ID terhadap batas Kecamatan Jatinangor; jangan putuskan dari nama."
+    },
+    {
+      "severity": "Moderate",
+      "issue": "Pengulangan teks potensial",
+      "affected": 255,
+      "status": "REVIEW",
+      "action": "Bedakan ungkapan sah dan duplikasi melalui ID/metadata; jangan hapus otomatis."
+    },
+    {
+      "severity": "Moderate",
+      "issue": "Kedai dengan <30 review",
+      "affected": 5,
+      "status": "REVIEW",
+      "action": "Sampling anotasi per kedai; laporkan ukuran sampel sebelum membandingkan bisnis."
+    },
+    {
+      "severity": "Moderate",
+      "issue": "Dominasi rating sumber",
+      "affected": 3071,
+      "status": "REVIEW",
+      "action": "Laporkan bias seleksi; jangan konversi rating menjadi label sentimen aspek."
+    },
+    {
+      "severity": "Moderate",
+      "issue": "Review pendek/bahasa/relevansi",
+      "affected": 1262,
+      "status": "REVIEW",
+      "action": "Tinjau sampel manual termasuk slang, campuran, dan review tanpa keyword; pertahankan teks asli."
+    },
+    {
+      "severity": "Moderate",
+      "issue": "Privasi teks",
+      "affected": 0,
+      "status": "TIDAK ADA POLA TERDETEKSI",
+      "action": "Tinjau PII yang tidak tercakup pola email/telepon sebelum membagi data."
+    },
+    {
+      "severity": "Moderate",
+      "issue": "Cakupan enam aspek",
+      "affected": 1,
+      "status": "EKSPLORATIF",
+      "action": "Tetapkan enam aspek termasuk Cleanliness; pilot manusia untuk mengevaluasi kamus."
+    },
+    {
+      "severity": "Moderate",
+      "issue": "Metadata historis pengumpulan belum lengkap",
+      "affected": 10,
+      "status": "NOT_DOCUMENTED",
+      "action": "Lengkapi run manifest historis; jangan menganggap default script terbaru sebagai konfigurasi pengumpulan."
+    },
+    {
+      "severity": "Critical",
+      "issue": "Hak penggunaan data penelitian",
+      "affected": 1,
+      "status": "PERMISSION_NOT_VERIFIED",
+      "action": "Verifikasi bukti izin pengumpulan, penyimpanan, anotasi, training ML, dan publikasi."
+    },
+    {
+      "severity": "Minor",
+      "issue": "Sinkronisasi dokumentasi audit",
+      "affected": 0,
+      "status": "DIDOKUMENTASIKAN",
+      "action": "Gunakan laporan/JSON revisi ini dan tabel geografis; raw dan perhitungan EDA dipertahankan."
+    }
+  ],
+  "figures": [
+    "review_distribution.png",
+    "top_coffee_shops.png",
+    "rating_distribution.png",
+    "review_length_distribution.png",
+    "missing_values.png",
+    "duplicate_analysis.png",
+    "aspect_distribution.png",
+    "aspect_coverage_heatmap.png"
+  ],
+  "interpretations": {
+    "Deskripsi dataset": "Data berisi 3,593 review, 40 identitas kedai, 40 nama, 3,593 ID unik, dan 40 URL unik. Memori sumber 2.70 MiB. Rentang tanggal 2016-09-13 14:39:50.043000+00:00 hingga 2026-10-25 05:07:03.416000+00:00. Rentang historis panjang tidak membuktikan sampling merata sepanjang waktu. Identitas URL membantu membedakan cabang dengan nama sama.",
+    "Kualitas data": "Missing pada enam kolom: 0 sel. Rating invalid 0, tanggal invalid 0, tanggal setelah acuan 0, URL invalid 0. Teks simbol saja 11; pola relevansi rendah 0; indikasi email/telepon 0. Bahasa campuran terindikasi pada 164 review, slang pada 1120; 1019 review tanpa petunjuk Indonesia memerlukan pemeriksaan, bukan penghapusan. Tidak adanya missing tidak membuktikan bebas bias.",
+    "Duplikasi": "ID duplikat melibatkan 0 baris; rekaman enam field identik 0 baris. Teks normalisasi berulang di kedai sama 94 baris; lintas kedai 247 baris. Sebanyak 255 baris kandidat merupakan ungkapan ≤10 kata yang mungkin sah. Semua dipertahankan. Deduplikasi memerlukan ID dan metadata; teks identik tidak cukup untuk membatalkan ulasan pelanggan berbeda.",
+    "Distribusi kedai dan geografi": "Review per kedai berkisar 10–151; mean 89.83, median 97.50, SD sampel 38.00. Ada 5 kedai <30 review; kedai terbesar menyumbang 4.20% dataset. Petunjuk nama untuk prioritas geografis: Kopi Menak Rancaekek. Seluruh 40 identitas geografis tetap belum terverifikasi. Perbedaan sampel membatasi perbandingan kedai; jumlah besar tidak membuktikan keterwakilan pelanggan. Rancangan anotasi perlu mewakili kedai kecil.",
+    "Karakteristik teks": "Mean panjang 15.09 kata (96.64 karakter); median 9.0 kata. Rentang 0–411 kata; SD 22.66. Review <4 kata: 778 (21.65%). P90=33.8; P95=48.0. Anotasi harus mencakup review pendek/panjang; panjang tidak menentukan validitas atau jumlah aspek. Teks asli tidak diubah.",
+    "Rating dan bias sampel": "Bintang lima 3,071 (85.47%). Rating tinggi 4–5: 90.34%; rendah 1–2: 6.74%. Mean rating valid 4.64, median 5.0. Korelasi rank rating–panjang -0.286, bersifat deskriptif dan tidak kausal. Dominasi rating tinggi berpotensi membatasi variasi pengalaman dalam sampel. Distribusi sentimen aspek baru diketahui setelah anotasi.",
+    "Cakupan aspek eksploratif": "Product Quality: 1,452 (40.41%); Ambience: 1,343 (37.38%); Service: 889 (24.74%); Price & Value: 430 (11.97%); Facilities: 277 (7.71%); Cleanliness: 175 (4.87%). Tanpa keyword: 1,052 (29.28%); indikasi ≥2 aspek: 1,309. Aspek dengan coverage <5%: Cleanliness. Pilot perlu mencakup review tanpa keyword dan aspek jarang untuk menguji recall kamus serta memperbaiki taksonomi. Indikator tidak mengukur kepuasan; sinonim, aspek implisit, dan konteks belum ditangani.",
+    "Kesiapan dataset": "Integritas field/ID bermasalah: 0 baris. 11 review (0.31%) adalah masalah kelayakan teks simbol/emoji-only dengan severity Moderate, bukan konflik ID. 3,582/3,593 baris lolos aturan kualitas dasar; simulasi eligible tetap 3,582 setelah salinan rekaman identik dihitung sekali. Review pendek dan teks sama antar-ID tidak dihapus otomatis. Teknis: READY; Pilot: CONDITIONALLY_READY_FOR_SAMPLE_PREPARATION; Penggunaan penelitian: NOT_READY_PENDING_VERIFICATION. Persiapan sampel pilot secara teknis dapat dirancang setelah tinjauan kelayakan teks dan duplikasi; kesiapan ini tidak memberi izin anotasi aktual, training, atau publikasi. Scope administratif dan izin penggunaan belum terverifikasi; 10 field metadata historis masih NOT_DOCUMENTED."
+  }
+}

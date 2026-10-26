@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "brewscope"
+version = "0.1.0"
+description = "Aspect-Based Sentiment Analysis untuk ulasan coffee shop di Jatinangor"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "apify-client>=3.3,<4",
+    "pandas>=2.2,<3",
+    "python-dotenv>=1.1,<2",
+]
+
+[project.optional-dependencies]
+annotation = [
+    "google-genai==2.33.0",
+    "PyYAML>=6.0,<7",
+    "jsonschema>=4.23,<5",
+    "tzdata>=2025.1",
+]
+analysis = [
+    "PyYAML>=6.0,<7",
+    "jsonschema>=4.23,<5",
+    "matplotlib>=3.8,<4",
+    "nbformat>=5.10,<6",
+    "nbclient>=0.10,<1",
+    "ipykernel>=6.29,<8",
+]
+dev = [
+    "pytest>=8,<9",
+    "ruff>=0.14,<1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+

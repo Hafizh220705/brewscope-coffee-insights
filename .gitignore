@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and local secrets
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Editors and notebooks
+.idea/
+.vscode/
+.ipynb_checkpoints/
+
+# Local data and generated artifacts
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/annotations/*
+!data/annotations/.gitkeep
+models/*
+!models/.gitkeep
+reports/scraping_debug/
+
+# Temporary scraper output
+.tmp-*
+

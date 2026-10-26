@@ -1,0 +1,7 @@
+﻿column,null_count,empty_string_count,whitespace_only_count,missing_total
+review_id,0,0,0,0
+nama_tempat,0,0,0,0
+rating,0,0,0,0
+tanggal_review,0,0,0,0
+teks_review,0,0,0,0
+url_tempat,0,0,0,0
