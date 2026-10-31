@@ -2,7 +2,8 @@
 
 Dokumen ini menjadi konteks kerja aktif setelah keputusan arsitektur tanggal
 31 Oktober 2026. Seluruh pipeline Stage 2-4 lama telah dihentikan. Baseline
-labeling yang berlaku hanya artefak di `labeling/`.
+labeling yang berlaku hanya artefak yang tercatat di `data/processed/labeling/`
+beserta config, dokumentasi, laporan, dan script pendukungnya.
 
 ## 1. Tujuan penelitian
 
@@ -72,9 +73,9 @@ Kasus yang relevan dicatat dengan flag `out_of_taxonomy`.
 
 Taksonomi, schema, dan pedoman aktif berada di:
 
-- `labeling/config/aspect_taxonomy.yaml`
-- `labeling/config/annotation_schema.json`
-- `labeling/docs/annotation_guidelines.md`
+- `configs/labeling/aspect_taxonomy.yaml`
+- `configs/labeling/annotation_schema.json`
+- `docs/annotation/annotation_guidelines.md`
 
 ## 4. Arsitektur labeling aktif
 
@@ -175,9 +176,9 @@ Baseline sudah memenuhi:
 Validator:
 
 ```powershell
-python labeling/scripts/validate_annotations.py `
-  --input labeling/data/canonical/annotations_full.jsonl `
-  --schema labeling/config/annotation_schema.json
+python scripts/validate_annotations.py `
+  --input data/processed/labeling/annotations_full.jsonl `
+  --schema configs/labeling/annotation_schema.json
 ```
 
 Validasi tersebut menguji struktur dan integritas, bukan kebenaran semantik
@@ -217,9 +218,9 @@ tidak boleh dibentuk dari label draft yang belum direview.
 
 Jika terdapat informasi lama yang bertentangan, gunakan urutan berikut:
 
-1. `labeling/data/canonical/annotations_full.jsonl`;
-2. `labeling/reports/qa_report.json`;
-3. `labeling/config/annotation_schema.json`;
-4. `labeling/config/aspect_taxonomy.yaml`;
-5. `labeling/docs/annotation_guidelines.md`;
+1. `data/processed/labeling/annotations_full.jsonl`;
+2. `reports/labeling/qa_report.json`;
+3. `configs/labeling/annotation_schema.json`;
+4. `configs/labeling/aspect_taxonomy.yaml`;
+5. `docs/annotation/annotation_guidelines.md`;
 6. dokumen konteks ini.

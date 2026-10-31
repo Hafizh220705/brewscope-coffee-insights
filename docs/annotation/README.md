@@ -2,7 +2,7 @@
 
 **Status: DRAFT / OFFLINE RULE-BASED PRE-ANNOTATION (BUKAN HUMAN GOLD).**
 
-Pre-anotasi dikerjakan pada `../data/interim/reviews_for_annotation.csv`; tidak ada review yang dihilangkan dari input tersebut. Enam aspek aktif selalu diputuskan eksplisit per review. `config/annotation_schema.json` dan `config/aspect_taxonomy.yaml` merupakan dasar struktur dan definisi. Label diperoleh dari metode **aturan leksikal berbasis target, polaritas, negasi, dan klausa**; **tidak** berasal dari API Gemini, LLM lokal, atau penilaian manual menyeluruh. Kualitas semantik setiap label belum diverifikasi.
+Pre-anotasi dikerjakan pada `data/interim/reviews_for_annotation.csv`; tidak ada review yang dihilangkan dari input tersebut. Enam aspek aktif selalu diputuskan eksplisit per review. `configs/labeling/annotation_schema.json` dan `configs/labeling/aspect_taxonomy.yaml` merupakan dasar struktur dan definisi. Label diperoleh dari metode **aturan leksikal berbasis target, polaritas, negasi, dan klausa**; **tidak** berasal dari API Gemini, LLM lokal, atau penilaian manual menyeluruh. Kualitas semantik setiap label belum diverifikasi.
 
 ## Cakupan dan keterbatasan
 
@@ -21,19 +21,19 @@ Pre-anotasi dikerjakan pada `../data/interim/reviews_for_annotation.csv`; tidak 
 
 | File | Fungsi |
 |---|---|
-| `data/canonical/annotations_full.jsonl` | **Output utama**: 21,228 record lengkap sesuai JSON Schema dengan evidence/offset asli dan flag. |
-| `data/tabular/annotations_flat.csv` | Representasi tabular seluruh record (kolom `evidence_json` / `review_flags_json`). |
-| `data/tabular/review_level_summary.csv` | Satu baris per review, enam aspek sebagai kolom presence/sentiment/mixed/status; tidak ada rating. |
-| `data/review/manual_review_queue.csv` | Kandidat yang paling membutuhkan pemeriksaan manusia beserta alasan dan prioritas. |
-| `data/review/blind_human_review_pack.csv` | Formulir buta yang hanya memuat teks dan kolom jawaban kosong; tidak berisi rating, hasil AI, atau flag. |
-| `data/tabular/shop_id_lookup.csv` | Tabel penghubung ID kedai pseudonim dengan nama/URL sumber; *bukan* verifikasi lokasi. |
-| `data/tabular/aspect_label_counts.csv` | Ringkasan angka tiap kombinasi aspek, presence, dan sentimen kandidat. |
-| `reports/qa_report.json` | Rekap kualitas struktural, jumlah, flag, keputusan dan diagnostic fixture sintetis. |
-| `reports/synthetic_fixture_diagnostic.csv` | Perbandingan terhadap 17 contoh sintetis dari sumber. |
-| `data/review/privacy_regex_review_queue.csv` | Daftar pola PII yang tertangkap oleh regex terbatas. |
-| `reports/source_coverage.json` | Audit cakupan file sumber, selisih dengan konteks proyek dan flags awal. |
-| `config/annotation_schema.json` | Salinan schema yang dipakai untuk pengecekan. |
-| `config/aspect_taxonomy.yaml`, `docs/annotation_guidelines.md` | Salinan aturan referensi. |
+| `data/processed/labeling/annotations_full.jsonl` | **Output utama**: 21,228 record lengkap sesuai JSON Schema dengan evidence/offset asli dan flag. |
+| `data/processed/labeling/annotations_flat.csv` | Representasi tabular seluruh record (kolom `evidence_json` / `review_flags_json`). |
+| `data/processed/labeling/review_level_summary.csv` | Satu baris per review, enam aspek sebagai kolom presence/sentiment/mixed/status; tidak ada rating. |
+| `data/interim/labeling_review/manual_review_queue.csv` | Kandidat yang paling membutuhkan pemeriksaan manusia beserta alasan dan prioritas. |
+| `data/interim/labeling_review/blind_human_review_pack.csv` | Formulir buta yang hanya memuat teks dan kolom jawaban kosong; tidak berisi rating, hasil AI, atau flag. |
+| `data/processed/labeling/shop_id_lookup.csv` | Tabel penghubung ID kedai pseudonim dengan nama/URL sumber; *bukan* verifikasi lokasi. |
+| `data/processed/labeling/aspect_label_counts.csv` | Ringkasan angka tiap kombinasi aspek, presence, dan sentimen kandidat. |
+| `reports/labeling/qa_report.json` | Rekap kualitas struktural, jumlah, flag, keputusan dan diagnostic fixture sintetis. |
+| `reports/labeling/synthetic_fixture_diagnostic.csv` | Perbandingan terhadap 17 contoh sintetis dari sumber. |
+| `data/interim/labeling_review/privacy_regex_review_queue.csv` | Daftar pola PII yang tertangkap oleh regex terbatas. |
+| `reports/labeling/source_coverage.json` | Audit cakupan file sumber, selisih dengan konteks proyek dan flags awal. |
+| `configs/labeling/annotation_schema.json` | Salinan schema yang dipakai untuk pengecekan. |
+| `configs/labeling/aspect_taxonomy.yaml`, `docs/annotation/annotation_guidelines.md` | Salinan aturan referensi. |
 | `scripts/label_brewscope.py` | Snapshot kode pembentuk pre-anotasi. |
 | `scripts/validate_annotations.py` | Pemeriksaan ulang schema, uniqueness, 6 aspek, dan evidence offset. |
 
@@ -55,9 +55,9 @@ Pre-anotasi dikerjakan pada `../data/interim/reviews_for_annotation.csv`; tidak 
 Jalankan validator dari root repository:
 
 ```powershell
-python labeling/scripts/validate_annotations.py `
-  --input labeling/data/canonical/annotations_full.jsonl `
-  --schema labeling/config/annotation_schema.json
+python scripts/validate_annotations.py `
+  --input data/processed/labeling/annotations_full.jsonl `
+  --schema configs/labeling/annotation_schema.json
 ```
 
 `scripts/label_brewscope.py` dipertahankan byte-for-byte sebagai provenance

@@ -4,9 +4,9 @@ BrewScope adalah proyek *Aspect-Based Sentiment Analysis* (ABSA) untuk
 memetakan prioritas strategis coffee shop di Jatinangor berdasarkan ulasan
 pelanggan.
 
-Baseline labeling yang berlaku berada di [`labeling/`](labeling/).
-Folder tersebut merupakan snapshot tetap dan tidak boleh diubah tanpa keputusan
-metodologi baru.
+Artefak baseline labeling ditempatkan menurut fungsinya di `configs/`, `data/`,
+`docs/`, `reports/`, dan `scripts/`. Dataset label tetap tidak boleh diubah tanpa
+keputusan metodologi baru.
 
 ## Status proyek
 
@@ -21,24 +21,25 @@ metodologi baru.
 
 ```text
 .
+|-- configs/
+|   `-- labeling/               # Schema dan taksonomi aspek
 |-- data/
 |   |-- raw/
 |   |   `-- google_maps_reviews_jatinangor_raw.csv
-|   `-- interim/
-|       |-- google_maps_places_jatinangor.csv
-|       `-- reviews_for_annotation.csv
+|   |-- interim/
+|   |   |-- google_maps_places_jatinangor.csv
+|   |   |-- reviews_for_annotation.csv
+|   |   `-- labeling_review/    # Paket dan antrean human review
+|   `-- processed/
+|       `-- labeling/           # Anotasi kanonis dan proyeksi tabular
+|-- docs/
+|   `-- annotation/             # Pedoman dan dokumentasi labeling
+|-- reports/
+|   `-- labeling/               # QA, coverage, diagnostic, checksum
 |-- scripts/
-|   `-- scrape_google_maps.py    # Akuisisi review melalui Apify
-|-- labeling/                   # Baseline labeling tetap
-|   |-- config/                 # Schema dan taksonomi
-|   |-- docs/                   # Pedoman anotasi
-|   |-- scripts/                # Labeler dan validator
-|   |-- data/
-|   |   |-- canonical/          # Sumber anotasi kanonis
-|   |   |-- tabular/            # Proyeksi CSV dan lookup
-|   |   `-- review/             # Paket dan antrean human review
-|   |-- reports/                # QA, coverage, diagnostic, checksum
-|   `-- README.md
+|   |-- scrape_google_maps.py   # Akuisisi review melalui Apify
+|   |-- label_brewscope.py      # Snapshot pembentuk pre-anotasi
+|   `-- validate_annotations.py # Validator labeling
 |-- PROJECT_CONTEXT.md
 |-- .env.example
 |-- pyproject.toml
@@ -69,15 +70,15 @@ kuota/kredit akun Apify.
 
 ## Artefak utama
 
-- `labeling/data/canonical/annotations_full.jsonl`: satu record kanonis untuk setiap
-  kombinasi review, aspek, dan annotator otomatis.
-- `labeling/data/tabular/annotations_flat.csv`: representasi tabular 21.228 record.
-- `labeling/data/tabular/review_level_summary.csv`: satu baris per review.
-- `labeling/data/review/manual_review_queue.csv`: 1.891 review yang diprioritaskan
+- `data/processed/labeling/annotations_full.jsonl`: satu record kanonis untuk
+  setiap kombinasi review, aspek, dan annotator otomatis.
+- `data/processed/labeling/annotations_flat.csv`: representasi tabular 21.228 record.
+- `data/processed/labeling/review_level_summary.csv`: satu baris per review.
+- `data/interim/labeling_review/manual_review_queue.csv`: 1.891 review yang diprioritaskan
   untuk pemeriksaan manusia.
-- `labeling/data/review/blind_human_review_pack.csv`: formulir human review tanpa
+- `data/interim/labeling_review/blind_human_review_pack.csv`: formulir human review tanpa
   rating, label otomatis, atau flag.
-- `labeling/reports/SHA256SUMS.txt`: checksum artefak labeling.
+- `reports/labeling/SHA256SUMS.txt`: checksum artefak labeling.
 
 ## Validasi
 
@@ -87,17 +88,17 @@ Siapkan environment lalu jalankan validator read-only:
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -e .
-python labeling/scripts/validate_annotations.py `
-  --input labeling/data/canonical/annotations_full.jsonl `
-  --schema labeling/config/annotation_schema.json
+python scripts/validate_annotations.py `
+  --input data/processed/labeling/annotations_full.jsonl `
+  --schema configs/labeling/annotation_schema.json
 ```
 
 Hasil baseline saat ini: 21.228 record, 3.538 review, dan 0 error schema,
 keunikan aspek, maupun evidence offset.
 
-`labeling/scripts/label_brewscope.py` dipertahankan apa adanya sebagai provenance
+`scripts/label_brewscope.py` dipertahankan apa adanya sebagai provenance
 snapshot dari environment pembentukan pre-anotasi. Gunakan
-`labeling/data/canonical/annotations_full.jsonl` sebagai
+`data/processed/labeling/annotations_full.jsonl` sebagai
 sumber kebenaran labeling saat ini.
 
 ## Tahap berikutnya
