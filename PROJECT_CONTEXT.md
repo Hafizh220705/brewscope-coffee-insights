@@ -211,8 +211,8 @@ tidak boleh dibentuk dari label draft yang belum direview.
 - Pemeriksaan regex privasi tidak membuktikan seluruh teks bebas PII.
 - Perfect match pada fixture sintetis bukan akurasi data nyata.
 - Human gold, IAA, dan evaluasi semantik belum tersedia.
-- `label_brewscope.py` dipertahankan sebagai snapshot provenance dan masih
-  menggunakan path dari environment pembentukannya.
+- `scripts/label_brewscope.py` merupakan generator aktif dengan path relatif
+  proyek, preview mode, validasi input/schema, dan perlindungan overwrite.
 
 ## 11. Sumber kebenaran
 

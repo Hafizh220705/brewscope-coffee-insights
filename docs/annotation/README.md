@@ -34,7 +34,7 @@ Pre-anotasi dikerjakan pada `data/interim/reviews_for_annotation.csv`; tidak ada
 | `reports/labeling/source_coverage.json` | Audit cakupan file sumber, selisih dengan konteks proyek dan flags awal. |
 | `configs/labeling/annotation_schema.json` | Salinan schema yang dipakai untuk pengecekan. |
 | `configs/labeling/aspect_taxonomy.yaml`, `docs/annotation/annotation_guidelines.md` | Salinan aturan referensi. |
-| `scripts/label_brewscope.py` | Snapshot kode pembentuk pre-anotasi. |
+| `scripts/label_brewscope.py` | Generator pre-anotasi dengan preview mode, validasi input, dan perlindungan overwrite. |
 | `scripts/validate_annotations.py` | Pemeriksaan ulang schema, uniqueness, 6 aspek, dan evidence offset. |
 
 ## Kolom dan keputusan penting
@@ -55,15 +55,22 @@ Pre-anotasi dikerjakan pada `data/interim/reviews_for_annotation.csv`; tidak ada
 Jalankan validator dari root repository:
 
 ```powershell
-python scripts/validate_annotations.py `
-  --input data/processed/labeling/annotations_full.jsonl `
-  --schema configs/labeling/annotation_schema.json
+python scripts/validate_annotations.py
 ```
 
-`scripts/label_brewscope.py` dipertahankan byte-for-byte sebagai provenance
-snapshot dari environment pembentukan pre-anotasi. Skrip tersebut masih memakai
-path environment asal dan bukan entry point regenerasi pada struktur repository
-ini.
+Periksa rencana regenerasi tanpa menulis file:
+
+```powershell
+python scripts/label_brewscope.py
+```
+
+Untuk pengujian aman, arahkan hasil ke folder lain:
+
+```powershell
+python scripts/label_brewscope.py --output-root .tmp/labeling-run --execute
+```
+
+Untuk mengganti baseline di repository diperlukan `--execute --overwrite`.
 
 Periksa QA HIGH terlebih dahulu, kemudian MEDIUM, LOW dan audit acak semua keputusan; adakan dua anotator independen untuk pilot sesuai protokol Stage 4 sebelum menamai hasil *human gold*. Jangan memperlihatkan file AI pre-annotation kepada annotator yang harus blind. Koreksi disimpan dalam record sumber tersendiri, tidak menimpa hasil anotator lain. Setelah scope/sumber/gold/QA siap, tingkatkan record yang telah disepakati dan barulah tetapkan `training_eligible` berdasarkan kriteria task training.
 

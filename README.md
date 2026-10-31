@@ -38,7 +38,7 @@ keputusan metodologi baru.
 |   `-- labeling/               # QA, coverage, diagnostic, checksum
 |-- scripts/
 |   |-- scrape_google_maps.py   # Akuisisi review melalui Apify
-|   |-- label_brewscope.py      # Snapshot pembentuk pre-anotasi
+|   |-- label_brewscope.py      # Generator pre-anotasi leksikal
 |   `-- validate_annotations.py # Validator labeling
 |-- PROJECT_CONTEXT.md
 |-- .env.example
@@ -88,18 +88,22 @@ Siapkan environment lalu jalankan validator read-only:
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -e .
-python scripts/validate_annotations.py `
-  --input data/processed/labeling/annotations_full.jsonl `
-  --schema configs/labeling/annotation_schema.json
+python scripts/validate_annotations.py
 ```
 
 Hasil baseline saat ini: 21.228 record, 3.538 review, dan 0 error schema,
 keunikan aspek, maupun evidence offset.
 
-`scripts/label_brewscope.py` dipertahankan apa adanya sebagai provenance
-snapshot dari environment pembentukan pre-anotasi. Gunakan
-`data/processed/labeling/annotations_full.jsonl` sebagai
-sumber kebenaran labeling saat ini.
+`scripts/label_brewscope.py` menggunakan path proyek secara otomatis dan berjalan
+dalam preview mode secara default:
+
+```powershell
+python scripts/label_brewscope.py
+```
+
+Gunakan `--execute` untuk menulis hasil dan `--overwrite` hanya jika memang ingin
+mengganti baseline yang sudah ada. `data/processed/labeling/annotations_full.jsonl`
+tetap menjadi sumber kebenaran labeling saat ini.
 
 ## Tahap berikutnya
 
