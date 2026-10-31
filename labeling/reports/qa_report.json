@@ -1,0 +1,201 @@
+{
+  "result_kind": "OFFLINE_RULE_BASED_PREANNOTATION_NOT_HUMAN_GOLD",
+  "source_file": "reviews_for_annotation.csv",
+  "input_sha256": "506be36d737a180b2380bd67716a5bb5e3ef3a7f6dfe9d8244744136aedaf932",
+  "taxonomy_version": "0.1.0-draft",
+  "annotator_id": "auto:lexical_preannotation_v1",
+  "review_count": 3538,
+  "distinct_review_ids": 3538,
+  "source_shop_name_count": 40,
+  "pseudonymous_coffee_shop_ids": 40,
+  "aspect_decisions": 21228,
+  "expected_six_per_review": 21228,
+  "aspect_rows": {
+    "product_quality": 3538,
+    "service": 3538,
+    "price_value": 3538,
+    "ambience": 3538,
+    "facilities": 3538,
+    "cleanliness": 3538
+  },
+  "presence_counts": {
+    "ambience|mentioned": 2099,
+    "ambience|not_mentioned": 1340,
+    "ambience|uncertain": 99,
+    "cleanliness|mentioned": 185,
+    "cleanliness|not_mentioned": 3353,
+    "facilities|mentioned": 348,
+    "facilities|not_mentioned": 3190,
+    "price_value|mentioned": 480,
+    "price_value|not_mentioned": 3058,
+    "product_quality|mentioned": 1701,
+    "product_quality|not_mentioned": 1738,
+    "product_quality|uncertain": 99,
+    "service|mentioned": 966,
+    "service|not_mentioned": 2556,
+    "service|uncertain": 16
+  },
+  "sentiment_counts": {
+    "ambience|negative": 34,
+    "ambience|neutral": 230,
+    "ambience|positive": 1784,
+    "cleanliness|negative": 20,
+    "cleanliness|neutral": 15,
+    "cleanliness|positive": 146,
+    "facilities|negative": 43,
+    "facilities|neutral": 141,
+    "facilities|positive": 133,
+    "price_value|negative": 26,
+    "price_value|neutral": 96,
+    "price_value|positive": 342,
+    "product_quality|negative": 32,
+    "product_quality|neutral": 437,
+    "product_quality|positive": 1182,
+    "service|negative": 127,
+    "service|neutral": 180,
+    "service|positive": 630
+  },
+  "status_counts": {
+    "draft": 20905,
+    "uncertain": 323
+  },
+  "mixed_pairs": 76,
+  "evidence_spans": 7863,
+  "flag_counts": {
+    "misspelling": 796,
+    "code_switching": 680,
+    "general_praise": 380,
+    "needs_context": 219,
+    "out_of_taxonomy": 68
+  },
+  "manual_review_queue_reviews": 1891,
+  "manual_review_priority": {
+    "LOW": 1177,
+    "MEDIUM": 459,
+    "HIGH": 255
+  },
+  "validation": {
+    "schema_and_offset_errors": 0,
+    "all_unique_aspects_per_review": true,
+    "all_training_eligible_false": true,
+    "errors": []
+  },
+  "synthetic_fixture_diagnostic": {
+    "total_cases": 17,
+    "pair_agreement": 102,
+    "total_pairs": 102,
+    "cases": [
+      {
+        "case": "positive",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "neutral",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "negative",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "multi",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "no_aspect",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "mixed",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "implicit",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "sarcasm",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "negation",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "slang",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "code_switching",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "misspelling",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "toilet_missing",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "out_of_taxonomy",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "unicode",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "prompt_injection",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      },
+      {
+        "case": "uncertain",
+        "pair_agree": 6,
+        "pairs": 6,
+        "differences": []
+      }
+    ]
+  },
+  "provenance_and_limitations": [
+    "AI-generated label candidates from deterministic lexical heuristics only; NOT direct contextual human or LLM review of every text",
+    "Labels are draft and NEVER human gold; all training_eligible=false until quality control and Stage 4 gates",
+    "Not_mentioned reflects unrecognized mention under rules; false negative risk",
+    "No ratings were read for any label; names/URLs used only for shop pseudonym identifier",
+    "No external network/API or review transfer performed",
+    "40 shops geographic verification and source permissions still require independent documentation",
+    "Absent privacy flags in input do not constitute a privacy rights audit"
+  ]
+}

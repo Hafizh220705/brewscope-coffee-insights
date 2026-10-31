@@ -1,0 +1,22 @@
+{
+  "input_count": 3538,
+  "review_ids_unique": 3538,
+  "source_place_names_unique": 40,
+  "source_reviews_with_privacy_flag": 0,
+  "source_reviews_with_language_flag": 768,
+  "regex_suspected_privacy_rows": 0,
+  "given_csv_vs_project_context_eligible_snapshot_gap": 44,
+  "context_eligible_snapshot_count": 3582,
+  "matched_source_column_names": [
+    "review_id",
+    "nama_tempat",
+    "rating",
+    "tanggal_review",
+    "teks_review",
+    "url_tempat",
+    "needs_privacy_review",
+    "needs_language_review",
+    "source_row_number"
+  ],
+  "limitations": "regex PII check does not detect named-person or context-dependent PII; do independent privacy review before external data transfer."
+}

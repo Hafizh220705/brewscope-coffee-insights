@@ -13,28 +13,13 @@ htmlcov/
 venv/
 .env
 .env.*
-!.env.example
 
-# Editors and notebooks
+# Editors and notebook state
 .idea/
 .vscode/
 .ipynb_checkpoints/
 
-# Research datasets and blank annotation assignments are versioned for the team.
-# Keep machine-specific state, raw AI responses and independent working labels local.
-data/interim/ai_annotation_checkpoints/
-data/interim/ai_annotations/
-data/interim/debug_maps/
-data/interim/human_annotations/work/
-data/interim/human_annotations/submissions/
-data/**/.run.lock
-data/**/.writing-*
-
-# Generated model artifacts and scraper diagnostics
-models/*
-!models/.gitkeep
-reports/scraping_debug/
-
-# Temporary scraper output
+# Local generated artifacts
+models/
+artifacts/
 .tmp-*
-

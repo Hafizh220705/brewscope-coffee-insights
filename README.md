@@ -1,86 +1,109 @@
 # BrewScope
 
 BrewScope adalah proyek *Aspect-Based Sentiment Analysis* (ABSA) untuk
-menganalisis ulasan coffee shop di wilayah Jatinangor. Alur utamanya mencakup
-akuisisi data, validasi, preprocessing teks Bahasa Indonesia, deteksi aspek,
-klasifikasi sentimen, evaluasi model, dan penyajian insight melalui Streamlit.
+memetakan prioritas strategis coffee shop di Jatinangor berdasarkan ulasan
+pelanggan.
 
-Konteks lengkap proyek tersedia di [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md).
-Pembagian pekerjaan tim tersedia di
-[docs/project_management/TEAM_WORKPLAN.md](docs/project_management/TEAM_WORKPLAN.md).
+Baseline labeling yang berlaku berada di [`labeling/`](labeling/).
+Folder tersebut merupakan snapshot tetap dan tidak boleh diubah tanpa keputusan
+metodologi baru.
 
-Tahap saat ini: **Stage 4A — infrastruktur anotasi manusia dan Gemini**.
-Notebook: [03_human_ai_labeling.ipynb](notebooks/03_human_ai_labeling.ipynb).
-[Protokol kerja tim](docs/research/stage4_annotation_protocol.md) memuat setup
-API, paket manusia, evaluasi dan batas eksekusi. Run All aman tanpa API key.
-250 kandidat manusia sudah disiapkan sebagai formulir kosong; human gold,
-evaluasi Gemini dan full labeling belum dilakukan.
+## Status proyek
 
-```powershell
-.venv\Scripts\python.exe -m pip install -e ".[annotation,analysis,dev]"
-.venv\Scripts\python.exe scripts/run_annotation.py --dry-run
-.venv\Scripts\python.exe scripts/run_annotation.py --task prepare-human --execute
-```
-
-Brief Stage 4 mencatat `OWNER_ATTESTED` untuk penelitian dan pemrosesan AI
-eksternal. Status 40 lokasi tetap `UNVERIFIED`; hak sumber dan wilayah perlu
-dituntaskan untuk penelitian final. Rincian terbaru ada pada protokol Stage 4.
+- 3.538 review dari 40 coffee shop tercakup.
+- Setiap review memiliki keputusan untuk enam aspek aktif.
+- Total 21.228 pasangan review-aspek telah dibuat.
+- Label merupakan pre-anotasi leksikal offline, bukan human gold.
+- Seluruh record masih `draft` atau `uncertain` dan
+  `training_eligible=false` sampai selesai human review.
 
 ## Struktur repository
 
 ```text
 .
-├── app/                    # Aplikasi Streamlit
-├── configs/                # Konfigurasi aspek, eksperimen, dan rekomendasi
-├── data/
-│   ├── raw/                # Data asli hasil akuisisi; jangan diubah langsung
-│   ├── interim/            # Data hasil pembersihan sementara
-│   ├── processed/          # Data siap training/evaluasi
-│   └── annotations/        # Label dan hasil anotasi manual
-├── docs/
-│   ├── project_management/ # Pembagian kerja dan dokumen koordinasi
-│   └── research/           # Catatan riset serta audit sumber data
-├── models/                 # Artifact model dan vectorizer
-├── notebooks/              # Eksplorasi dan komunikasi hasil
-├── reports/                # Metrik, tabel, gambar, dan hasil eksperimen
-├── scripts/                # Entry point pekerjaan batch
-├── src/brewscope/          # Logika reusable untuk training dan aplikasi
-└── tests/                  # Test pada interface module
+|-- data/
+|   |-- raw/
+|   |   `-- google_maps_reviews_jatinangor_raw.csv
+|   `-- interim/
+|       |-- google_maps_places_jatinangor.csv
+|       `-- reviews_for_annotation.csv
+|-- scripts/
+|   `-- scrape_google_maps.py    # Akuisisi review melalui Apify
+|-- labeling/                   # Baseline labeling tetap
+|   |-- config/                 # Schema dan taksonomi
+|   |-- docs/                   # Pedoman anotasi
+|   |-- scripts/                # Labeler dan validator
+|   |-- data/
+|   |   |-- canonical/          # Sumber anotasi kanonis
+|   |   |-- tabular/            # Proyeksi CSV dan lookup
+|   |   `-- review/             # Paket dan antrean human review
+|   |-- reports/                # QA, coverage, diagnostic, checksum
+|   `-- README.md
+|-- PROJECT_CONTEXT.md
+|-- .env.example
+|-- pyproject.toml
+`-- README.md
 ```
 
-Notebook hanya digunakan untuk eksplorasi. Logika yang dipakai ulang harus
-diletakkan di `src/brewscope/` dan diuji melalui interface module-nya.
+## Scraping Google Maps
 
-## Menyiapkan lingkungan Python
+Salin `.env.example` menjadi `.env`, lalu isi `APIFY_TOKEN` milik Anda. Jangan
+memasukkan `.env` ke Git. Daftar URL coffee shop berada di
+`data/interim/google_maps_places_jatinangor.csv`.
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -e ".[dev]"
-```
-
-Salin `.env.example` menjadi `.env`, kemudian masukkan token Apify baru hanya
-ke `.env`. File tersebut sudah dikecualikan dari Git.
-
-## Menjalankan pengambilan data
+Periksa konfigurasi tanpa menjalankan Actor atau memakai kredit:
 
 ```powershell
 python scripts/scrape_google_maps.py
 ```
 
-Hasil mentah ditulis ke `data/raw/google_maps_reviews_jatinangor.csv`, sedangkan
-jumlah ulasan dan lokasi file input dapat diatur melalui `.env`.
+Jalankan scraping nyata:
 
-## Aturan data
+```powershell
+python scripts/scrape_google_maps.py --run
+```
 
-- Dataset penelitian dan formulir anotasi kosong dapat di-commit agar anggota
-  kelompok memperoleh snapshot yang sama melalui clone/pull repository tim.
-- Rincian file dan alur kerja bersama ada di [data/README.md](data/README.md).
-- Checkpoint/respons AI, screenshot debug, serta folder kerja dan submission
-  anotasi independen tetap lokal. Hasil final yang telah direview dapat
-  dibagikan melalui `data/processed/` sesuai keputusan tim.
-- Jangan mengubah file di `data/raw/` secara manual.
-- Jangan mencampurkan fixture/demo dengan dataset penelitian.
-- Catat sumber, waktu akuisisi, parameter, versi scraper, dan checksum.
-- Jangan memasukkan kredensial, proxy, atau data pribadi ke repository.
+Program meminta konfirmasi `JALANKAN` sebelum menghubungi Apify. Hasilnya ditulis
+ke `data/raw/google_maps_reviews_jatinangor_raw.csv`. Scraping nyata memakai
+kuota/kredit akun Apify.
 
+## Artefak utama
+
+- `labeling/data/canonical/annotations_full.jsonl`: satu record kanonis untuk setiap
+  kombinasi review, aspek, dan annotator otomatis.
+- `labeling/data/tabular/annotations_flat.csv`: representasi tabular 21.228 record.
+- `labeling/data/tabular/review_level_summary.csv`: satu baris per review.
+- `labeling/data/review/manual_review_queue.csv`: 1.891 review yang diprioritaskan
+  untuk pemeriksaan manusia.
+- `labeling/data/review/blind_human_review_pack.csv`: formulir human review tanpa
+  rating, label otomatis, atau flag.
+- `labeling/reports/SHA256SUMS.txt`: checksum artefak labeling.
+
+## Validasi
+
+Siapkan environment lalu jalankan validator read-only:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -e .
+python labeling/scripts/validate_annotations.py `
+  --input labeling/data/canonical/annotations_full.jsonl `
+  --schema labeling/config/annotation_schema.json
+```
+
+Hasil baseline saat ini: 21.228 record, 3.538 review, dan 0 error schema,
+keunikan aspek, maupun evidence offset.
+
+`labeling/scripts/label_brewscope.py` dipertahankan apa adanya sebagai provenance
+snapshot dari environment pembentukan pre-anotasi. Gunakan
+`labeling/data/canonical/annotations_full.jsonl` sebagai
+sumber kebenaran labeling saat ini.
+
+## Tahap berikutnya
+
+Human review dilakukan dari prioritas HIGH, MEDIUM, LOW, lalu audit acak pada
+record di luar antrean. Hanya label yang telah direview dan disepakati yang
+boleh dipromosikan menjadi dataset training. Modeling akan membandingkan SVM,
+Random Forest, dan Multinomial Naive Bayes untuk deteksi aspek, klasifikasi
+sentimen, dan penyusunan insight bisnis per coffee shop.
