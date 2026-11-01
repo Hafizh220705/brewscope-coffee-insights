@@ -1,0 +1,80 @@
+{
+  "stage": "group_aware_stratified_splitting",
+  "inputs": {
+    "data\\processed\\modeling\\aspect_detection_dataset.csv": "07b22d2e45ed240a3a317f66a346304d5428f4af4e19d8eee2903134b3fd5530",
+    "data\\processed\\modeling\\aspect_sentiment_dataset.csv": "1d73a87b2a63268953f0f4734788be183374eb47d90b5aac1bc7b88cbc07c11d"
+  },
+  "configuration": {
+    "random_state": 42,
+    "n_starts": 50,
+    "split_ratios": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "group_column": "duplicate_group_id",
+    "stratify_columns": [
+      "aspect_product_quality",
+      "aspect_service",
+      "aspect_price_value",
+      "aspect_ambience",
+      "aspect_facilities",
+      "aspect_cleanliness",
+      "task_a_eligible",
+      "sentiment_product_quality_negative",
+      "sentiment_product_quality_neutral",
+      "sentiment_product_quality_positive",
+      "sentiment_service_negative",
+      "sentiment_service_neutral",
+      "sentiment_service_positive",
+      "sentiment_price_value_negative",
+      "sentiment_price_value_neutral",
+      "sentiment_price_value_positive",
+      "sentiment_ambience_negative",
+      "sentiment_ambience_neutral",
+      "sentiment_ambience_positive",
+      "sentiment_facilities_negative",
+      "sentiment_facilities_neutral",
+      "sentiment_facilities_positive",
+      "sentiment_cleanliness_negative",
+      "sentiment_cleanliness_neutral",
+      "sentiment_cleanliness_positive"
+    ],
+    "objective_score": 0.05640769301022632
+  },
+  "validation": {
+    "group_leakage": false,
+    "all_task_a_positive_labels_represented": true,
+    "all_task_b_aspect_sentiment_classes_represented": true
+  },
+  "counts": {
+    "reviews": 3424,
+    "groups": 3200,
+    "task_a_rows": 3424,
+    "task_b_rows": 5598,
+    "reviews_by_split": {
+      "train": 2396,
+      "validation": 514,
+      "test": 514
+    }
+  },
+  "outputs": {
+    "data\\processed\\modeling\\splits\\split_assignments.csv": {
+      "sha256": "49b25a38d07c128d5e94e553cab30028e099d213ce22a289c99a2b83b028899b",
+      "bytes": 306122
+    },
+    "data\\processed\\modeling\\splits\\aspect_detection_with_split.csv": {
+      "sha256": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
+      "bytes": 3274490
+    },
+    "data\\processed\\modeling\\splits\\aspect_sentiment_with_split.csv": {
+      "sha256": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
+      "bytes": 8497091
+    }
+  },
+  "notes": [
+    "All duplicate groups remain in exactly one split.",
+    "The same review split is reused for Task A and Task B.",
+    "TF-IDF, resampling, and model fitting must use training rows only."
+  ]
+}

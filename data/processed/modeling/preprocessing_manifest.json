@@ -1,0 +1,234 @@
+{
+  "stage": "text_preprocessing",
+  "input": {
+    "annotations_flat": "data\\processed\\labeling\\annotations_flat.csv",
+    "annotations_flat_sha256": "246ded00af4d3d1bc72fdf622073cb760673f87a20e60182c1c6669367872817",
+    "review_level_summary": "data\\processed\\labeling\\review_level_summary.csv",
+    "review_level_summary_sha256": "3ed5a4eb0a26aa28a70ee3ea145141664aa5643a8a18dfadbd2674ef14efa2ae"
+  },
+  "configuration": {
+    "allow_pseudo_labels": true,
+    "primary_text_column": "text_model",
+    "primary_text_variant": "text_clean",
+    "aspect_conditioned_text_column": "aspect_text_model",
+    "number_variants": [
+      "numtoken",
+      "numbers_preserved"
+    ],
+    "text_exclusion_policy": "retain_in_audit_exclude_from_modeling",
+    "duplicate_group_basis": "text_no_stopwords_stemmed_with_text_clean_fallback",
+    "random_state_for_next_stage": 42,
+    "aspects": [
+      "product_quality",
+      "service",
+      "price_value",
+      "ambience",
+      "facilities",
+      "cleanliness"
+    ],
+    "sentiments": [
+      "negative",
+      "neutral",
+      "positive"
+    ],
+    "slang_dictionary_entries": 92,
+    "stopword_count": 124,
+    "protected_stopwords": [
+      "amat",
+      "banget",
+      "belum",
+      "bukan",
+      "jangan",
+      "kurang",
+      "lebih",
+      "meskipun",
+      "namun",
+      "paling",
+      "sangat",
+      "sekali",
+      "tanpa",
+      "tapi",
+      "terlalu",
+      "tetapi",
+      "tidak",
+      "walaupun"
+    ]
+  },
+  "label_provenance": {
+    "source_type": "ai_pseudo_labeling",
+    "usage_status": "approved_for_modeling",
+    "source_annotation_statuses": [
+      "draft",
+      "uncertain"
+    ],
+    "canonical_labeling_input_preserved": true,
+    "human_gold_standard": false,
+    "metadata_removed_from_modeling_outputs": [
+      "adjudication_status",
+      "annotation_status",
+      "annotator_id",
+      "evidence_json",
+      "label_policy",
+      "mention_type",
+      "notes",
+      "review_flags_json",
+      "taxonomy_version",
+      "training_eligible"
+    ]
+  },
+  "modeling_contract": {
+    "task_a": {
+      "feature_candidates": [
+        "text_clean",
+        "text_numbers_preserved",
+        "text_negation",
+        "text_no_stopwords",
+        "text_stemmed",
+        "text_no_stopwords_stemmed",
+        "text_model"
+      ],
+      "targets": [
+        "aspect_product_quality",
+        "aspect_service",
+        "aspect_price_value",
+        "aspect_ambience",
+        "aspect_facilities",
+        "aspect_cleanliness"
+      ],
+      "group_column": "duplicate_group_id",
+      "output_columns": [
+        "review_id",
+        "coffee_shop_id",
+        "review_text_raw",
+        "text_clean",
+        "text_numbers_preserved",
+        "text_negation",
+        "text_no_stopwords",
+        "text_stemmed",
+        "text_no_stopwords_stemmed",
+        "text_model",
+        "duplicate_group_id",
+        "duplicate_group_size",
+        "aspect_product_quality",
+        "aspect_service",
+        "aspect_price_value",
+        "aspect_ambience",
+        "aspect_facilities",
+        "aspect_cleanliness"
+      ]
+    },
+    "task_b": {
+      "primary_strategy": "separate_classifier_per_aspect",
+      "comparison_strategy": "shared_aspect_conditioned_classifier",
+      "feature_candidates": [
+        "text_clean",
+        "text_numbers_preserved",
+        "text_negation",
+        "text_no_stopwords",
+        "text_stemmed",
+        "text_no_stopwords_stemmed",
+        "text_model",
+        "aspect_text_model"
+      ],
+      "target": "sentiment",
+      "aspect_column": "aspect_category",
+      "group_column": "duplicate_group_id",
+      "output_columns": [
+        "annotation_id",
+        "review_id",
+        "coffee_shop_id",
+        "aspect_category",
+        "review_text_raw",
+        "text_clean",
+        "text_numbers_preserved",
+        "text_negation",
+        "text_no_stopwords",
+        "text_stemmed",
+        "text_no_stopwords_stemmed",
+        "text_model",
+        "aspect_text_model",
+        "duplicate_group_id",
+        "duplicate_group_size",
+        "sentiment"
+      ],
+      "per_aspect_outputs": {
+        "product_quality": "data\\processed\\modeling\\aspect_sentiment_by_aspect\\product_quality.csv",
+        "service": "data\\processed\\modeling\\aspect_sentiment_by_aspect\\service.csv",
+        "price_value": "data\\processed\\modeling\\aspect_sentiment_by_aspect\\price_value.csv",
+        "ambience": "data\\processed\\modeling\\aspect_sentiment_by_aspect\\ambience.csv",
+        "facilities": "data\\processed\\modeling\\aspect_sentiment_by_aspect\\facilities.csv",
+        "cleanliness": "data\\processed\\modeling\\aspect_sentiment_by_aspect\\cleanliness.csv"
+      }
+    }
+  },
+  "counts": {
+    "reviews_preprocessed": 3538,
+    "modeling_eligible_reviews": 3537,
+    "excluded_from_modeling": 1,
+    "task_a_rows": 3424,
+    "task_b_rows": 5598,
+    "task_b_rows_by_aspect": {
+      "product_quality": 1651,
+      "service": 937,
+      "price_value": 464,
+      "ambience": 2048,
+      "facilities": 317,
+      "cleanliness": 181
+    },
+    "duplicate_groups": 3287,
+    "empty_clean_texts": 1,
+    "reviews_with_non_latin_letters": 1
+  },
+  "outputs": {
+    "data\\processed\\modeling\\reviews_preprocessed.csv": {
+      "sha256": "50d5f332eb07e2237ac953b93a2593017bcf6711890bc10e0774cf7c7e89f014",
+      "bytes": 3959379
+    },
+    "data\\processed\\modeling\\aspect_detection_dataset.csv": {
+      "sha256": "07b22d2e45ed240a3a317f66a346304d5428f4af4e19d8eee2903134b3fd5530",
+      "bytes": 3251884
+    },
+    "data\\processed\\modeling\\aspect_sentiment_dataset.csv": {
+      "sha256": "1d73a87b2a63268953f0f4734788be183374eb47d90b5aac1bc7b88cbc07c11d",
+      "bytes": 8458924
+    },
+    "data\\processed\\modeling\\aspect_sentiment_by_aspect\\product_quality.csv": {
+      "sha256": "6295a5cce707a61125cb53b28e1e123f5adc483cca83f7cb0cd5d6250748be1a",
+      "bytes": 2431100
+    },
+    "data\\processed\\modeling\\aspect_sentiment_by_aspect\\service.csv": {
+      "sha256": "daf9bfc8bda4e64c561e7d8b795fd182f424090e50a6d528a8275fb7b3a12e35",
+      "bytes": 1546754
+    },
+    "data\\processed\\modeling\\aspect_sentiment_by_aspect\\price_value.csv": {
+      "sha256": "b755a51d85f445d804338f5d80f45605bc6873ac39db3a495a77a48395c8c95c",
+      "bytes": 829661
+    },
+    "data\\processed\\modeling\\aspect_sentiment_by_aspect\\ambience.csv": {
+      "sha256": "beef758bcea816cca917100994a58c3104405f1fed1d7960c3155965e5e671c9",
+      "bytes": 2569235
+    },
+    "data\\processed\\modeling\\aspect_sentiment_by_aspect\\facilities.csv": {
+      "sha256": "2702016cbccf70cc1e7730a7cdf3abb9a338d88c1bb429be4d1dd515fbbc4973",
+      "bytes": 740067
+    },
+    "data\\processed\\modeling\\aspect_sentiment_by_aspect\\cleanliness.csv": {
+      "sha256": "32be2afb3721ee4b20153ff33877764123e0981b4747d59de12e0aa033cf84ef",
+      "bytes": 343402
+    }
+  },
+  "methodological_notes": [
+    "Deterministic preprocessing only; no fitted corpus statistics.",
+    "Negations, intensifiers, emoji semantics, and raw text are preserved.",
+    "Unsupported text is retained for audit but excluded from modeling datasets.",
+    "Task B includes an aspect-conditioned text variant for a shared classifier.",
+    "Separate per-aspect sentiment datasets are the primary Task B baseline.",
+    "Stemming-only and stopword-plus-stemming variants are kept separate.",
+    "Number-placeholder and number-preserved variants are both available.",
+    "Annotation metadata is excluded from model-ready CSV files.",
+    "Pseudo-label provenance remains in this manifest and canonical inputs.",
+    "Duplicates are grouped from the most normalized experiment text and must remain in one split.",
+    "Vectorizers must be fitted on training data only.",
+    "Rating is not used as a sentiment target."
+  ]
+}

@@ -1,470 +1,322 @@
 # Konteks Proyek BrewScope
 
-Pembaruan: **26 Oktober 2026**. Dokumen ini menjadi konteks bersama bagi Hafizh,
-Niki, Robi, Hamam, dan asisten pengembangan. Ketentuan dosen dan keputusan tim
-terbaru didahulukan. Status implementasi dibedakan dari rancangan dan hasil
-penelitian yang belum tersedia.
+Dokumen ini adalah konteks kerja aktif per 1 November 2026. Pipeline yang
+berlaku telah selesai sampai preprocessing dan leakage-safe data splitting.
+Tahap berikutnya adalah modeling oleh anggota tim berikutnya.
 
-## 1. Ringkasan dan posisi saat ini
+Jika terdapat instruksi lama yang mewajibkan human review sebelum modeling,
+gunakan keputusan terbaru di dokumen ini: pseudo-label AI telah dibahas dengan
+dosen dan disetujui untuk modeling tanpa human verification tambahan. Label
+tetap harus dilaporkan sebagai pseudo-label, bukan human gold.
 
-**BrewScope** adalah penelitian **Aspect-Based Sentiment Analysis (ABSA) pada
-ulasan pelanggan coffee shop dengan target Kecamatan Jatinangor, Kabupaten
-Sumedang**. Data utama wajib berasal dari scraping Google Maps. Label aspek dan
-sentimen digunakan untuk mengidentifikasi keunggulan, kelemahan, dan prioritas
-perbaikan bisnis berdasarkan bukti.
+## 1. Tujuan penelitian
 
-Hafizh telah menangani/mengoordinasikan pekerjaan dari scraping sampai
-infrastruktur Stage 4A. Status berdasarkan artefak repository:
+BrewScope menggunakan Aspect-Based Sentiment Analysis untuk mengubah ulasan
+Google Maps menjadi informasi prioritas bisnis coffee shop di Jatinangor.
 
-| Tahap | Status aktual | Bukti/acuan |
+Hasil akhir yang dituju:
+
+1. mendeteksi aspek yang disebut pada setiap review;
+2. mengklasifikasikan sentimen per aspek;
+3. membandingkan SVM, Random Forest, dan Multinomial Naive Bayes;
+4. mengidentifikasi kekuatan dan kelemahan setiap coffee shop;
+5. menyusun prioritas perbaikan berdasarkan sentimen dan dukungan data.
+
+Judul kerja paper:
+
+> Strategic Prioritization of Jatinangor Coffee Shops Using Comparative
+> Machine Learning-Based ABSA
+
+## 2. Status pipeline
+
+| Tahap | Status | Artefak utama |
 |---|---|---|
-| Stage 1 - Data collection | Snapshot 3.593 review dari 40 identitas kedai tersedia; metadata pengambilan historis belum seluruhnya terdokumentasi | [Provenance](docs/research/data_provenance.md) |
-| Stage 2 - Data audit dan EDA | Selesai secara teknis; 3.582 eligible teknis, verifikasi administratif belum selesai | [Laporan audit](reports/data_audit_report.md) |
-| Stage 3 - Literature-grounded taxonomy | Draft taxonomy, pedoman, schema dan 250 kandidat pilot tersedia; validasi empiris korpus belum dilakukan | [Ringkasan Stage 3](reports/stage3_taxonomy_summary.md) |
-| Stage 4A - Infrastruktur anotasi | Implementasi dan pengujian offline/sintetis selesai; akses live Gemini belum berhasil dikonfirmasi | [Laporan Stage 4](reports/stage4_annotation_report.md) |
-| Stage 4B - Human gold | Paket A/B tersedia; kalibrasi, anotasi independen, IAA, adjudikasi dan gold belum dilakukan | [Protokol Stage 4](docs/research/stage4_annotation_protocol.md) |
-| Stage 4C - Evaluasi AI | Belum dilakukan; menunggu human gold dan provider siap | [Keputusan Stage 4](docs/research/stage4_methodology_decisions.md) |
-| Stage 4D - Full labeling dan QC | Belum dimulai; dataset produksi berlabel belum tersedia | [Ringkasan notebook](reports/stage4_notebook_summary.json) |
-| Stage 5 - Preprocessing, split dan fitur | Belum dimulai | Rencana kerja tim |
-| Stage 6 - Modeling dan evaluasi | SVM, Random Forest dan Multinomial Naive Bayes belum dilatih | Rencana kerja tim |
-| Insight, demo, paper dan presentasi | Masih direncanakan | Rencana kerja tim |
+| Akuisisi review Google Maps | Selesai | `data/raw/` |
+| Pseudo-labeling ABSA | Selesai | `data/processed/labeling/` |
+| Text preprocessing | Selesai dan tervalidasi | `notebooks/01_preprocessing.ipynb` |
+| Data splitting | Selesai dan bebas leakage | `notebooks/02_data_splitting.ipynb` |
+| Modeling komparatif | Belum | Handoff berikutnya |
+| Insight bisnis dan paper | Belum | Setelah evaluasi model |
 
-**Pekerjaan terdekat:** serah terima kepada anggota, kalibrasi 50 review oleh
-manusia, lalu 200 review anotasi independen. Pemeriksaan akses/kuota Gemini dapat
-berjalan paralel. Pembuatan pipeline tidak berarti seluruh Stage 4 selesai.
+Kedua notebook terakhir telah dijalankan seluruhnya tanpa error. Hash seluruh
+artefak cocok dengan manifest masing-masing.
 
-## 2. Ketentuan tugas akademik
+## 3. Data aktif
 
-Sumber persyaratan adalah brief proyek, slide Tugas Besar Pengganti UTS, brief
-Stage 2/3/4, dan keputusan tim terbaru yang terdokumentasi.
+### 3.1 Sumber dan labeling
 
-| Ketentuan | Penerapan proyek |
-|---|---|
-| Kelompok empat orang | Hafizh, Niki, Robi, Hamam |
-| Klasifikasi data teks | Deteksi aspek dan sentimen spesifik aspek pada review |
-| Minimal tiga keluarga algoritma | SVM, Ensemble Tree melalui Random Forest, Bayesian melalui Multinomial Naive Bayes |
-| ANN | Tambahan bila diwajibkan dosen; bukan model inti pada brief terbaru |
-| Keluaran | Kode, eksperimen yang dapat direproduksi, paper untuk target SINTA 3/4, presentasi; demo lokal menjadi keluaran produk yang direncanakan |
-| Deklarasi | Persentase penggunaan AI dan plagiarisme mengikuti ketentuan slide, termasuk batas <30% yang tercantum |
-| Durasi | Slide menyebut sekitar tiga minggu; tanggal tenggat kalender yang disepakati tim belum dicatat |
-
-| Komponen penilaian | Bobot pada slide |
+| Data | Nilai |
 |---|---:|
-| Presentasi | 15% |
-| Topik | 20% |
-| Metode | 25% |
-| Kesimpulan dan pembahasan | 40% |
+| Review awal | 3.538 |
+| Coffee shop | 40 |
+| Aspek aktif | 6 |
+| Pasangan review-aspek canonical | 21.228 |
+| Status `draft` pada sumber | 20.905 |
+| Status `uncertain` pada sumber | 323 |
+| Mixed sentiment pada sumber | 76 |
 
-Pembahasan mencakup interpretasi, error analysis, keterbatasan dan implikasi
-bisnis; perbandingan akurasi saja belum memenuhi tujuan penelitian.
+Sumber yang dipertahankan:
 
-## 3. Tujuan dan ruang lingkup
+- `data/raw/google_maps_reviews_jatinangor_raw.csv`;
+- `data/interim/google_maps_places_jatinangor.csv`;
+- `data/interim/reviews_for_annotation.csv`;
+- `data/processed/labeling/annotations_full.jsonl`;
+- `data/processed/labeling/annotations_flat.csv`;
+- `data/processed/labeling/review_level_summary.csv`.
 
-| Tujuan | Pertanyaan yang dijawab |
+### 3.2 Setelah preprocessing
+
+| Data | Nilai |
+|---|---:|
+| Review pada master preprocessing | 3.538 |
+| Review eligible untuk modeling | 3.537 |
+| Review dikeluarkan karena teks unsupported | 1 |
+| Task A — aspect detection | 3.424 |
+| Task B — aspect sentiment | 5.598 |
+| Duplicate group eligible | 3.287 |
+
+Jumlah pasangan Task B per aspek:
+
+| Aspek | Baris |
+|---|---:|
+| `product_quality` | 1.651 |
+| `service` | 937 |
+| `price_value` | 464 |
+| `ambience` | 2.048 |
+| `facilities` | 317 |
+| `cleanliness` | 181 |
+
+### 3.3 Fixed split
+
+| Split | Review | Persentase |
+|---|---:|---:|
+| Train | 2.396 | 70% |
+| Validation | 514 | 15% |
+| Test | 514 | 15% |
+| Total | 3.424 | 100% |
+
+Split mencakup 3.200 duplicate group. Hasil audit:
+
+- review leakage: 0;
+- duplicate-group leakage: 0;
+- seluruh label positif Task A muncul pada train, validation, dan test;
+- seluruh 54 kombinasi `split × aspect × sentiment` Task B memiliki support;
+- metadata labeling terlarang tidak terdapat pada dataset model-ready.
+
+## 4. Taksonomi aspek
+
+| ID | Cakupan |
 |---|---|
-| Task A - Aspect detection | Aspek mana yang dibahas? Satu review dapat membahas nol sampai enam aspek |
-| Task B - Aspect sentiment | Bagaimana sentimen terhadap setiap aspek yang disebutkan? |
-| Perbandingan ML | Bagaimana performa tiga keluarga model pada dataset, split dan evaluasi yang sama? |
-| Analisis bisnis | Apa yang diapresiasi/dikeluhkan dan apa prioritas perbaikannya berdasarkan bukti? |
-| Produk lokal | Bagaimana menampilkan perbandingan, sample size, keterbatasan dan demo review baru? |
+| `product_quality` | Rasa, mutu, porsi, variasi, dan penyajian produk |
+| `service` | Interaksi staf, pemesanan, waktu tunggu, dan respons |
+| `price_value` | Harga, keterjangkauan, promosi, dan kesepadanan nilai |
+| `ambience` | Suasana, interior, kebisingan, dan kenyamanan |
+| `facilities` | Wi-Fi, parkir, colokan, toilet, AC, kursi, dan amenitas |
+| `cleanliness` | Kebersihan dan higiene ruang, toilet, serta peralatan |
 
-Rating bintang tidak menjadi ground truth sentimen. Keunggulan, kelemahan dan
-prioritas bisnis merupakan hasil agregasi/interpretasi dari aspek dan polaritas,
-bukan pengganti label sentimen.
+`location_accessibility` tidak menjadi aspek ketujuh. Kasus terkait tetap
+ditangani sebagai `out_of_taxonomy` pada sumber labeling.
 
-Scope inti mencakup akuisisi batch/offline, audit, enam aspek aktif, anotasi,
-tiga model, evaluasi, agregasi dan demo lokal. Aplikasi membaca dataset/artifact
-tersimpan. Scraping real-time, prediksi omzet/ROI, chatbot, deep learning besar,
-aplikasi mobile dan infrastruktur cloud kompleks berada di luar scope inti.
+Konfigurasi aktif:
 
-## 4. Dataset dan provenance
+- `configs/labeling/aspect_taxonomy.yaml`;
+- `configs/labeling/annotation_schema.json`;
+- `docs/annotation/annotation_guidelines.md`.
 
-Dataset sumber: `data/raw/google_maps_reviews_jatinangor_raw.csv`.
+## 5. Kebijakan pseudo-label
 
-| Item | Snapshot yang diaudit |
-|---|---|
-| Sumber dan akuisisi | Google Maps melalui scraper Apify; script `scripts/scrape_google_maps.py` |
-| Actor yang didokumentasikan | `compass/google-maps-reviews-scraper`; manifest run historis belum tersedia |
-| Baris raw | 3.593 review; seluruh review ID unik |
-| Kedai | 40 identitas; jumlah final penelitian menunggu keputusan wilayah |
-| Eligible teknis | 3.582 review menurut audit, bukan persetujuan scope penelitian final |
-| Simbol/emoji saja | 11 review; raw dipertahankan, dikecualikan dari eligible teknis |
-| Review pendek | 778 review kurang dari empat kata; tidak otomatis dihapus |
-| Rating lima bintang | Sekitar 85,47%; bukan distribusi label sentimen |
-| Rentang tanggal review | 13 September 2016 sampai 25 Oktober 2026; bukan tanggal scraping |
-| Bahasa | Fokus Indonesia; slang dan code-switching diperiksa, bukan dihapus berdasarkan heuristik saja |
-| Status wilayah | Seluruh 40 identitas masih `UNVERIFIED` secara administratif |
-
-SHA-256 raw:
+Label dibuat offline dan deterministik oleh `scripts/label_brewscope.py` dengan
+provenance:
 
 ```text
-7b87a53110041da74e976a6c9cb121c1dea7d73be70daeab58b2c07bef775719
+auto:lexical_preannotation_v1
 ```
 
-Enam kolom raw yang benar:
+Labeler menggunakan target/aspect lexicon, pemisahan klausa, polaritas,
+negasi, overlap rule, mixed sentiment, dan evidence span. Rating tidak digunakan
+sebagai label aspek atau sentimen.
 
-```text
-review_id,nama_tempat,rating,tanggal_review,teks_review,url_tempat
-```
+Keputusan aktif:
 
-Pipeline anotasi memetakan `teks_review` ke `review_text`, dan `place_key` hasil
-audit ke `coffee_shop_id`. Identitas ditelusuri ke metadata sumber. Nama kedai
-saja tidak membuktikan posisi administratif; alamat/koordinat tidak boleh direka.
+- pseudo-label disetujui tim dan dosen untuk training serta evaluasi proyek;
+- human verification tambahan tidak menjadi bagian pipeline aktif;
+- sumber canonical tidak ditimpa atau dipalsukan sebagai human gold;
+- metadata `draft`, annotator, taxonomy version, evidence, dan status lain
+  disimpan pada sumber/manifest tetapi dihapus dari CSV model-ready;
+- hasil eksperimen harus disebut evaluasi terhadap pseudo-label atau silver
+  labels, bukan akurasi terhadap ground truth manusia.
 
-Raw tidak diubah secara destruktif. Review dengan ID berbeda dan teks sama tidak
-otomatis dihapus. Kelompok identik/sangat mirip dicatat untuk triage dan split.
-Jumlah baris final menunggu scope dan QC.
+## 6. Preprocessing aktif
 
-Tanggal scraping aktual, build Actor, run/dataset ID, urutan pemilihan review,
-parameter run dan sebagian riwayat transformasi masih `NOT_DOCUMENTED`.
-Default script saat ini bukan bukti konfigurasi historis. Lihat
-[provenance](docs/research/data_provenance.md) dan
-[verifikasi geografis](reports/tables/geographic_verification.csv).
+Notebook: `notebooks/01_preprocessing.ipynb`.
 
-## 5. Otorisasi, privasi dan wilayah
+Transformasi utama:
 
-Brief Stage 4 dari pemilik mengizinkan penggunaan dataset untuk penelitian dan
-AI eksternal, termasuk Gemini: **OWNER_ATTESTED**. Deklarasi pemilik berbeda dari
-izin/lisensi pihak sumber yang diverifikasi independen. Bukti izin tertulis
-belum ditemukan dan tidak boleh dibuat-buat.
+1. Unicode NFKC, HTML unescape, dan case folding;
+2. pembersihan HTML serta placeholder URL, email, dan telepon;
+3. varian angka `numtoken` dan angka dipertahankan;
+4. emoji dan emoticon menjadi token semantik;
+5. normalisasi karakter berulang secara konservatif;
+6. normalisasi slang lokal yang reproducible;
+7. negation binding, termasuk pola seperti `tidak_terlalu_cepat`;
+8. stopword removal dengan negasi/intensifier yang dilindungi;
+9. stemming Bahasa Indonesia dengan cache;
+10. duplicate grouping untuk pencegahan leakage;
+11. preprocessing contract tests dan final validation;
+12. tabel, grafik, dan Word Cloud 300 DPI.
 
-Keputusan terbaru mengizinkan persiapan manusia, pengujian pipeline dan pilot
-terkontrol menurut protokol Stage 4. Gate izin/geografi dalam artefak Stage 2/3
-merupakan catatan historis; tidak membatalkan otorisasi pilot dari brief terbaru.
+Varian eksperimen:
 
-| Area | Aturan operasional |
+| Kolom | Fungsi |
 |---|---|
-| Geografi | Tetap UNVERIFIED sampai bukti identitas dan batas wilayah memadai; tim membagi verifikasi 10 kedai per orang |
-| Scope | Keputusan dipisah dari label: `coffee_shop_id,status,evidence_reference`; dataset dapat diregenerasi setelah keputusan wilayah |
-| Full labeling | Memerlukan scope final, pemeriksaan sumber, gold/evaluasi dan kontrol eksekusi; tanpa menghapus raw |
-| Privasi eksternal | Kirim hanya ID/teks yang diperlukan; suspected PII ditahan; review kontekstual manusia sebelum batch nyata ke Gemini |
-| Publikasi | Periksa ketentuan sumber dan hak kutipan/redistribusi sebelum publikasi raw atau training akhir |
-| Credential | Environment atau `.env` lokal; tidak dicetak atau dimasukkan Git |
+| `text_clean` | Baseline, angka menjadi `numtoken` |
+| `text_numbers_preserved` | Angka asli dipertahankan |
+| `text_negation` | Negasi diikat ke kata/frasa berikutnya |
+| `text_no_stopwords` | Stopword removal tanpa stemming |
+| `text_stemmed` | Stemming tanpa stopword removal |
+| `text_no_stopwords_stemmed` | Stopword removal + stemming |
+| `text_model` | Alias baseline aktif |
 
-Laporan final tetap mencantumkan bias pemilihan review/kedai, dominasi rating,
-provenance yang belum lengkap dan keterbatasan verifikasi wilayah.
+`duplicate_group_id` dibentuk dari `text_no_stopwords_stemmed` dengan fallback ke
+`text_clean`. Kebijakan ini lebih konservatif agar eksperimen varian teks tidak
+menghasilkan near-duplicate leakage.
 
-## 6. Taxonomy dan definisi label
+Output preprocessing:
 
-Definisi: [aspect_taxonomy.yaml](configs/aspect_taxonomy.yaml), versi
-**`0.1.0-draft`**, draft berbasis literatur yang **belum divalidasi empiris pada
-korpus lokal**. Tinjauan Stage 3 memuat tujuh referensi: lima full text dan dua
-metadata/abstrak terverifikasi.
+- `data/processed/modeling/reviews_preprocessed.csv`;
+- `data/processed/modeling/aspect_detection_dataset.csv`;
+- `data/processed/modeling/aspect_sentiment_dataset.csv`;
+- `data/processed/modeling/aspect_sentiment_by_aspect/*.csv`;
+- `data/processed/modeling/preprocessing_manifest.json`;
+- `reports/figures/preprocessing/`;
+- `reports/tables/preprocessing/`.
 
-| Aspect ID aktif | Cakupan | Batas penting |
-|---|---|---|
-| `product_quality` | Mutu makanan/minuman, rasa, kesegaran, porsi, menu, presentasi | Food dan drinks digabung; waktu tunggu masuk service |
-| `service` | Interaksi staf, keramahan, pemesanan, respons, waktu tunggu | Wi-Fi lambat masuk facilities |
-| `price_value` | Harga, keterjangkauan, promo, kesepadanan biaya/manfaat | Porsi tanpa evaluasi harga tetap product_quality |
-| `ambience` | Suasana, interior, musik, kebisingan, kenyamanan | Kondisi kotor/bersih masuk cleanliness |
-| `facilities` | Keberadaan, kapasitas dan fungsi amenitas | Toilet tidak tersedia: facilities |
-| `cleanliness` | Kebersihan/higiene ruang, meja, toilet, peralatan, sampah | Toilet kotor: cleanliness; tidak otomatis facilities |
+## 7. Data splitting aktif
 
-`location_accessibility` **provisional/tidak aktif**. Aktivasi atau perubahan
-kategori membutuhkan dokumentasi, versi baru dan validasi pilot. Pujian umum
-tidak otomatis memberi enam aspek positif. Keyword Stage 2/3 adalah indikator
-eksploratif/sampling, bukan label atau bukti akurasi aspect detection.
+Notebook: `notebooks/02_data_splitting.ipynb`.
 
-| Keputusan | Makna dan penyimpanan |
-|---|---|
-| `mentioned` | Ada bukti aspek dibahas |
-| `not_mentioned` | Tidak dibahas; sentiment `null`, evidence kosong; berbeda dari neutral |
-| `positive` / `neutral` / `negative` | Tiga polaritas untuk aspek yang disebutkan dan terselesaikan |
-| `uncertain` | Workflow/presence belum pasti; sentiment `null`, notes wajib, belum masuk gold/training |
-| Mixed sentiment | Opini positif dan negatif pada aspek sama; kedua evidence disimpan, `mixed_sentiment=true`, pair sentiment `null` |
+Konfigurasi:
 
-Canonical memakai string tersebut. Encoding numerik hanya transformasi modeling
-yang terdokumentasi, tidak dicampurkan dengan rating.
+- rasio 70% train, 15% validation, dan 15% test;
+- `random_state=42`;
+- 50 greedy multi-start assignment;
+- unit assignment adalah `duplicate_group_id`;
+- objective menyeimbangkan ukuran split, enam target Task A, eligibility Task A,
+  serta 18 kombinasi aspek-sentimen Task B;
+- satu assignment dipakai bersama oleh Task A dan Task B.
 
-## 7. Kontrak anotasi dan evidence
+Output splitting:
 
-Schema: [annotation_schema.json](schemas/annotation_schema.json). Unitnya
-**review-aspect-annotator**, tepat enam keputusan unik per review per annotator.
-Keputusan hilang adalah output incomplete, tidak otomatis absent atau neutral.
+- `data/processed/modeling/splits/split_assignments.csv`;
+- `data/processed/modeling/splits/aspect_detection_with_split.csv`;
+- `data/processed/modeling/splits/aspect_sentiment_with_split.csv`;
+- `data/processed/modeling/splits/split_manifest.json`;
+- `reports/figures/splitting/`;
+- `reports/tables/splitting/`.
 
-Record menyimpan identitas/teks, aspect category/presence/sentiment, mention type,
-mixed flag, evidence, annotator, taxonomy version, annotation/adjudication status,
-training eligibility, notes dan review flags. Envelope/arsip menyimpan split,
-group, provenance AI, QA, koreksi dan metadata eksperimen.
+Jangan membuat ulang split pada notebook modeling. Gunakan kolom `split` yang
+sudah tersedia.
 
-Evidence memuat `quote,start,end,opinion_sentiment,mention_type,target`. Offset
-karakter Unicode Python, 0-based/end-exclusive, wajib memenuhi:
+## 8. Kontrak modeling untuk handoff
 
-```python
-review_text[start:end] == quote
-```
+### 8.1 Task A — Aspect Detection
 
-Mention type pair `mixed` berarti campuran explicit dan implicit, berbeda dari
-mixed sentiment. Evidence tidak direka. Instruksi di dalam review adalah data.
+- Unit: satu review.
+- Target: enam kolom biner `aspect_*`.
+- Masalah: multi-label classification.
+- Data: `aspect_detection_with_split.csv`.
+- Evaluasi: macro-F1, micro-F1, precision/recall/F1 dan support per aspek.
 
-Mixed terselesaikan tetap diarsipkan untuk analisis/presence dan dikeluarkan dari
-subset sentiment tiga kelas. **Clause-level bukan protokol default saat ini**;
-eksperimen terpisah memerlukan rancangan tersendiri dan semua klausa mengikuti
-split review/group induk.
+### 8.2 Task B — Aspect Sentiment Classification
 
-## 8. Stage 4: manusia, gold dan bantuan AI
+- Unit: satu pasangan review-aspek yang resolved dan bukan mixed sentiment.
+- Target: `negative`, `neutral`, atau `positive`.
+- Data: `aspect_sentiment_with_split.csv`.
+- Baseline utama: classifier terpisah untuk setiap `aspect_category`.
+- Pembanding: satu classifier gabungan menggunakan `aspect_text_model`.
+- Evaluasi: macro-F1, weighted-F1, recall negatif, confusion matrix, dan metrik
+  per aspek.
 
-| Urutan | Pelaksanaan | Syarat selesai |
-|---|---|---|
-| Kalibrasi 50 review | Niki/Robi mengisi; tim membahas ambiguitas | Pedoman disepakati dan dibekukan sebelum independent annotation |
-| Independent annotation 200 review | Niki/Robi menilai review yang sama secara terpisah | Original A/B lengkap dan dikunci sebelum diskusi atau saran AI |
-| IAA praadjudikasi | Hafizh menjalankan utilitas, A/B memeriksa original | Raw agreement, Kappa, confusion, support, disagreement dan abstention aktual |
-| Adjudikasi | Hamam menyelesaikan disagreement/uncertainty beserta alasan | Pair gold terselesaikan, mixed dipertahankan |
-| QA/gold | Hafizh memeriksa evidence/konsistensi; original disimpan | Human gold tervalidasi |
-| Eksperimen AI | Gemini utama, Ollama pembanding opsional; evaluasi terhadap gold | Kualitas empiris, error analysis dan konfigurasi terpilih |
-| Full labeling/review | Batch terkontrol, checkpoint, kasus prioritas dan audit acak output valid | Semua data dalam scope selesai sesuai QC, ekspor tervalidasi |
+### 8.3 Model wajib
 
-Pilot menggunakan **250 kandidat Stage 3** dari 40 kedai, minimal tiga per kedai
-pada union pilot. Split aktual **50 calibration + 150 development + 50 locked
-validation**. Dua split terakhir adalah 200 review independen. Masing-masing A/B
-menilai 250 review, setara 1.500 keputusan termasuk kalibrasi.
+1. Support Vector Machine;
+2. Random Forest;
+3. Multinomial Naive Bayes.
 
-Paket blind tidak memuat rating, keyword hints, label AI, hasil orang lain atau
-penanda locked. Presence `null`/status `draft` pada template berarti belum diisi,
-bukan anotasi canonical valid. Kalibrasi bukan independent test.
+Semua model wajib memakai split dan preprocessing input yang sama untuk
+perbandingan yang adil.
 
-Grouping dihitung pada seluruh eligible corpus. Near-match memakai shared
-five-token shingle, minimal delapan token, Jaccard token >=0.85 dan
-SequenceMatcher >=0.92. Ini triage konservatif; parafrasa semantik jauh masih
-perlu diperiksa manusia.
+### 8.4 Pencegahan leakage
 
-Gold berasal dari dua original manusia, adjudikasi dan QA. Label yang sudah
-diperlihatkan AI tidak menjadi gold independen. Label AI yang dikoreksi manusia
-dicatat sebagai **AI-assisted/human-reviewed**; original tidak ditimpa, revisi
-menyimpan identitas dan alasan. Tidak ada anotasi manusia/IAA yang direka.
+- Fit TF-IDF/CountVectorizer hanya pada train.
+- Transform validation dan test menggunakan vectorizer train.
+- Hyperparameter selection hanya menggunakan validation atau cross-validation
+  di dalam train.
+- Test hanya digunakan untuk evaluasi final.
+- Class weighting, oversampling, undersampling, dan feature selection hanya
+  diterapkan pada train.
+- Jangan memakai `review_id`, `annotation_id`, `coffee_shop_id`, rating,
+  nama kedai, atau metadata labeling sebagai fitur prediksi.
 
-Format dan perintah: [protokol Stage 4](docs/research/stage4_annotation_protocol.md).
+### 8.5 Class imbalance
 
-## 9. Provider, biaya dan status Gemini terbaru
+Task B memiliki 4.217 positive, 1.099 neutral, dan 282 negative pada keseluruhan
+dataset. Accuracy saja akan menyesatkan. Prioritaskan macro-F1 dan recall
+negative. Laporkan support agar hasil pada aspek dengan data sedikit tidak
+ditafsirkan berlebihan.
 
-| Item | Keadaan yang tercatat |
-|---|---|
-| SDK | `google-genai==2.33.0`, melalui extra `annotation` |
-| Provider | `GeminiProvider`, `OllamaProvider`, `MockProvider` |
-| Kandidat model konfigurasi | `gemini-3.5-flash-lite`; belum dipilih berdasarkan akurasi gold |
-| Ollama | `qwen2.5:3b` lokal terdeteksi pada pemeriksaan sebelumnya; inference/perbandingan gold belum dilakukan |
-| Key Gemini | Ditambahkan pemilik ke `.env` dan sudah terbaca pada pemeriksaan terbaru |
-| Model lookup terakhir | HTTP **429**, `QUOTA_EXHAUSTED`; akses model belum berhasil dikonfirmasi |
-| Tier billing/Free Tier project | `UNKNOWN`; RPM/RPD aktual belum diverifikasi |
-| Upload/generation nyata | 0 review dikirim, 0 generation request, 0 generation token pada pemeriksaan yang tercatat |
+Task A juga tidak seimbang, khususnya `cleanliness` dan `facilities`. Gunakan
+metrik per label dan pertimbangkan class weight pada model yang mendukungnya.
 
-Acuan terbaru: [connection check](reports/stage4_gemini_connection_check.json).
-`stage4_environment.json` dan `stage4_notebook_summary.json` adalah snapshot lebih
-awal yang masih mencatat key belum tersedia; keduanya bukan status koneksi terbaru.
+## 9. Insight bisnis setelah modeling
 
-[annotation_runtime.yaml](configs/annotation_runtime.yaml) mengatur mode default
-sintetis/dry run. Run All tidak mengirim review nyata atau meminta generation
-cloud. Live memerlukan `--execute` dan verifikasi model/kuota/biaya. Smoke maksimal
-lima review dari calibration. Counter persisten, rate limiting, retry terbatas
-serta checkpoint tersedia; quota exhaustion menghentikan run tanpa paid fallback.
+Insight dihitung dari prediksi model terpilih dan diagregasi per coffee shop:
 
-Full memerlukan human gold, evaluasi locked memenuhi kriteria, scope final,
-pemeriksaan sumber/privasi dan persetujuan full dalam config. Threshold YAML
-masih **usulan**, belum kriteria penelitian yang dibekukan. Prompt/protokol
-harus dibekukan sebelum locked inference/evaluation; revisi memakai versi baru.
+- jumlah mention setiap aspek;
+- distribusi positive/neutral/negative;
+- support dan confidence yang tersedia;
+- kekuatan utama;
+- keluhan utama;
+- prioritas perbaikan dengan minimum support agar satu review tidak
+  mendominasi keputusan.
 
-## 10. Stage 5/6: preprocessing, fitur dan tiga model
+Rating tidak digunakan sebagai target sentimen. Rating hanya boleh dipakai
+sebagai analisis eksternal atau sanity check yang dijelaskan terpisah.
 
-Preprocessing dan TF-IDF belum diimplementasikan. Stage 5 menetapkan normalisasi
-ringan, slang, word/character features dan representasi aspek. Negasi/konteks
-sentimen dipertahankan. Stemming/stopwords dievaluasi, tidak diasumsikan membantu.
+## 10. Batasan yang wajib dilaporkan
 
-| Keluarga | Model inti | Pemilik |
-|---|---|---|
-| SVM | LinearSVC sebagai baseline yang direncanakan | Niki |
-| Ensemble Tree | Random Forest | Robi |
-| Bayesian | Multinomial Naive Bayes | Hamam |
+- Label merupakan pseudo-label berbasis aturan leksikal, bukan human gold.
+- Evaluasi mengukur kemampuan model mereproduksi pseudo-label.
+- Distribusi sentimen sangat tidak seimbang menuju kelas positif.
+- Beberapa aspek memiliki support negative yang rendah.
+- Satu review non-Latin dikeluarkan dari modeling tetapi tetap disimpan untuk
+  audit.
+- Teks dapat mengandung code-switching Indonesia-Inggris.
+- Identitas geografis dan privasi sumber tetap mengikuti keterbatasan scraping
+  awal.
 
-Task A adalah multi-label presence enam aspek; Task B sentiment pada pair
-mentioned terselesaikan. Setiap keluarga mengikuti formulasi dan protokol yang
-sama; rincian estimator multi-label/per-aspect ditetapkan Stage 5. Review penuh
-dan identitas aspek dapat menjadi konteks Task B. Fitur disesuaikan dengan
-persyaratan estimator, termasuk nonnegatif untuk Multinomial Naive Bayes.
+## 11. Checklist rekan modeling
 
-Keyword/rule dapat menjadi baseline tambahan, bukan ground truth atau satu-satunya
-definisi Task A. Jalur rule-based dilaporkan terpisah dari learned ABSA.
-Gemini/Ollama sebagai annotator bukan tiga classifier pembanding tugas kuliah.
-ANN bukan kewajiban tambahan otomatis dalam rencana terbaru.
+1. Aktifkan environment dan install `.[preprocessing,modeling]`.
+2. Jangan menjalankan ulang scraping atau labeling tanpa kebutuhan baru.
+3. Gunakan dua file `*_with_split.csv`.
+4. Pisahkan `X_train`, `X_validation`, dan `X_test` dari kolom `split`.
+5. Fit vectorizer hanya pada train.
+6. Mulai dari `text_clean`, lalu bandingkan varian preprocessing lain.
+7. Latih Task B per aspek sebagai baseline utama.
+8. Tangani imbalance hanya pada train.
+9. Simpan metrik, confusion matrix, prediksi, dan konfigurasi eksperimen.
+10. Dokumentasikan bahwa label merupakan pseudo-label.
 
-## 11. Split dan pencegahan leakage
+## 12. Urutan sumber kebenaran
 
-- Semua pair/clause satu `review_id` berada pada satu split.
-- Kelompok teks identik/sangat mirip juga satu split, termasuk lintas kedai.
-- Teks berulang tidak otomatis dihapus; keputusan filtering dicatat.
-- Split pilot berbeda dari train/validation/test classifier. Proporsi classifier
-  final belum ditetapkan; 80/20 bukan ketetapan.
-- Gold untuk prompt tuning/calibration tidak menjadi independent test ML.
-- Fit vectorizer/statistik preprocessing dan tuning hanya pada training/validation
-  atau CV yang sesuai; test tidak dipakai memilih fitur/model/hyperparameter.
-- Semua model memakai label, split manifest, seed dan evaluasi yang sama.
-  Support kelas diperiksa; grouping tidak dikorbankan demi stratifikasi.
-- Label AI untuk training bukan gold independen bagi klaim akurasi ML.
+Jika terdapat informasi yang bertentangan, gunakan urutan berikut:
 
-## 12. Evaluasi dan exception reporting
-
-| Evaluasi | Metrik dan denominator |
-|---|---|
-| Agreement manusia | Raw agreement, Cohen's Kappa, per-aspect agreement/confusion/support, sebelum adjudikasi |
-| Aspect detection | Micro precision/recall/F1, macro/per-aspect F1 dan support |
-| Aspect sentiment | Accuracy, macro F1 sebagai metrik utama sentiment, per-class P/R/F1, per-aspect macro F1, confusion |
-| Conditional sentiment Stage 4 | Seluruh gold-mentioned resolved pairs; missed/abstained tetap salah, tidak hanya aspek yang berhasil dideteksi; gold-conditioned scoring, bukan klaim forced-aspect experiment |
-| End-to-end ABSA | Pasangan aspek-sentiment, termasuk FP/FN karena aspek tambahan/terlewat |
-| Error analysis | Negasi, implicit, slang, code-switching, sarcasm, typo, overlap, mixed, no-keyword dan kelas minoritas |
-
-Uncertain menjadi abstention. Mixed dikecualikan dari evaluasi tiga kelas dan
-jumlahnya dilaporkan. Kappa tanpa variasi/data dapat undefined: `null` dengan
-alasan. Laporkan comparable decisions, coverage, support dan exclusion.
-Invalid/incomplete response atau evidence halusinasi bukan keberhasilan anotasi
-dan tidak diubah menjadi absent/neutral.
-
-Hasil pengujian terakhir yang **tersimpan**: **119 test lulus**, termasuk 77
-Stage 4; notebook Stage 4 mengeksekusi 20 code cell tanpa error. Demonstrasi
-MockProvider menggunakan 17 review sintetis/102 keputusan; resume menambah 0
-request. Ini validasi infrastruktur, bukan akurasi model. IAA nyata, akurasi AI/ML
-dan ranking bisnis aktual belum tersedia. Acuan:
-[validation summary](reports/stage4_validation_summary.json).
-
-## 13. Analisis bisnis dan demo
-
-Agregasi direncanakan per kedai/aspek dan, setelah scope terverifikasi, wilayah.
-Tampilkan review unik, jumlah pair/mention, distribusi polaritas, label source,
-coverage dan ukuran sampel. Pisahkan mixed/uncertain dari tiga polaritas.
-
-Proporsi tiga kelas memakai denominator pair mentioned dengan polaritas
-terselesaikan; laporkan coverage/exclusion terhadap semua pair mentioned.
-Jangan menghitung ulang satu review-aspect hanya karena beberapa evidence span.
-
-Rekomendasi berasal dari temuan terukur, relevansi bisnis dan minimum bukti yang
-belum ditetapkan. Jika kurang bukti, gunakan `insufficient_evidence`. Hindari
-klaim keuntungan, revenue, ROI, estimasi modal atau lokasi pasti unggul. Sampel
-kuota/scraping tidak membuktikan keterwakilan seluruh pasar.
-
-Demo/Streamlit lokal direncanakan membaca artifact tersimpan untuk overview,
-perbandingan aspek, hasil eksperimen dan review baru. Prioritaskan tabel/grafik
-yang benar dan tampilan sederhana. Kebutuhan anggaran hanya konteks, bukan dasar
-estimasi finansial. Demo classifier tidak harus bergantung pada AI eksternal.
-
-## 14. Artefak dan struktur repository aktual
-
-| Lokasi | Isi/status |
-|---|---|
-| `scripts/scrape_google_maps.py` | Akuisisi data |
-| `notebooks/01_data_audit_eda.ipynb` | Audit, data understanding dan EDA |
-| `notebooks/02_aspect_taxonomy.ipynb` | Literatur, taxonomy dan kandidat pilot |
-| `notebooks/03_human_ai_labeling.ipynb` | Panduan/pengujian Stage 4, aman offline |
-| `configs/aspect_taxonomy.yaml` | Enam kategori aktif dan satu provisional |
-| `configs/annotation_runtime.yaml` | Provider, kuota, biaya, privasi dan kontrol eksekusi |
-| `schemas/annotation_schema.json` | Canonical schema Stage 3 yang dipakai Stage 4 |
-| `prompts/absa_gemini_v1.md` dan `.manifest.json` | Prompt terversi dan hash sumber |
-| `src/brewscope/annotation/` | Provider, runtime, storage, validation, pipeline, human, agreement, evaluation dan export |
-| `scripts/run_annotation.py` | CLI dry run, mock, workflow manusia, eksperimen, review dan ekspor |
-| `data/raw/` | Snapshot asli yang dilacak Git untuk kolaborasi tim; tidak diedit langsung |
-| `data/interim/` | Audit flags, kandidat, grouping dan formulir kosong dilacak Git; checkpoint/debug serta kerja/submission independen tetap lokal |
-| `data/processed/` | Keluaran gold/dataset saat tersedia; belum berisi dataset berlabel final |
-| `reports/` | Laporan/ringkasan tahap, tabel/grafik dan pemeriksaan aktual |
-| `tests/annotation/` | Test dan fixture sintetis Stage 4 |
-| `docs/research/` | Provenance, literatur/BibTeX, pedoman, keputusan metodologi |
-| `docs/project_management/TEAM_WORKPLAN.md` | Pembagian bernama, milestone dan serah terima |
-| `app/`, `models/` | Lokasi keluaran berikutnya, bukan bukti aplikasi/model telah dibangun |
-
-Analisis Stage 2/3 berada dalam notebook. Logika Stage 4 yang dipakai notebook
-dan CLI berada di `src/brewscope/annotation` sesuai brief. Modul preprocessing,
-modeling dan insight berikutnya belum dinyatakan tersedia. Dependency ada di
-`pyproject.toml`.
-
-## 15. Tim dan pembagian beban
-
-| Anggota | Stage 4 | Pekerjaan berikutnya |
-|---|---|---|
-| Hafizh | Koordinator, IAA/validator, QA `human:D`, konfigurasi dan batch | Integrasi/reproducibility, pemeriksaan angka, tulisan data dan audit |
-| Niki | Annotator A `human:A`, 50 calibration + 200 independent | Preprocessing/NLP, SVM, tulisan anotasi/NLP/SVM |
-| Robi | Annotator B `human:B`, review sama secara independen | Split/fitur bersama, Random Forest, evaluasi gabungan dan tulisan hasil |
-| Hamam | Adjudikator `human:C`, koordinasi review AI berikutnya | Naive Bayes, insight bisnis, demo sederhana dan integrasi naskah |
-
-Kontribusi Hafizh dari tahap awal dihitung dalam beban kumulatif. Setiap anggota
-memiliki output teknis/tulisan dan memperbaiki pekerjaannya sendiri. Verifikasi
-lokasi dibagi 10 kedai per orang. Rebalancing berdasarkan waktu aktual kalibrasi
-dan kompleksitas. Rincian paper, reviewer dan assignment:
-[TEAM_WORKPLAN.md](docs/project_management/TEAM_WORKPLAN.md). Semua berkontribusi
-pada Discussion/Conclusion dan berlatih presentasi.
-
-## 16. Environment dan eksekusi
-
-Python minimum 3.11; gunakan `.venv` proyek. Setup pada clone baru:
-
-```powershell
-python -m venv .venv
-.venv\Scripts\python.exe -m pip install -e ".[annotation,analysis,dev]"
-.venv\Scripts\python.exe -m ipykernel install --prefix .venv --name brewscope --display-name "BrewScope (.venv)"
-```
-
-Keputusan terbaru pemilik: dataset dan formulir kosong dibagikan melalui Git
-agar anggota memakai snapshot yang sama. Setelah commit/push data digabung,
-clone/pull menyertakan file tersebut; tetap periksa hash. Checkpoint dan jawaban
-independen yang belum dikunci tidak ikut. Lihat [panduan data](data/README.md).
-Buat `.env` dari `.env.example` hanya bila belum ada, isi token/key secara lokal,
-jangan menimpa credential yang ada.
-Jalankan dari root repo:
-
-```powershell
-.venv\Scripts\python.exe scripts/run_annotation.py --dry-run
-.venv\Scripts\python.exe scripts/run_annotation.py --task prepare-human --execute
-.venv\Scripts\python.exe scripts/run_annotation.py --provider mock --mode synthetic --execute --resume
-.venv\Scripts\python.exe -m pytest -q
-```
-
-`prepare-human` membuat formulir kosong, bukan label manusia. Perintah submit,
-IAA, gold, live dan ekspor ada di protokol Stage 4. Setelah HTTP 429 terakhir,
-periksa project/kuota sebelum mengulang cloud. Penambahan key tidak otomatis
-menyalakan generation atau labeling penuh.
-
-Panduan Git: `main` sebagai baseline bersama, branch `hafizh`, `niki`, `robi`,
-`hamam` untuk pekerjaan masing-masing, gabung lewat PR/review. Status push aktual
-belum diverifikasi di dokumen ini. Credential, venv, checkpoint, kerja/submission
-anotasi independen dan model lokal tidak ikut Git. Dataset dan formulir kosong
-boleh dilacak sesuai keputusan berbagi tim; periksa output sebelum dibagikan.
-
-## 17. Milestone dan definition of done
-
-| Milestone | Selesai ketika |
-|---|---|
-| Stage 4B | Dua original manusia, IAA praadjudikasi, adjudikasi, QA dan human gold benar-benar tersedia |
-| Stage 4C | AI dievaluasi pada gold yang tepat, development/locked dipisahkan, mutu memenuhi kriteria dan error analysis selesai |
-| Seluruh Stage 4 | Data eligible dalam scope final selesai dilabeli/direview sesuai protokol; provenance/checkpoint lengkap; ekspor siap Stage 5 |
-| Stage 5 | Preprocessing, split dan fitur direproduksi dengan pemeriksaan leakage |
-| Stage 6 | Tiga model dibandingkan adil; prediksi/metrik/artifact dan evaluasi final tersimpan |
-| Insight/demo | Hitungan benar, support/limitations ditampilkan, rekomendasi dapat ditelusuri |
-| Proyek akhir | Kode, hasil, analisis bisnis, paper, deklarasi AI, presentasi/demo direview bersama |
-
-Stage 5/6 belum dijalankan sebelum prasyarat Stage 4 terpenuhi. Persiapan desain,
-fixture, format laporan dan tulisan metode dapat paralel; jangan menampilkan
-fixture atau rencana sebagai hasil penelitian.
-
-## 18. Keputusan/pekerjaan yang masih terbuka
-
-| Item | Status |
-|---|---|
-| Kalibrasi, dua anotasi manusia, IAA, adjudikasi dan QA | Belum dilaksanakan |
-| Validasi empiris taxonomy lokal | Menunggu pilot; enam aspek tetap draft |
-| Gemini, billing, RPM/RPD dan privasi batch | Key terbaca; model lookup 429; project belum terverifikasi |
-| Kriteria penerimaan AI | Threshold YAML masih usulan; dibekukan sebelum locked |
-| Scope administratif dan inklusi kedai | 40 UNVERIFIED; bukti dibagi untuk diperiksa tim |
-| Provenance, ketentuan sumber, retensi/kutipan/redistribusi | Sebagian belum terdokumentasi/diverifikasi; deklarasi pemilik tercatat |
-| Split classifier, estimator Task A/B, fitur dan tuning | Keputusan Stage 5/6 berdasarkan label/support aktual |
-| Minimum bukti/aturan prioritas bisnis | Belum ditetapkan, tidak membuat ranking prematur |
-| Jurnal/template, tenggat pasti dan waktu kerja | Belum dicatat; SINTA 3/4 adalah target, belum klaim submission/acceptance |
-
-## 19. Integritas dan pemeliharaan konteks
-
-- Catat bantuan AI, termasuk kode, dokumentasi dan labeling; label AI tidak
-  diatribusikan sebagai anotasi independen anggota manusia.
-- Verifikasi sitasi, angka dan interpretasi; tidak membuat data, metrik, DOI,
-  gold, kontribusi anggota atau temuan bisnis fiktif.
-- Catat timestamp, versi, hash, model/prompt/config dan hasil aktual. Fixture
-  diberi penanda sintetis dan dipisahkan dari penelitian.
-- Dokumen tahap lama adalah snapshot historis. Perubahan operasional dijelaskan
-  melalui dokumen terbaru, bukan mengubah hasil historis diam-diam.
-- Taxonomy/schema/protokol/split berubah melalui versioning dan catatan dampak.
-  Revisi guideline sumber prompt memerlukan prompt versi baru/manifest sesuai.
-- Perbarui konteks setelah milestone/scope/model/peran berubah; keberadaan kode
-  saja tidak menjadi bukti eksperimen penelitian telah selesai.
+1. `data/processed/modeling/splits/split_manifest.json`;
+2. `data/processed/modeling/preprocessing_manifest.json`;
+3. `data/processed/labeling/annotations_full.jsonl`;
+4. `reports/labeling/qa_report.json`;
+5. `configs/labeling/annotation_schema.json`;
+6. `configs/labeling/aspect_taxonomy.yaml`;
+7. dokumen konteks ini;
+8. `README.md`.

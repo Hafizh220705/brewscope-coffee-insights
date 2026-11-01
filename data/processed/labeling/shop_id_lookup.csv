@@ -1,0 +1,41 @@
+﻿coffee_shop_id,source_place_name,source_place_url,review_count_in_uploaded_csv,geography_verification
+SHOP_056852433108F5,Fore Coffee - Jatinangor Town Square,https://www.google.com/maps/search/?api=1&query=Fore%20Coffee%20-%20Jatinangor%20Town%20Square&query_place_id=ChIJs3kudezFaC4Rm1XdaVNJLaI,101,UNVERIFIED
+SHOP_070384CD183F23,Kopi Menak Rancaekek,https://www.google.com/maps/search/?api=1&query=Kopi%20Menak%20Rancaekek&query_place_id=ChIJb1RNRrDFaC4RvTc2SNCNJhU,151,UNVERIFIED
+SHOP_078A43B3179E20,Mokopi Jatinangor,https://www.google.com/maps/search/?api=1&query=Mokopi%20Jatinangor&query_place_id=ChIJubPydwDFaC4RxUjjmuP9Im0,105,UNVERIFIED
+SHOP_1316C7A7304C5E,Kopi Menak Roastery Jatinangor,https://www.google.com/maps/search/?api=1&query=Kopi%20Menak%20Roastery%20Jatinangor&query_place_id=ChIJk0u2tInFaC4RNsp-izRMrBs,60,UNVERIFIED
+SHOP_26B7B8E34C6DC2,Nora Coffee Jatinangor,https://www.google.com/maps/search/?api=1&query=Nora%20Coffee%20Jatinangor&query_place_id=ChIJ0-dDG6vFaC4RzIWYf3ViB2s,11,UNVERIFIED
+SHOP_2C8ECBC3D65A10,Imahaing Coffee & Kitchen,https://www.google.com/maps/search/?api=1&query=Imahaing%20Coffee%20%26%20Kitchen&query_place_id=ChIJtYL6JwTFaC4RIA9QZVH2QdI,15,UNVERIFIED
+SHOP_2FA96143E147EB,TOMORO COFFEE - JATINANGOR,https://www.google.com/maps/search/?api=1&query=TOMORO%20COFFEE%20-%20JATINANGOR&query_place_id=ChIJAXSIPwDFaC4Rfx8Y1f4oESA,72,UNVERIFIED
+SHOP_47096F58E2A192,Kopi Kenangan Jatos,https://www.google.com/maps/search/?api=1&query=Kopi%20Kenangan%20Jatos&query_place_id=ChIJNZfmYuHFaC4RR7-4TNQ_NKE,126,UNVERIFIED
+SHOP_47FDC355D261F9,Bagi Kopi Jatinangor,https://www.google.com/maps/search/?api=1&query=Bagi%20Kopi%20Jatinangor&query_place_id=ChIJn-uHCALFaC4RRJN_2efiaXI,96,UNVERIFIED
+SHOP_53E808FB007D04,beri kopi Jatinangor,https://www.google.com/maps/search/?api=1&query=beri%20kopi%20Jatinangor&query_place_id=ChIJcUXA8dHFaC4RvqSQfANop64,97,UNVERIFIED
+SHOP_545D71B99C3B3F,Kopi Setia Jatinangor,https://www.google.com/maps/search/?api=1&query=Kopi%20Setia%20Jatinangor&query_place_id=ChIJjSdZ8MXFaC4RgdPUBsCQgJQ,89,UNVERIFIED
+SHOP_5826E3C03EAF8E,Jabarano Coffee - Jaipong Jatinangor,https://www.google.com/maps/search/?api=1&query=Jabarano%20Coffee%20-%20Jaipong%20Jatinangor&query_place_id=ChIJUw0tP3PFaC4RldVvxGfgNBc,137,UNVERIFIED
+SHOP_614D41226B511E,BARRY'S Coffee & Eatery,https://www.google.com/maps/search/?api=1&query=BARRY'S%20Coffee%20%26%20Eatery&query_place_id=ChIJf5P2qw_FaC4RbPhVUbcUF8E,13,UNVERIFIED
+SHOP_66F3964C2B1206,Meet Iokay,https://www.google.com/maps/search/?api=1&query=Meet%20Iokay&query_place_id=ChIJyWX2AADFaC4RVjgcebIxB64,121,UNVERIFIED
+SHOP_672A0702F3652F,Tekun.id Jatinagor,https://www.google.com/maps/search/?api=1&query=Tekun.id%20Jatinagor&query_place_id=ChIJmwVyWLfFaC4Rd1bXnsAfE3k,117,UNVERIFIED
+SHOP_69F5C38C2B631A,Ngopi Doeloe,https://www.google.com/maps/search/?api=1&query=Ngopi%20Doeloe&query_place_id=ChIJ-cfM_abEaC4Rergrpb40f0s,80,UNVERIFIED
+SHOP_758490681557CF,Toleransi Kopi Jatinangor,https://www.google.com/maps/search/?api=1&query=Toleransi%20Kopi%20Jatinangor&query_place_id=ChIJR6Us0trXaC4RdiC1gkwbSlA,86,UNVERIFIED
+SHOP_7BE8BA685B8851,Titik Awal Kopitiam Jatinangor (TIWAL),https://www.google.com/maps/search/?api=1&query=Titik%20Awal%20Kopitiam%20Jatinangor%20(TIWAL)&query_place_id=ChIJA3DPaQTFaC4Rovkr-VOJEuI,133,UNVERIFIED
+SHOP_8D0052DC7DC62D,Plumeria Cafe & Creative Space,https://www.google.com/maps/search/?api=1&query=Plumeria%20Cafe%20%26%20Creative%20Space&query_place_id=ChIJpZhMAU3baC4RNxguGr-vu3I,109,UNVERIFIED
+SHOP_8FC03F7AC7D438,Eiger Coffee Jatinangor,https://www.google.com/maps/search/?api=1&query=Eiger%20Coffee%20Jatinangor&query_place_id=ChIJt5vE1wHFaC4R0Kq0D8v6Ys0,43,UNVERIFIED
+SHOP_926708BFA13382,Nomar Kopi Roastery Jatinangor - Cafe WFC & Ruang Meeting,https://www.google.com/maps/search/?api=1&query=Nomar%20Kopi%20Roastery%20Jatinangor%20-%20Cafe%20WFC%20%26%20Ruang%20Meeting&query_place_id=ChIJs4LU4GHFaC4Rzn0YQ3kgIiE,59,UNVERIFIED
+SHOP_9A5F784547C43C,Jaad Cafe Jatinangor,https://www.google.com/maps/search/?api=1&query=Jaad%20Cafe%20Jatinangor&query_place_id=ChIJD3Kiwx7FaC4RUvNZlDxMEdE,104,UNVERIFIED
+SHOP_9B0D44F6D1375C,Alana Coffee & Eatery,https://www.google.com/maps/search/?api=1&query=Alana%20Coffee%20%26%20Eatery&query_place_id=ChIJj33agDrFaC4RnSeMcgzRR24,135,UNVERIFIED
+SHOP_A0183995A40BFC,Tepi Kopi Jatinangor,https://www.google.com/maps/search/?api=1&query=Tepi%20Kopi%20Jatinangor&query_place_id=ChIJg8OgGdTFaC4RF_CwzybV9G4,127,UNVERIFIED
+SHOP_A1D0DA69438D15,HeyHo! Eatery,https://www.google.com/maps/search/?api=1&query=HeyHo!%20Eatery&query_place_id=ChIJG7Rn5TLFaC4RwzAM3_hNzgo,111,UNVERIFIED
+SHOP_A569A67D0754D3,Bento Kopi Jatinangor,https://www.google.com/maps/search/?api=1&query=Bento%20Kopi%20Jatinangor&query_place_id=ChIJaz9SfsnFaC4R7D2k-8g6YH8,80,UNVERIFIED
+SHOP_AC3B492AE1BE43,Meramu - Cafe Minuman Rempah Jatinangor,https://www.google.com/maps/search/?api=1&query=Meramu%20-%20Cafe%20Minuman%20Rempah%20Jatinangor&query_place_id=ChIJ3Vkw8A3FaC4RUVb8di3kkxU,74,UNVERIFIED
+SHOP_B3A06D125BB96B,Djoeroe Coffee,https://www.google.com/maps/search/?api=1&query=Djoeroe%20Coffee&query_place_id=ChIJ55_Cj1bFaC4R7GBBwGbwzXA,128,UNVERIFIED
+SHOP_BA3EC5F76040B1,Jumpa Asa Coffee-nity & Eatery,https://www.google.com/maps/search/?api=1&query=Jumpa%20Asa%20Coffee-nity%20%26%20Eatery&query_place_id=ChIJ97upDAbFaC4RZmnCqoj3EJ4,51,UNVERIFIED
+SHOP_BA61965ECC542A,JC7 Cafe Jatinangor Center,https://www.google.com/maps/search/?api=1&query=JC7%20Cafe%20Jatinangor%20Center&query_place_id=ChIJaYLXTwDFaC4RxptNPVPk6oU,10,UNVERIFIED
+SHOP_CFA6C16DB93EC3,Imah Kayu Jatinangor,https://www.google.com/maps/search/?api=1&query=Imah%20Kayu%20Jatinangor&query_place_id=ChIJG4zVdlTFaC4RoV1evBcbDdc,122,UNVERIFIED
+SHOP_D2625E432E966A,Jatinangor coffee 2,https://www.google.com/maps/search/?api=1&query=Jatinangor%20coffee%202&query_place_id=ChIJhaAnFIXFaC4Rcwb5m-UKFgw,17,UNVERIFIED
+SHOP_D4CDD4A5F12601,Kopi Kenangan - Ruko Jatinangor,https://www.google.com/maps/search/?api=1&query=Kopi%20Kenangan%20-%20Ruko%20Jatinangor&query_place_id=ChIJWYkCVdLFaC4RKMzVdVu8iE0,110,UNVERIFIED
+SHOP_D9CFC527B16ED4,Heya Space 2.0,https://www.google.com/maps/search/?api=1&query=Heya%20Space%202.0&query_place_id=ChIJEYk-kg7FaC4Rzcpqv6QePJQ,104,UNVERIFIED
+SHOP_DDB70C897AD468,Sky Resto & Cafe,https://www.google.com/maps/search/?api=1&query=Sky%20Resto%20%26%20Cafe&query_place_id=ChIJN8u3FwDFaC4R8xU3Ilzh_Lw,99,UNVERIFIED
+SHOP_DEBF884B514A8B,Aksen Signature,https://www.google.com/maps/search/?api=1&query=Aksen%20Signature&query_place_id=ChIJV5EXlPfFaC4RDRK6u55TS8Q,103,UNVERIFIED
+SHOP_E5AA5A67378CFD,Kopi Nako Jatinangor,https://www.google.com/maps/search/?api=1&query=Kopi%20Nako%20Jatinangor&query_place_id=ChIJobvDql_FaC4RaI3AOTkygHY,97,UNVERIFIED
+SHOP_EABFA045117F04,Ninyuh Coffee Roastery Jatinangor,https://www.google.com/maps/search/?api=1&query=Ninyuh%20Coffee%20Roastery%20Jatinangor&query_place_id=ChIJhWAFOprEaC4RZmHTLF9KbWs,87,UNVERIFIED
+SHOP_ED8BAEB5482E73,Noel Coffee Jatinangor,https://www.google.com/maps/search/?api=1&query=Noel%20Coffee%20Jatinangor&query_place_id=ChIJESjk8CvFaC4RxqXyjed_Ccs,91,UNVERIFIED
+SHOP_F8903D995619B5,"Aksata Coffee & Roastery, Jatinangor",https://www.google.com/maps/search/?api=1&query=Aksata%20Coffee%20%26%20Roastery%2C%20Jatinangor&query_place_id=ChIJESf19HPFaC4Rj2ojMGeY_QI,67,UNVERIFIED

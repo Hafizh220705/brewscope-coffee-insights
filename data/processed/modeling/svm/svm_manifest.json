@@ -1,0 +1,180 @@
+{
+  "date": "2026-11-01",
+  "generated_at": "2026-11-01T22:34:21+07:00",
+  "author": "Robby",
+  "algorithm": "LinearSVC (SVM)",
+  "label_type": "pseudo-label (auto:lexical_preannotation_v1), bukan human gold",
+  "environment": {
+    "python": "3.11.9",
+    "scikit-learn": "1.9.1",
+    "pandas": "2.3.3",
+    "numpy": "2.4.6",
+    "joblib": "1.6.0"
+  },
+  "text_variant": {
+    "task_a": "text_clean",
+    "task_b_per_aspect": "text_clean",
+    "task_b_combined": "aspect_text_model"
+  },
+  "vectorizer_config": {
+    "note": "Diwarisi dari MNB (tfidf_a / tfidf_b / tfidf_c); tidak di-fit ulang agar fitur identik.",
+    "sublinear_tf": true,
+    "min_df": 2,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "max_features": 10000
+  },
+  "model_config": {
+    "task_a": "OneVsRestClassifier(LinearSVC(C=1.0, class_weight='balanced'))",
+    "task_b_per_aspect": "6 x LinearSVC(C=10.0, class_weight='balanced')",
+    "task_b_combined": "LinearSVC(C=1.0, class_weight='balanced')",
+    "C_grid": [
+      0.01,
+      0.03,
+      0.1,
+      0.3,
+      1.0,
+      3.0,
+      10.0
+    ],
+    "C_selection": "validation only (macro-F1); test dievaluasi satu kali"
+  },
+  "random_state": {
+    "svm_models": 42,
+    "split_generation": 42
+  },
+  "input_split_files": {
+    "data/processed/modeling/splits/aspect_detection_with_split.csv": {
+      "sha256_raw": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
+      "sha256_crlf_normalized": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
+      "expected_in_split_manifest": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
+      "status": "match"
+    },
+    "data/processed/modeling/splits/aspect_sentiment_with_split.csv": {
+      "sha256_raw": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
+      "sha256_crlf_normalized": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
+      "expected_in_split_manifest": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
+      "status": "match"
+    }
+  },
+  "task_a": {
+    "C": 1.0,
+    "split": "test",
+    "macro_f1": 0.8774754827405071,
+    "micro_f1": 0.9132584269662921,
+    "f1_per_aspect": {
+      "product_quality": 0.9437229437229437,
+      "service": 0.8548387096774194,
+      "price_value": 0.8415300546448088,
+      "ambience": 0.9514066496163683,
+      "facilities": 0.8208955223880597,
+      "cleanliness": 0.8524590163934426
+    }
+  },
+  "task_b": {
+    "split": "test",
+    "macro_f1": 0.6312400500686621,
+    "per_aspect_models": {
+      "C": 10.0,
+      "pooled_macro_f1": 0.6312400500686621,
+      "pooled_weighted_f1": 0.803265929249336,
+      "pooled_recall_negative": 0.39622641509433965,
+      "mean_aspect_macro_f1": 0.5268740660355068
+    },
+    "combined_model": {
+      "C": 1.0,
+      "pooled_macro_f1": 0.5934656723253602,
+      "pooled_weighted_f1": 0.7739224112512774,
+      "pooled_recall_negative": 0.5471698113207547,
+      "mean_aspect_macro_f1": 0.5843866185511976
+    }
+  },
+  "artifacts": [
+    {
+      "path": "data/processed/modeling/svm/task_a/model_svm.joblib",
+      "bytes": 229240
+    },
+    {
+      "path": "data/processed/modeling/svm/task_b/model_svm_ambience.joblib",
+      "bytes": 69595
+    },
+    {
+      "path": "data/processed/modeling/svm/task_b/model_svm_cleanliness.joblib",
+      "bytes": 9883
+    },
+    {
+      "path": "data/processed/modeling/svm/task_b/model_svm_combined.joblib",
+      "bytes": 240923
+    },
+    {
+      "path": "data/processed/modeling/svm/task_b/model_svm_facilities.joblib",
+      "bytes": 23131
+    },
+    {
+      "path": "data/processed/modeling/svm/task_b/model_svm_price_value.joblib",
+      "bytes": 21035
+    },
+    {
+      "path": "data/processed/modeling/svm/task_b/model_svm_product_quality.joblib",
+      "bytes": 65131
+    },
+    {
+      "path": "data/processed/modeling/svm/task_b/model_svm_service.joblib",
+      "bytes": 40172
+    },
+    {
+      "path": "reports/figures/modeling/svm/task_a_f1_per_aspect.png",
+      "bytes": 95911
+    },
+    {
+      "path": "reports/figures/modeling/svm/task_b_confusion_matrix.png",
+      "bytes": 184048
+    },
+    {
+      "path": "reports/figures/modeling/svm/task_b_confusion_matrix_combined.png",
+      "bytes": 336251
+    },
+    {
+      "path": "reports/tables/modeling/svm/task_a_c_tuning.csv",
+      "bytes": 383
+    },
+    {
+      "path": "reports/tables/modeling/svm/task_a_metrics.csv",
+      "bytes": 1258
+    },
+    {
+      "path": "reports/tables/modeling/svm/task_a_test_predictions.csv",
+      "bytes": 40419
+    },
+    {
+      "path": "reports/tables/modeling/svm/task_b_c_tuning_combined.csv",
+      "bytes": 390
+    },
+    {
+      "path": "reports/tables/modeling/svm/task_b_c_tuning_per_aspect.csv",
+      "bytes": 544
+    },
+    {
+      "path": "reports/tables/modeling/svm/task_b_metrics_combined.csv",
+      "bytes": 2773
+    },
+    {
+      "path": "reports/tables/modeling/svm/task_b_metrics_per_aspect.csv",
+      "bytes": 2664
+    },
+    {
+      "path": "reports/tables/modeling/svm/task_b_test_predictions.csv",
+      "bytes": 73231
+    },
+    {
+      "path": "reports/tables/modeling/svm/task_b_test_predictions_combined.csv",
+      "bytes": 73239
+    },
+    {
+      "path": "data/processed/modeling/svm/svm_manifest.json",
+      "note": "file ini"
+    }
+  ]
+}
