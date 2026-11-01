@@ -1,0 +1,210 @@
+{
+  "date": "2026-11-01",
+  "generated_at": "2026-11-01T22:49:50+07:00",
+  "author": "Robby",
+  "algorithm": "RandomForestClassifier",
+  "label_type": "pseudo-label (auto:lexical_preannotation_v1), bukan human gold",
+  "environment": {
+    "python": "3.11.9",
+    "scikit-learn": "1.9.1",
+    "pandas": "2.3.3",
+    "numpy": "2.4.6",
+    "joblib": "1.6.0"
+  },
+  "text_variant": {
+    "task_a": "text_clean",
+    "task_b_per_aspect": "text_clean",
+    "task_b_combined": "aspect_text_model"
+  },
+  "vectorizer_config": {
+    "note": "Diwarisi dari MNB (tfidf_a / tfidf_b / tfidf_c); tidak di-fit ulang agar fitur identik.",
+    "sublinear_tf": true,
+    "min_df": 2,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "max_features": 10000
+  },
+  "model_config": {
+    "task_a": {
+      "estimator": "OneVsRestClassifier(RandomForestClassifier)",
+      "n_estimators": 300,
+      "max_depth": 20,
+      "min_samples_leaf": 1,
+      "class_weight": "balanced"
+    },
+    "task_b_per_aspect": {
+      "estimator": "6 x RandomForestClassifier",
+      "n_estimators": 300,
+      "max_depth": null,
+      "min_samples_leaf": 1,
+      "class_weight": "balanced"
+    },
+    "task_b_combined": {
+      "estimator": "RandomForestClassifier",
+      "n_estimators": 300,
+      "max_depth": null,
+      "min_samples_leaf": 1,
+      "class_weight": "balanced"
+    },
+    "hyperparameter_grid": {
+      "n_estimators": [
+        100,
+        300
+      ],
+      "max_depth": [
+        null,
+        20
+      ],
+      "min_samples_leaf": [
+        1,
+        5
+      ]
+    },
+    "hyperparameter_selection": "validation only (macro-F1); test dievaluasi satu kali",
+    "n_jobs": -1
+  },
+  "random_state": {
+    "rf_models": 42,
+    "split_generation": 42
+  },
+  "input_split_files": {
+    "data/processed/modeling/splits/aspect_detection_with_split.csv": {
+      "sha256_raw": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
+      "sha256_crlf_normalized": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
+      "expected_in_split_manifest": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
+      "status": "match"
+    },
+    "data/processed/modeling/splits/aspect_sentiment_with_split.csv": {
+      "sha256_raw": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
+      "sha256_crlf_normalized": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
+      "expected_in_split_manifest": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
+      "status": "match"
+    }
+  },
+  "task_a": {
+    "n_estimators": 300,
+    "max_depth": 20,
+    "min_samples_leaf": 1,
+    "split": "test",
+    "macro_f1": 0.8615762887068933,
+    "micro_f1": 0.8954161103693814,
+    "f1_per_aspect": {
+      "product_quality": 0.9416785206258891,
+      "service": 0.8778054862842892,
+      "price_value": 0.8586956521739131,
+      "ambience": 0.9046979865771813,
+      "facilities": 0.7532467532467533,
+      "cleanliness": 0.8333333333333334
+    }
+  },
+  "task_b": {
+    "split": "test",
+    "macro_f1": 0.7013141197925488,
+    "per_aspect_models": {
+      "n_estimators": 300,
+      "max_depth": null,
+      "min_samples_leaf": 1,
+      "pooled_macro_f1": 0.7013141197925488,
+      "pooled_weighted_f1": 0.8346921265120275,
+      "pooled_recall_negative": 0.5283018867924528,
+      "mean_aspect_macro_f1": 0.6105106176041059
+    },
+    "combined_model": {
+      "n_estimators": 300,
+      "max_depth": null,
+      "min_samples_leaf": 1,
+      "pooled_macro_f1": 0.6446995630153362,
+      "pooled_weighted_f1": 0.8042117750074023,
+      "pooled_recall_negative": 0.49056603773584906,
+      "mean_aspect_macro_f1": 0.558532636068248
+    }
+  },
+  "artifacts": [
+    {
+      "path": "data/processed/modeling/rf/task_a/model_rf.joblib",
+      "bytes": 27135093
+    },
+    {
+      "path": "data/processed/modeling/rf/task_b/model_rf_ambience.joblib",
+      "bytes": 12072593
+    },
+    {
+      "path": "data/processed/modeling/rf/task_b/model_rf_cleanliness.joblib",
+      "bytes": 1105681
+    },
+    {
+      "path": "data/processed/modeling/rf/task_b/model_rf_combined.joblib",
+      "bytes": 46281777
+    },
+    {
+      "path": "data/processed/modeling/rf/task_b/model_rf_facilities.joblib",
+      "bytes": 3253121
+    },
+    {
+      "path": "data/processed/modeling/rf/task_b/model_rf_price_value.joblib",
+      "bytes": 3461441
+    },
+    {
+      "path": "data/processed/modeling/rf/task_b/model_rf_product_quality.joblib",
+      "bytes": 10845169
+    },
+    {
+      "path": "data/processed/modeling/rf/task_b/model_rf_service.joblib",
+      "bytes": 7546401
+    },
+    {
+      "path": "reports/figures/modeling/rf/task_a_f1_per_aspect.png",
+      "bytes": 95539
+    },
+    {
+      "path": "reports/figures/modeling/rf/task_b_confusion_matrix.png",
+      "bytes": 182029
+    },
+    {
+      "path": "reports/figures/modeling/rf/task_b_confusion_matrix_combined.png",
+      "bytes": 332127
+    },
+    {
+      "path": "reports/tables/modeling/rf/task_a_metrics.csv",
+      "bytes": 1235
+    },
+    {
+      "path": "reports/tables/modeling/rf/task_a_rf_tuning.csv",
+      "bytes": 505
+    },
+    {
+      "path": "reports/tables/modeling/rf/task_a_test_predictions.csv",
+      "bytes": 40419
+    },
+    {
+      "path": "reports/tables/modeling/rf/task_b_metrics_combined.csv",
+      "bytes": 2702
+    },
+    {
+      "path": "reports/tables/modeling/rf/task_b_metrics_per_aspect.csv",
+      "bytes": 2622
+    },
+    {
+      "path": "reports/tables/modeling/rf/task_b_rf_tuning_combined.csv",
+      "bytes": 515
+    },
+    {
+      "path": "reports/tables/modeling/rf/task_b_rf_tuning_per_aspect.csv",
+      "bytes": 706
+    },
+    {
+      "path": "reports/tables/modeling/rf/task_b_test_predictions.csv",
+      "bytes": 73195
+    },
+    {
+      "path": "reports/tables/modeling/rf/task_b_test_predictions_combined.csv",
+      "bytes": 73196
+    },
+    {
+      "path": "data/processed/modeling/rf/rf_manifest.json",
+      "note": "file ini"
+    }
+  ]
+}

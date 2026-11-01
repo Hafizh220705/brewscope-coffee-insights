@@ -162,7 +162,7 @@ PRE_5a967e1a3443c748a6e6cec4,price_value,neutral,positive,test
 PRE_31266cfc29300ea618e20628,ambience,positive,positive,test
 PRE_07566568085db48e63ca6871,facilities,positive,positive,test
 PRE_c22adedbcba7954de5bb66ec,service,negative,negative,test
-PRE_36b73d079dac46468f191d20,price_value,neutral,negative,test
+PRE_36b73d079dac46468f191d20,price_value,neutral,neutral,test
 PRE_1d29f1199360f549e768063a,ambience,negative,neutral,test
 PRE_0eef362f4e46e747c115c574,facilities,negative,neutral,test
 PRE_42f46c3a7a237ee96283e312,product_quality,positive,positive,test
@@ -259,7 +259,7 @@ PRE_d80e3a193513688df88eeae8,ambience,positive,positive,test
 PRE_ee6e97f6c3ecd03bef1dacd1,product_quality,neutral,positive,test
 PRE_27d88d440ee4fe445b2635f0,ambience,neutral,positive,test
 PRE_26e1e6c2a561759503f739ef,facilities,neutral,positive,test
-PRE_d6a3530bd3b38bb25f22fa9b,product_quality,neutral,neutral,test
+PRE_d6a3530bd3b38bb25f22fa9b,product_quality,neutral,negative,test
 PRE_d857cd3c0e3171e5f391d5b1,ambience,neutral,negative,test
 PRE_d8bdc3523e2c3f588b562ab7,product_quality,positive,positive,test
 PRE_ac3e750093f8bde60a1d676b,ambience,positive,positive,test
@@ -498,7 +498,7 @@ PRE_315e143734a62b28e5e60a69,ambience,positive,positive,test
 PRE_7e40aaac6617f747a07a59a1,product_quality,positive,neutral,test
 PRE_11adde53d6c961ec30cc5319,service,neutral,neutral,test
 PRE_dc175227852ea2de99493f8d,price_value,neutral,neutral,test
-PRE_d87120c45f73d1e33c589d74,service,negative,neutral,test
+PRE_d87120c45f73d1e33c589d74,service,negative,negative,test
 PRE_f2f7c396fd85a979b4e6147e,price_value,positive,neutral,test
 PRE_1935899739860fbf3f0f8383,service,positive,neutral,test
 PRE_3869cb01a1648edb67c75e15,price_value,negative,neutral,test
@@ -548,8 +548,8 @@ PRE_7d9488f4aef8ada7b41914e8,ambience,positive,positive,test
 PRE_3ca34c708ae0f295d73a54c6,product_quality,positive,positive,test
 PRE_d5144173d98cf6d8fa241fe0,ambience,positive,positive,test
 PRE_82ec88e4fcd54e6e187f70d5,ambience,positive,positive,test
-PRE_38668622199b29bd42fff229,product_quality,positive,positive,test
-PRE_d220a9de82bf53af8c8cca8e,service,positive,positive,test
+PRE_38668622199b29bd42fff229,product_quality,positive,neutral,test
+PRE_d220a9de82bf53af8c8cca8e,service,positive,neutral,test
 PRE_9106d4325c2b454af5d7a3ce,ambience,positive,positive,test
 PRE_fe4dfd14b1e8d2383e75bd00,product_quality,neutral,negative,test
 PRE_994b8d0fb5d6c59198712418,service,negative,negative,test
@@ -749,7 +749,7 @@ PRE_08aad31db49b32872b49f22b,service,positive,positive,test
 PRE_fc46307edab5f6d097c067d4,price_value,positive,positive,test
 PRE_3f1718df63fd27bb7f632aa5,ambience,positive,positive,test
 PRE_5e9e944b047ba5277685cdf5,product_quality,neutral,positive,test
-PRE_b07875f7e923e6b4b6597c34,service,positive,neutral,test
+PRE_b07875f7e923e6b4b6597c34,service,positive,positive,test
 PRE_def487c52610beeaeebff141,price_value,positive,positive,test
 PRE_f2301834847d19139b636a21,ambience,positive,positive,test
 PRE_091e93b20774a3e652a6ea73,product_quality,positive,positive,test
@@ -826,7 +826,7 @@ PRE_2951c097435ce87a95badb02,service,neutral,positive,test
 PRE_71c796c7e03563f1134c6842,ambience,positive,positive,test
 PRE_107e691d1ba14be88a758595,ambience,positive,positive,test
 PRE_b811ad02c9ee15c59c1f8811,product_quality,neutral,neutral,test
-PRE_0bd57d3a62b8700097569521,service,positive,positive,test
+PRE_0bd57d3a62b8700097569521,service,positive,neutral,test
 PRE_e81d8bb810d6dc9bb0bbc121,ambience,positive,neutral,test
 PRE_fc6d1553412955194a58a4f2,product_quality,positive,neutral,test
 PRE_2845e3586776c51f275f1da0,price_value,positive,neutral,test
@@ -853,7 +853,7 @@ PRE_5a453f047b05047fca31fefc,product_quality,positive,positive,test
 PRE_039c1b1eef7a7f7cb6621159,service,positive,positive,test
 PRE_c460ba0b3d3b3e09e1142cd3,ambience,positive,positive,test
 PRE_c23d3bbe97d08cc447b3d8a6,product_quality,positive,neutral,test
-PRE_f6aebeb5acf4f7826dd96fd5,price_value,neutral,positive,test
+PRE_f6aebeb5acf4f7826dd96fd5,price_value,neutral,neutral,test
 PRE_75bc99f810417f373370bfc4,facilities,positive,neutral,test
 PRE_daa734f8a273fd4de043cd52,product_quality,positive,positive,test
 PRE_de7a5599deea1153431fe282,service,positive,positive,test
@@ -888,7 +888,7 @@ PRE_d5496a1b22504b12139724a2,product_quality,positive,positive,test
 PRE_d96a1ca263e2c33eee9464f5,service,positive,positive,test
 PRE_29988c71dba3382ae9060574,ambience,positive,positive,test
 PRE_9e27a3b0fb2c05390aafc91f,product_quality,neutral,positive,test
-PRE_2a6fdc88fbf3aa9dbe288019,service,positive,positive,test
+PRE_2a6fdc88fbf3aa9dbe288019,service,positive,neutral,test
 PRE_3b82cb32a9bbc59a98944d3d,ambience,neutral,positive,test
 PRE_37d53acc8fe2e86a37bd1096,facilities,neutral,neutral,test
 PRE_9bb2ecd5778100ce47394614,product_quality,positive,positive,test

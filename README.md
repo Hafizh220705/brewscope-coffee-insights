@@ -6,7 +6,7 @@ shop di Jatinangor dari ulasan pelanggan Google Maps.
 
 ## Status proyek
 
-Pipeline telah selesai sampai tahap data splitting:
+Pipeline telah selesai sampai tahap insight bisnis:
 
 | Tahap | Status |
 |---|---|
@@ -14,8 +14,12 @@ Pipeline telah selesai sampai tahap data splitting:
 | Pseudo-labeling enam aspek | Selesai |
 | Text preprocessing | Selesai dan tervalidasi |
 | Train/validation/test splitting | Selesai dan bebas group leakage |
-| Modeling SVM, Random Forest, dan Multinomial Naive Bayes | Tahap berikutnya |
-| Penyusunan insight bisnis | Setelah evaluasi model |
+| Modeling SVM, Random Forest, dan Multinomial Naive Bayes | Selesai |
+| Penyusunan insight bisnis | Selesai |
+
+Model terpilih: SVM untuk Task A (macro-F1 test 0.8775) dan Random Forest
+per-aspek untuk Task B (pooled macro-F1 test 0.7013). Ringkasan hasil lengkap:
+`RESULTS.md`.
 
 Ringkasan data aktif:
 
@@ -81,7 +85,16 @@ notebooks/02_data_splitting.ipynb
 fixed train / validation / test split
         |
         v
-modeling dan insight bisnis
+notebooks/03_modeling_all_models.ipynb
+        |
+        v
+artefak model MNB, SVM, dan Random Forest
+        |
+        v
+notebooks/04_business_insights.ipynb
+        |
+        v
+insight bisnis per coffee shop dan RESULTS.md
 ```
 
 Jika artefak sumber tidak berubah, rekan yang melanjutkan modeling tidak perlu
@@ -124,6 +137,21 @@ group-aware stratification dengan `random_state=42` dan 50 percobaan.
 Assignment yang dihasilkan wajib digunakan oleh seluruh algoritma. Jangan
 membuat split baru untuk setiap model.
 
+### 3. Modeling
+
+`notebooks/03_modeling_all_models.ipynb` melatih dan mengevaluasi Multinomial
+Naive Bayes, SVM, dan Random Forest untuk Task A dan Task B pada split yang
+sama. Artefak (model, vectorizer, metrik, prediksi, manifest) tersimpan di
+`data/processed/modeling/{mnb,svm,rf}/` dan `reports/{tables,figures}/modeling/`.
+
+### 4. Insight bisnis
+
+`notebooks/04_business_insights.ipynb` memuat model terpilih dan menghitung
+agregasi per coffee shop: mention aspek, distribusi sentimen, kekuatan,
+keluhan, dan prioritas perbaikan (minimum support 3 mention). Notebook ini
+juga menulis `RESULTS.md` - dokumen hasil lengkap untuk penulisan paper.
+Output lain: `data/processed/insights/` dan `reports/{tables,figures}/insights/`.
+
 ## Artefak utama
 
 ### Labeling canonical
@@ -150,6 +178,15 @@ membuat split baru untuk setiap model.
 - `data/processed/modeling/splits/split_manifest.json`.
 
 File yang langsung digunakan untuk modeling adalah dua file `*_with_split.csv`.
+
+### Insight bisnis
+
+- `data/processed/insights/task_a_predictions_all.csv`;
+- `data/processed/insights/task_b_predictions_all.csv`;
+- `data/processed/insights/insights_manifest.json`;
+- `reports/tables/insights/*.csv` - mention, sentimen, kekuatan/keluhan, prioritas;
+- `reports/figures/insights/*.png`;
+- `RESULTS.md` - dokumen hasil lengkap untuk penulisan paper.
 
 ## Kontrak modeling
 
@@ -204,14 +241,18 @@ data/interim/                       # Input anotasi dan audit labeling
 data/processed/labeling/            # Sumber canonical pseudo-label
 data/processed/modeling/            # Preprocessing, Task A, dan Task B
 data/processed/modeling/splits/     # Fixed split untuk seluruh model
+data/processed/insights/            # Prediksi dan manifest insight
 docs/annotation/                    # Pedoman labeling
 notebooks/01_preprocessing.ipynb    # Text preprocessing
 notebooks/02_data_splitting.ipynb   # Leakage-safe splitting
+notebooks/03_modeling_all_models.ipynb  # MNB, SVM, dan Random Forest
+notebooks/04_business_insights.ipynb    # Insight bisnis dan RESULTS.md
 reports/labeling/                   # QA labeling
 reports/figures/                    # Visual paper-ready
 reports/tables/                     # Tabel paper-ready
 scripts/                            # Scraping, labeling, dan validator
 PROJECT_CONTEXT.md                  # Keputusan metodologis aktif
+RESULTS.md                          # Hasil analisis lengkap
 pyproject.toml                      # Dependency proyek
 ```
 

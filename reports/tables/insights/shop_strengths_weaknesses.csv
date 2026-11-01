@@ -1,0 +1,41 @@
+coffee_shop_id,shop_name,strength_aspect,strength_share_positive,strength_n,weakness_aspect,weakness_n_negative,weakness_share_negative
+SHOP_056852433108F5,Fore Coffee - Jatinangor Town Square,cleanliness,1.0,6,service,8,0.1667
+SHOP_070384CD183F23,Kopi Menak Rancaekek,cleanliness,1.0,16,product_quality,2,0.0185
+SHOP_078A43B3179E20,Mokopi Jatinangor,ambience,0.8136,59,service,24,0.5581
+SHOP_1316C7A7304C5E,Kopi Menak Roastery Jatinangor,cleanliness,1.0,3,,0,0.0
+SHOP_26B7B8E34C6DC2,Nora Coffee Jatinangor,price_value,1.0,3,facilities,2,0.5
+SHOP_2C8ECBC3D65A10,Imahaing Coffee & Kitchen,ambience,0.7778,9,,0,0.0
+SHOP_2FA96143E147EB,TOMORO COFFEE - JATINANGOR,cleanliness,1.0,4,facilities,2,0.25
+SHOP_47096F58E2A192,Kopi Kenangan Jatos,cleanliness,0.9091,11,service,2,0.0317
+SHOP_47FDC355D261F9,Bagi Kopi Jatinangor,ambience,0.9231,52,service,9,0.2727
+SHOP_53E808FB007D04,beri kopi Jatinangor,ambience,0.9194,62,facilities,4,0.2667
+SHOP_545D71B99C3B3F,Kopi Setia Jatinangor,ambience,0.9184,49,service,8,0.4444
+SHOP_5826E3C03EAF8E,Jabarano Coffee - Jaipong Jatinangor,ambience,0.9355,93,service,6,0.125
+SHOP_614D41226B511E,BARRY'S Coffee & Eatery,price_value,1.0,6,ambience,1,0.1429
+SHOP_66F3964C2B1206,Meet Iokay,facilities,1.0,4,,0,0.0
+SHOP_672A0702F3652F,Tekun.id Jatinagor,ambience,0.9643,28,service,1,0.0323
+SHOP_69F5C38C2B631A,Ngopi Doeloe,ambience,0.8444,45,service,7,0.3043
+SHOP_758490681557CF,Toleransi Kopi Jatinangor,ambience,0.881,42,cleanliness,2,0.5
+SHOP_7BE8BA685B8851,Titik Awal Kopitiam Jatinangor (TIWAL),ambience,0.9462,93,service,2,0.1429
+SHOP_8D0052DC7DC62D,Plumeria Cafe & Creative Space,ambience,0.9552,67,service,9,0.2432
+SHOP_8FC03F7AC7D438,Eiger Coffee Jatinangor,ambience,0.7391,23,service,2,0.2
+SHOP_926708BFA13382,Nomar Kopi Roastery Jatinangor - Cafe WFC & Ruang Meeting,ambience,0.7727,22,service,4,0.3077
+SHOP_9A5F784547C43C,Jaad Cafe Jatinangor,ambience,0.9194,62,facilities,2,0.1818
+SHOP_9B0D44F6D1375C,Alana Coffee & Eatery,cleanliness,1.0,11,service,2,0.069
+SHOP_A0183995A40BFC,Tepi Kopi Jatinangor,cleanliness,1.0,5,product_quality,3,0.0462
+SHOP_A1D0DA69438D15,HeyHo! Eatery,ambience,0.8,65,service,13,0.3171
+SHOP_A569A67D0754D3,Bento Kopi Jatinangor,ambience,0.8723,47,price_value,1,0.0588
+SHOP_AC3B492AE1BE43,Meramu - Cafe Minuman Rempah Jatinangor,ambience,0.8947,19,service,1,0.125
+SHOP_B3A06D125BB96B,Djoeroe Coffee,cleanliness,1.0,4,service,6,0.1818
+SHOP_BA3EC5F76040B1,Jumpa Asa Coffee-nity & Eatery,cleanliness,1.0,6,facilities,2,0.25
+SHOP_BA61965ECC542A,JC7 Cafe Jatinangor Center,ambience,0.875,8,,0,0.0
+SHOP_CFA6C16DB93EC3,Imah Kayu Jatinangor,ambience,0.9775,89,service,7,0.2414
+SHOP_D2625E432E966A,Jatinangor coffee 2,ambience,1.0,9,,0,0.0
+SHOP_D4CDD4A5F12601,Kopi Kenangan - Ruko Jatinangor,cleanliness,1.0,7,service,4,0.0889
+SHOP_D9CFC527B16ED4,Heya Space 2.0,ambience,0.9365,63,price_value,2,0.2
+SHOP_DDB70C897AD468,Sky Resto & Cafe,cleanliness,1.0,4,service,1,0.05
+SHOP_DEBF884B514A8B,Aksen Signature,cleanliness,1.0,5,service,3,0.15
+SHOP_E5AA5A67378CFD,Kopi Nako Jatinangor,ambience,0.9412,51,service,1,0.0323
+SHOP_EABFA045117F04,Ninyuh Coffee Roastery Jatinangor,service,1.0,4,,0,0.0
+SHOP_ED8BAEB5482E73,Noel Coffee Jatinangor,ambience,0.8983,59,price_value,1,0.125
+SHOP_F8903D995619B5,"Aksata Coffee & Roastery, Jatinangor",price_value,1.0,4,,0,0.0

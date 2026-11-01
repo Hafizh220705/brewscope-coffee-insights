@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-01",
+  "generated_at": "2026-11-01T23:51:35+07:00",
+  "author": "Robby",
+  "label_type": "pseudo-label (auto:lexical_preannotation_v1), bukan human gold",
+  "source": "Prediksi model terpilih atas seluruh baris train+validation+test.",
+  "selected_models": {
+    "task_a": {
+      "algorithm": "OneVsRestClassifier(LinearSVC(C=1.0, class_weight='balanced'))",
+      "test_macro_f1": 0.8774754827405071,
+      "test_micro_f1": 0.9132584269662921,
+      "artifact": "data/processed/modeling/svm/task_a/model_svm.joblib"
+    },
+    "task_b": {
+      "algorithm": {
+        "estimator": "6 x RandomForestClassifier",
+        "n_estimators": 300,
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "class_weight": "balanced"
+      },
+      "test_pooled_macro_f1": 0.7013141197925488,
+      "test_pooled_recall_negative": 0.5283018867924528,
+      "artifact": "data/processed/modeling/rf/task_b/"
+    }
+  },
+  "min_support": 3,
+  "inputs": {
+    "splits": {
+      "data/processed/modeling/splits/aspect_detection_with_split.csv": {
+        "sha256_raw": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
+        "sha256_crlf_normalized": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
+        "expected_in_split_manifest": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
+        "status": "match"
+      },
+      "data/processed/modeling/splits/aspect_sentiment_with_split.csv": {
+        "sha256_raw": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
+        "sha256_crlf_normalized": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
+        "expected_in_split_manifest": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
+        "status": "match"
+      }
+    },
+    "rating_raw_rows": 3593,
+    "shop_lookup_rows": 40
+  },
+  "outputs": [
+    "data/processed/insights/task_a_predictions_all.csv",
+    "data/processed/insights/task_b_predictions_all.csv",
+    "data/processed/insights/insights_manifest.json",
+    "reports/tables/insights/shop_aspect_mentions.csv",
+    "reports/tables/insights/shop_aspect_sentiment.csv",
+    "reports/tables/insights/shop_strengths_weaknesses.csv",
+    "reports/tables/insights/improvement_priorities.csv",
+    "reports/tables/insights/rating_sanity_check.csv",
+    "reports/figures/insights/shop_sentiment_heatmap.png",
+    "reports/figures/insights/top_10_complaints.png",
+    "reports/figures/insights/aspect_sentiment_distribution.png",
+    "RESULTS.md"
+  ]
+}
