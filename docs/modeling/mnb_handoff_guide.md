@@ -36,8 +36,12 @@ Sanity check versi (penting untuk kompatibilitas artefak joblib antar rekan):
 python -c "import sklearn, pandas, numpy; print(sklearn.__version__, pandas.__version__, numpy.__version__)"
 ```
 
-Target saat ini: `scikit-learn 1.9.1`. Jika versi rekan lain berbeda jauh,
-diskusi dulu sebelum menyimpan artefak model.
+Target saat ini: **Python 3.11.x + `scikit-learn 1.9.1`**. Ini standar tim.
+Python 3.14 dipakai pada percobaan MNB pertama dan artefaknya terbukti
+kompatibel (hasil audit lintas versi cocok persis), tetapi Python 3.11 lebih
+stabil untuk ekosistem ML — gunakan 3.11 untuk semua pekerjaan modeling
+berikutnya. Jika versi rekan lain berbeda jauh, diskusi dulu sebelum
+menyimpan artefak model.
 
 ## 3. File yang dipakai
 
