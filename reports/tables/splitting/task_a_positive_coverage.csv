@@ -1,0 +1,4 @@
+﻿split,aspect_product_quality,aspect_service,aspect_price_value,aspect_ambience,aspect_facilities,aspect_cleanliness
+train,975,545,273,1284,201,114
+validation,363,211,103,408,73,36
+test,363,210,104,407,74,35
