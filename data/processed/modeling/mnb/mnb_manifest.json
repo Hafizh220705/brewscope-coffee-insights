@@ -1,14 +1,14 @@
 {
   "date": "2026-11-01",
-  "generated_at": "2026-11-01T19:47:27+07:00",
+  "generated_at": "2026-11-01T22:33:48+07:00",
   "author": "Nik",
   "algorithm": "MultinomialNB",
   "label_type": "pseudo-label (auto:lexical_preannotation_v1), bukan human gold",
   "environment": {
-    "python": "3.14.3",
+    "python": "3.11.9",
     "scikit-learn": "1.9.1",
     "pandas": "2.3.3",
-    "numpy": "2.5.4",
+    "numpy": "2.4.6",
     "joblib": "1.6.0"
   },
   "text_variant": {
@@ -49,16 +49,16 @@
   },
   "input_split_files": {
     "data/processed/modeling/splits/aspect_detection_with_split.csv": {
-      "sha256_raw": "2115ad61ad06f0192406cd78cfddad8673e1a25c0ae6061ab5e455de65f25bb7",
+      "sha256_raw": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
       "sha256_crlf_normalized": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
       "expected_in_split_manifest": "ad951d37f94154714cb95207000df0613295c999d1d91172419e8a5639555e82",
-      "status": "match_after_crlf_normalization"
+      "status": "match"
     },
     "data/processed/modeling/splits/aspect_sentiment_with_split.csv": {
-      "sha256_raw": "1875d5daca958df1897d423019a89bfeea67b8d8c37341dc627023dbe7bd8504",
+      "sha256_raw": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
       "sha256_crlf_normalized": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
       "expected_in_split_manifest": "7c8fe622961a63afec668bb8b14710ca4eee2d6d088a6cf3febf38994f18c024",
-      "status": "match_after_crlf_normalization"
+      "status": "match"
     }
   },
   "task_a": {
@@ -87,13 +87,25 @@
     },
     "combined_model": {
       "alpha": 0.03,
-      "pooled_macro_f1": 0.5219235274063739,
-      "pooled_weighted_f1": 0.7456295109419881,
-      "pooled_recall_negative": 0.3018867924528302,
-      "mean_aspect_macro_f1": 0.5000868661579485
+      "pooled_macro_f1": 0.5281725759198196,
+      "pooled_weighted_f1": 0.7459350231836676,
+      "pooled_recall_negative": 0.32075471698113206,
+      "mean_aspect_macro_f1": 0.5072004133307024
     }
   },
   "artifacts": [
+    {
+      "path": "data/processed/modeling/mnb/task_a/alignment_task_a.joblib",
+      "bytes": 380019
+    },
+    {
+      "path": "data/processed/modeling/mnb/task_a/model_mnb.joblib",
+      "bytes": 909212
+    },
+    {
+      "path": "data/processed/modeling/mnb/task_a/tfidf_text_clean.joblib",
+      "bytes": 187343
+    },
     {
       "path": "data/processed/modeling/mnb/task_a/X_test_text_clean.joblib",
       "bytes": 142795
@@ -105,42 +117,6 @@
     {
       "path": "data/processed/modeling/mnb/task_a/X_validation_text_clean.joblib",
       "bytes": 147027
-    },
-    {
-      "path": "data/processed/modeling/mnb/task_a/alignment_task_a.joblib",
-      "bytes": 380019
-    },
-    {
-      "path": "data/processed/modeling/mnb/task_a/model_mnb.joblib",
-      "bytes": 909212
-    },
-    {
-      "path": "data/processed/modeling/mnb/task_a/tfidf_text_clean.joblib",
-      "bytes": 187342
-    },
-    {
-      "path": "data/processed/modeling/mnb/task_b/X_test_aspect_text_model.joblib",
-      "bytes": 454987
-    },
-    {
-      "path": "data/processed/modeling/mnb/task_b/X_test_text_clean_per_aspect.joblib",
-      "bytes": 348277
-    },
-    {
-      "path": "data/processed/modeling/mnb/task_b/X_train_aspect_text_model.joblib",
-      "bytes": 1088083
-    },
-    {
-      "path": "data/processed/modeling/mnb/task_b/X_train_text_clean_per_aspect.joblib",
-      "bytes": 745725
-    },
-    {
-      "path": "data/processed/modeling/mnb/task_b/X_validation_aspect_text_model.joblib",
-      "bytes": 473203
-    },
-    {
-      "path": "data/processed/modeling/mnb/task_b/X_validation_text_clean_per_aspect.joblib",
-      "bytes": 361845
     },
     {
       "path": "data/processed/modeling/mnb/task_b/alignment_task_b.joblib",
@@ -176,59 +152,83 @@
     },
     {
       "path": "data/processed/modeling/mnb/task_b/tfidf_aspect_text_model.joblib",
-      "bytes": 413735
+      "bytes": 413667
     },
     {
       "path": "data/processed/modeling/mnb/task_b/tfidf_text_clean_per_aspect.joblib",
-      "bytes": 365677
+      "bytes": 365694
+    },
+    {
+      "path": "data/processed/modeling/mnb/task_b/X_test_aspect_text_model.joblib",
+      "bytes": 456539
+    },
+    {
+      "path": "data/processed/modeling/mnb/task_b/X_test_text_clean_per_aspect.joblib",
+      "bytes": 348277
+    },
+    {
+      "path": "data/processed/modeling/mnb/task_b/X_train_aspect_text_model.joblib",
+      "bytes": 1088083
+    },
+    {
+      "path": "data/processed/modeling/mnb/task_b/X_train_text_clean_per_aspect.joblib",
+      "bytes": 745725
+    },
+    {
+      "path": "data/processed/modeling/mnb/task_b/X_validation_aspect_text_model.joblib",
+      "bytes": 474835
+    },
+    {
+      "path": "data/processed/modeling/mnb/task_b/X_validation_text_clean_per_aspect.joblib",
+      "bytes": 361845
     },
     {
       "path": "reports/figures/modeling/mnb/task_a_f1_per_aspect.png",
-      "bytes": 94915
+      "bytes": 94523
     },
     {
       "path": "reports/figures/modeling/mnb/task_b_confusion_matrix.png",
-      "bytes": 183587
+      "bytes": 183337
     },
     {
       "path": "reports/figures/modeling/mnb/task_b_confusion_matrix_combined.png",
-      "bytes": 331210
+      "bytes": 330810
     },
     {
       "path": "reports/tables/modeling/mnb/task_a_alpha_tuning.csv",
-      "bytes": 481
+      "bytes": 491
     },
     {
       "path": "reports/tables/modeling/mnb/task_a_metrics.csv",
-      "bytes": 1255
+      "bytes": 1272
     },
     {
       "path": "reports/tables/modeling/mnb/task_a_test_predictions.csv",
-      "bytes": 102340
+      "bytes": 102819
     },
     {
       "path": "reports/tables/modeling/mnb/task_b_alpha_tuning_combined.csv",
-      "bytes": 445
+      "bytes": 442
     },
     {
       "path": "reports/tables/modeling/mnb/task_b_alpha_tuning_per_aspect.csv",
-      "bytes": 686
+      "bytes": 696
     },
     {
       "path": "reports/tables/modeling/mnb/task_b_metrics_combined.csv",
-      "bytes": 2814
+      "bytes": 2839
     },
     {
       "path": "reports/tables/modeling/mnb/task_b_metrics_per_aspect.csv",
-      "bytes": 2558
+      "bytes": 2575
     },
     {
       "path": "reports/tables/modeling/mnb/task_b_test_predictions.csv",
-      "bytes": 72125
+      "bytes": 73268
     },
     {
       "path": "reports/tables/modeling/mnb/task_b_test_predictions_combined.csv",
-      "bytes": 72109
+      "bytes": 73249
     },
     {
       "path": "data/processed/modeling/mnb/mnb_manifest.json",

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-01",
-  "generated_at": "2026-11-01T21:20:18+07:00",
+  "generated_at": "2026-11-01T22:34:21+07:00",
   "author": "Robby",
   "algorithm": "LinearSVC (SVM)",
   "label_type": "pseudo-label (auto:lexical_preannotation_v1), bukan human gold",
