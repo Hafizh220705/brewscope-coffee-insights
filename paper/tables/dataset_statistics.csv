@@ -1,0 +1,13 @@
+metric,value
+Review input,3538
+Review eligible untuk modeling,3537
+Review dikeluarkan karena teks,1
+Review Task A,3424
+Review dikeluarkan dari Task A karena uncertain,113
+Pasangan review-aspek input,21228
+Pasangan Task B,5598
+Mixed sentiment dikeluarkan,76
+Uncertain pair,323
+Coffee shop,40
+Duplicate group,3287
+Teks bersih kosong yang disimpan untuk audit,1
