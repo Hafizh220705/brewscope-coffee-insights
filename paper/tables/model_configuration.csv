@@ -1,0 +1,10 @@
+model,task,selected_configuration
+MNB,Task A,alpha=0.01
+MNB,Task B per-aspect,alpha=0.03
+MNB,Task B combined,alpha=0.03
+SVM,Task A,C=1.0; class_weight=balanced; max_iter=5000
+SVM,Task B per-aspect,C=10.0; class_weight=balanced; max_iter=5000
+SVM,Task B combined,C=1.0; class_weight=balanced; max_iter=5000
+RF,Task A,n_estimators=300; max_depth=20; min_samples_leaf=1; class_weight=balanced
+RF,Task B per-aspect,n_estimators=300; max_depth=None; min_samples_leaf=1; class_weight=balanced
+RF,Task B combined,n_estimators=300; max_depth=None; min_samples_leaf=1; class_weight=balanced

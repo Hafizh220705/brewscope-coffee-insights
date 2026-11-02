@@ -1,0 +1,4 @@
+split,reviews,groups,task_a_rows,task_b_rows,review_percentage
+train,2396,2332,2396,3313,69.9766355140187
+validation,514,430,514,1143,15.011682242990654
+test,514,438,514,1142,15.011682242990654
